@@ -8,7 +8,7 @@ class QuotesController < ApplicationController
       if @quote.save
         redirect_to requests_path(@request)
       else
-        redirect_to :back
+        redirect_back(fallback_location: request)
       end
   end
 

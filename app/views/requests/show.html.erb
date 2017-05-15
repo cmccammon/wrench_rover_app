@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Service Request:</strong>
   <%= @request.service %>
 </p>
 
@@ -10,17 +10,16 @@
   <%= @request.description %>
 </p>
 <p>
-  <strong>Quotes:</strong>
+  <strong>Add a Quote:</strong>
 
-  <%= form_for([@request, @request.quotes.build]) do |f|%>
-    <%= f.text_field :cost %><b>
-    <b>
-    <%= f.text_field :comment %><b>
-    <%= f.submit %>
-  <% end %>
+<%= render 'quote_form' %>
+
+</p>
+<p>
+<strong> Quotes:</strong>
 
   <% @request.quotes.each do |quote| %>
-  <p><%= quote.cost %></p>
+  <p><%= number_to_currency(quote.cost)  %></p>
   <p><%= quote.comment %></p>
   <% end %>
 </p>
