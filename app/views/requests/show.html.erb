@@ -9,6 +9,20 @@
   <strong>Description:</strong>
   <%= @request.description %>
 </p>
+<p>
+  <strong>Quotes:</strong>
 
+  <%= form_for([@request, @request.quotes.build]) do |f|%>
+    <%= f.text_field :cost %><b>
+    <b>
+    <%= f.text_field :comment %><b>
+    <%= f.submit %>
+  <% end %>
+
+  <% @request.quotes.each do |quote| %>
+  <p><%= quote.cost %></p>
+  <p><%= quote.comment %></p>
+  <% end %>
+</p>
 
 <%= link_to 'Back', requests_path %>

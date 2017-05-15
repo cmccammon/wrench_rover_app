@@ -16,7 +16,8 @@
       <% @requests.each do |req| %>
         <tr>
           <td><%= req.service %></td>
-            <td><%= req.description %></td>
+          <td><%= req.description %></td>
+          <td><%= link_to 'Show', requests_path(req) %></td>
       <% end %>
     </tbody>
     </table>

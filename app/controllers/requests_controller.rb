@@ -13,6 +13,7 @@ class RequestsController < ApplicationController
     # this will show the request
     # will also contain the comment form to create a new comment and show comments
     def show
+      
     end
 
     # GET /requests/new
@@ -36,7 +37,7 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
 
       if @request.save
-        redirect_to requests_url, notice: 'Request was successfully created.'
+        redirect_to @request, notice: 'Request was successfully created.'
       else
         render :new
       end
