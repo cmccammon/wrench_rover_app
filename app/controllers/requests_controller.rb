@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
     # this will show the request
     # will also contain the comment form to create a new comment and show comments
     def show
-      
+      @request = Request.find(params[:id])
     end
 
     # GET /requests/new
@@ -27,6 +27,7 @@ class RequestsController < ApplicationController
     # edit.html.erb
     # form for editing request
     def edit
+      @request = Request.find(params[:id])
     end
 
     # POST /requests

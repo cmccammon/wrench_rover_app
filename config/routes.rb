@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  root :to => "requests#index"
-
+  devise_for :users
   resources :requests do
     resources :quotes
+
+  root to: "requests#index"
+
+
   end
 end
