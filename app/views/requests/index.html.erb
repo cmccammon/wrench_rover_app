@@ -4,8 +4,10 @@
     <table class='table table-striped'>
       <thead>
         <tr>
+          <th>Email</td>
           <th>Requests</th>
           <th>description</th>
+          <th>Quotes</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -13,9 +15,11 @@
       <tbody>
         <% @requests.each do |req| %>
           <tr>
+            <td><%= req.user.email %></td>
             <td><%= req.service %></td>
             <td><%= req.description %></td>
-            <td><%= link_to 'Show', request_path(req) %></td>
+            <td><%= req.quotes.count %></td>
+            <td><%= link_to 'Add quote', request_path(req) %></td>
             <td><%= link_to 'Remove', req, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tbody>

@@ -1,11 +1,12 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
     # GET /requests
     # requests/index.html.erb
     # displays all requests
     def index
-      @requests = Request.all
+      @requests = current_user.requests.order('created_at DESC')
     end
 
     # GET /requests/1
@@ -36,6 +37,7 @@ class RequestsController < ApplicationController
     # redirects to index page where new request will appear
     def create
       @request = Request.new(request_params)
+      @request.user = current_user
 
       if @request.save
         redirect_to @request, notice: 'Request was successfully created.'
@@ -77,7 +79,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def request_params
-    params.require(:request).permit(:service, :description)
+    params.require(:request).permit(:service, :description, :user_id)
   end
 
 end
