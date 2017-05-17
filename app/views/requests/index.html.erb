@@ -16,7 +16,7 @@
             <td><%= req.service %></td>
             <td><%= req.description %></td>
             <td><%= link_to 'Show', request_path(req) %></td>
-            <td><%= link_to 'Remove', request_path(req) %></td>
+            <td><%= link_to 'Remove', req, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tbody>
       </table>
