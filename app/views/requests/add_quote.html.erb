@@ -1,0 +1,14 @@
+
+<p>Service Request:
+  <%= @request.service %></p>
+  <p>Description:
+  <%= @request.description %></p>
+
+<p>
+  <strong>Add a Quote:</strong>
+
+<%= render 'quote_form' %>
+
+</p>
+
+<%= link_to 'Back', requests_path %>

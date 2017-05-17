@@ -1,26 +1,16 @@
+<p>Service Request:
+  <%= @request.service %></p>
+  <p>Description:
+  <%= @request.description %></p>
 
-<p>
-  <strong>Service Request:</strong>
-  <%= @request.service %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @request.description %>
-</p>
-<p>
-  <strong>Add a Quote:</strong>
-
-<%= render 'quote_form' %>
-
-</p>
 <p>
 <strong> Quotes:</strong>
-
-  <% @request.quotes.each do |quote| %>
-  <p><%= number_to_currency(quote.cost)  %></p>
-  <p><%= quote.comment %></p>
-  <% end %>
+  <ol>
+    <% @request.quotes.each do |quote| %>
+    <li><p><%= number_to_currency(quote.cost)  %></p>
+    <p><%= quote.comment %></p></li>
+    <% end %>
+  </ol>
 </p>
 
 <%= link_to 'Back', requests_path %>

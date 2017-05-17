@@ -17,6 +17,12 @@ class RequestsController < ApplicationController
       @request = Request.find(params[:id])
     end
 
+    def add_quote
+      @request = Request.find(params[:id])
+    end
+
+
+
     # GET /requests/new
     # requests/new.html.erb
     # form to create a new request
