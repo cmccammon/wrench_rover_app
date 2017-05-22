@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :autos
   root 'requests#index'
 
   devise_for :users
