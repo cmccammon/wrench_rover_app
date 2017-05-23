@@ -31,5 +31,28 @@
 </table>
 
 <br>
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @makes.each do |n| %>
+
+      <% n.each do |k, v| %>
+      <tr>
+        <td><%= k.name %></td>
+        <td><%= v %></td>
+
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'New Auto', new_auto_path %>

@@ -5,6 +5,7 @@ class AutosController < ApplicationController
   # GET /autos.json
   def index
     @autos = Auto.all
+    @makes = Edmunds::Make.new.find_new_and_used_makes_by_model_year(1990)
   end
 
   # GET /autos/1
