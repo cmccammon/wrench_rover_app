@@ -29,25 +29,16 @@
     <% end %>
   </tbody>
 </table>
-
+<p><% @get_makes.to_s %>
 <br>
-<table>
-  <thead>
-    <tr>
 
-      <th>Make</th>
+<%= form_for(@auto) do |f| %>
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @makes.each do |n| %>
-      <tr>
-        <td><%= n["name"] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= f.select(:make, options_for_select(@get_makes)) %>
+
+
+  <% end %>
+
 
 <%= link_to 'New Auto', new_auto_path %>

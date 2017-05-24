@@ -1,11 +1,14 @@
 class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy]
+  include Makes
 
   # GET /autos
   # GET /autos.json
   def index
     @autos = Auto.all
     @makes = Edmunds::Make.new.find_new_and_used
+    @auto = Auto.new
+    @get_makes = get_makes
   end
 
   # GET /autos/1
