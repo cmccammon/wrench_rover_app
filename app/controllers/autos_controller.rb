@@ -6,7 +6,7 @@ class AutosController < ApplicationController
   # GET /autos.json
   def index
     @autos = Auto.all
-    @makes = Edmunds::Make.new.find_new_and_used
+    @makes = Edmunds::Make.new.find_all
     @auto = Auto.new
     @get_makes = get_makes
   end

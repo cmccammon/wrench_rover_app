@@ -4,8 +4,10 @@ module Makes
 
     def get_makes
 
-    @makes.collect { |m| m["name"].upcase }
+      @makes.collect { |m| m["name"].upcase }
 
     end
+
+
 
 end
