@@ -31,12 +31,3 @@
 </table>
 
 <br>
-
-<%= form_for(@auto) do |f| %>
-
- <%= f.select(:make, options_for_select(@get_makes)) %>
-
-<% end %>
-
-
-<%= link_to 'New Auto', new_auto_path %>

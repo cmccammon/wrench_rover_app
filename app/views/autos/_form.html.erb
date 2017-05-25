@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.select(:year, options_for_select(@get_years)) %>
+  </div>
+
   <div class="field">
     <%= f.label :make %>
-    <%= f.text_field :make %>
+    <%= f.select(:make, options_for_select(@get_makes)) %>
   </div>
 
   <div class="field">
     <%= f.label :model %>
-    <%= f.text_field :model %>
-  </div>
-
-  <div class="field">
-    <%= f.label :year %>
-    <%= f.text_field :year %>
+    <%= f.select(:model, options_for_select(@get_models)) %>
   </div>
 
   <div class="field">

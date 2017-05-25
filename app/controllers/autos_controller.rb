@@ -1,14 +1,11 @@
 class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy]
-  include Makes
+  include Edmunds_get
 
   # GET /autos
   # GET /autos.json
   def index
     @autos = Auto.all
-    @makes = Edmunds::Make.new.find_all
-    @auto = Auto.new
-    @get_makes = get_makes
   end
 
   # GET /autos/1
@@ -19,6 +16,11 @@ class AutosController < ApplicationController
   # GET /autos/new
   def new
     @auto = Auto.new
+    @makes = Edmunds::Make.new.find_new_and_used_makes_by_model_year(1999)
+    @models = Edmunds::Model.new.find_models_by_make_and_year("honda", 1999)
+    @get_makes = get_makes
+    @get_years = get_years
+    @get_models = get_models
   end
 
   # GET /autos/1/edit
