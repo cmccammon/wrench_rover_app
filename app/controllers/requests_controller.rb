@@ -44,6 +44,7 @@ class RequestsController < ApplicationController
     def create
       @request = Request.new(request_params)
       @request.user = current_user
+      @request.auto = current_user.autos.first
 
       if @request.save
         redirect_to @request, notice: 'Request was successfully created.'
@@ -85,7 +86,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def request_params
-    params.require(:request).permit(:service, :description, :user_id)
+    params.require(:request).permit(:service, :description, :user_id, :auto_id)
   end
 
 end

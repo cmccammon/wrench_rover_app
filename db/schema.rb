@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522181132) do
+ActiveRecord::Schema.define(version: 20170530195023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170522181132) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_autos_on_user_id", using: :btree
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -40,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170522181132) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "auto_id"
+    t.index ["auto_id"], name: "index_requests_on_auto_id", using: :btree
     t.index ["user_id"], name: "index_requests_on_user_id", using: :btree
   end
 
@@ -60,6 +64,8 @@ ActiveRecord::Schema.define(version: 20170522181132) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "autos", "users"
   add_foreign_key "quotes", "requests"
+  add_foreign_key "requests", "autos"
   add_foreign_key "requests", "users"
 end

@@ -2,6 +2,7 @@ class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy]
   include Edmunds_get
 
+
   # GET /autos
   # GET /autos.json
   def index
@@ -31,6 +32,7 @@ class AutosController < ApplicationController
   # POST /autos.json
   def create
     @auto = Auto.new(auto_params)
+    @auto.user = current_user
 
     respond_to do |format|
       if @auto.save
@@ -75,6 +77,6 @@ class AutosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auto_params
-      params.require(:auto).permit(:make, :model, :year, :trim, :image)
+      params.require(:auto).permit(:make, :model, :year, :trim, :image, :user_id)
     end
 end
