@@ -29,8 +29,6 @@
         <% end %>
     <% end %>
     </p>
-
-
   </head>
 
   <body>
@@ -38,11 +36,19 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-    <div>
-    <%= yield %>
+    <div class='container'>
+      <div class='row'>
+        <div class='m12'>
+          <%= yield %>
+        </div>
+      </div>
     </div>
-    <div>
-    <p><%= link_to 'New Auto', new_auto_path %>|<%= link_to 'Requests', requests_path %>|<%= link_to 'New Request', new_request_path %></p>
+    <div class='container'>
+      <div class='row'>
+        <div class='m12'>
+          <p><%= link_to 'New Auto', new_auto_path %>|<%= link_to 'Requests', requests_path %>|<%= link_to 'New Request', new_request_path %></p>
+        </div>
+      </div>
     </div>
   </body>
 </html>

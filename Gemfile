@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 #bootstrap-sass for rails
 gem 'bootstrap-sass', '~> 3.3.6'
+#figaro for secrets
+gem 'figaro'
 
 
 # Use Capistrano for deployment
