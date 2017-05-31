@@ -14,7 +14,19 @@
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
     <% else %>
       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+
+      <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box :remember_me %><%= f.label :remember_me %>
+        </div>
+        <%= f.submit 'Login', class: "btn btn-default" %>
+        <% end %>
     <% end %>
     </p>
 
@@ -26,9 +38,11 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-
+    <div>
     <%= yield %>
-
+    </div>
+    <div>
     <p><%= link_to 'New Auto', new_auto_path %>|<%= link_to 'Requests', requests_path %>|<%= link_to 'New Request', new_request_path %></p>
+    </div>
   </body>
 </html>

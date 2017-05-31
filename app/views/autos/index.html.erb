@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Autos</h1>
 
 <p><%= @makes %></p>
@@ -11,7 +9,7 @@
       <th>Model</th>
       <th>Year</th>
       <th>Trim</th>
-      <th>Image</th>
+      <th>User email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +21,7 @@
         <td><%= auto.model %></td>
         <td><%= auto.year %></td>
         <td><%= auto.trim %></td>
-        <td><%= auto.image %></td>
+        <td><%= auto.user.email %></td>
         <td><%= link_to 'Show', auto %></td>
         <td><%= link_to 'Edit', edit_auto_path(auto) %></td>
         <td><%= link_to 'Destroy', auto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
