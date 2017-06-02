@@ -10,7 +10,7 @@ module Edmunds_get
     end
 
     def get_years
-      @get_years = *(1990..2017)
+        @get_years = *(1990..2017)
     end
 
 end

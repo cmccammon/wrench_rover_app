@@ -1,0 +1,344 @@
+<!-- ######      BEGIN TOP NAVIGATION    ###### -->
+
+<nav class="navbar no-border navbar-default menu-lg navbar-fixed-top" role="navigation" style="height:100px; background:#fff;">
+  <div class="container">
+    <div class="navbar-header">
+      <ul class="nav navbar-nav navbar-left">
+      <a class="navbar-brand" href="#"><img src="images/WrenchRover_Logo_Web.png"></a>
+      </ul>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right"><br>
+
+<!-- ACCOUNT DROPDOWN -->
+
+        <li class="dropdown-grid" style="background:#fff;">
+        <a href="javascript:void(0);" id="ddaccount" data-toggle="dropdown" class="dropdown-toggle" style="float:right;"><i class="fa fa-user fa-1x iconpad"></i><span class="hidden-xs">Sign In</span><span class="hidden-sm hidden-md hidden-lg">Dru</span><span class="caret"></span></a>
+        <div class="dropdown-grid-wrapper" role="menu">
+          <div class="dropdown-menu col-xs-12 col-sm-10 col-md-8 col-lg-7" style="border:0;">
+            <div id="carousel-example-account" class="carousel">
+              <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                  <div class="carousel-inner">
+
+<!-- ######      FORGOT USERNAME CONTENT (ITEM 0)     ###### -->
+
+                    <div class="item active">
+                      <h3 class="text-right"><i class="fa fa-home iconpadLG"></i>Welcome back!</h3>
+                      <div class="row">
+                        <div class="col-md-6 col-sm-12 userText">
+                          <h4 class="hidden-xs">Your Profile<br></h4>
+                          <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-user fa-3x"></i></div>
+                          <div style="padding:0px 0px;"><b>Dru Delong</b><br>Member since 2016</div>
+                          <br>
+                          <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-car fa-3x"></i></div>
+                          <div style="padding:0px 0px;"><b>2008 Saturn Sky</b><br>Redline 2dr 4cyl</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 hidden-xs">
+                          <div style="padding:0px 0px;margin-right:0px;">
+                            <h4>Your Location</h4>
+                            <img src="https://mailinglists.com/sites/default/files/GoogleMap2_small.gif" style="width:200px;">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+<!-- ######      SIGN IN CONTENT (ITEM 1)     ###### -->
+
+                    <div class="item">
+                      <h3 class="text-right"><i class="fa fa-lock iconpadLG"></i>Sign in</h3>
+                      <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                          <div class="col-sm-10 col-xs-12" style="float:right;">
+                            <input class="input-sm form-control" id="inputEmail" placeholder="Email Address" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-10 col-xs-12" style="float:right;">
+                            <input type="password" class="input-sm form-control" id="inputPassword" placeholder="Password" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-3 col-sm-9">
+                            <button class="btn btn-default pull-right" type="submit"><i class="fa fa-unlock-alt"></i> Sign in</button>
+                            <p class="text-primary"><input type="checkbox">&nbsp;<small>I am a Service Center</small></p>
+                            <p class="text-primary" style="cursor: pointer;" data-target="#carousel-example-account" data-slide-to="4"><small><a href="javascript:void(0);">Forgot your password?</a></small></p>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+<!-- ######      CREATE NEW ACCOUNT  CONTENT  (ITEM 2)     ###### -->
+
+                    <div class="item">
+                      <h3 class="text-right"><i class="fa fa-user iconpadLG"></i>Create new account</h3>
+                      <div class="row">
+                        <form role="form">
+                          <div class="col-xs-8 col-md-6 ">
+                            <div class="form-group">
+                              <input type="text" class="input-sm form-control" id="inputName" name="inputName" placeholder="Your Name" />
+                            </div>
+                          </div>
+                          <div class="col-xs-4 col-md-6 ">
+                            <div class="form-group">
+                              <input type="number" class="input-sm form-control" id="inputEmail" name="inputEmail" placeholder="Zip Code" />
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-6">
+                            <div class="form-group">
+                              <input type="password" class="input-sm form-control" id="inputSubject" name="inputSubject" placeholder="Choose Password" />
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-6">
+                            <div class="form-group">
+                              <input type="password" class="input-sm form-control" id="inputSubject" name="inputSubject" placeholder="Confirm Password" />
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-12">
+                            <div class="form-group">
+                              <input type="email" class="input-sm form-control" id="inputSubject" name="inputSubject" placeholder="Your Email" />
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <center><span class="text-primary" data-target="#carousel-example-account" data-slide-to="5">
+                                <button class="btn btn-default pull-right" type="button"><i class="fa fa-automobile"></i> I am a Service Center</button>
+                              </span></center>
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <div class="pull-right">
+                                <input type="checkbox"><small> I agree to the <a href="#">terms of service</a></small><br><br>
+                              </div>
+                              <button class="btn btn-default pull-right" type="submit"><i class="fa fa-save"></i> Create your account</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div><br />
+                    </div>
+
+<!-- ######      FORGOT USERNAME CONTENT (ITEM 3)    ###### -->
+
+                    <div class="item">
+                      <h3 class="text-right"><i class="fa fa-warning iconpadLG"></i>Forgotten username?</h3>
+                      <p class="text-justify">Enter your email address, you signed up with (or entered in your settings), and we'll send you an email with your username.</p><br />
+                      <form id="lost_password" method="post" class="form" role="form">
+                        <div class="input-group">
+                          <input class="form-control" /> <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-envelope"></i> Send it to me!
+                          </button></span>
+                        </div>
+                      </form><br /><br />
+                    </div>
+
+<!-- ######     FORGOT PASSWORD CONTENT  (ITEM 4)    ###### -->
+
+                    <div class="item">
+                      <h3 class="text-right"><i class="fa fa-warning iconpadLG"></i>Forgot password?</h3>
+                      <p class="text-justify">Enter your username, and we'll send you an email with a link and instructions to reset your password.</p><br />
+                      <form id="lost_password" method="post" class="form" role="form">
+                        <div class="input-group">
+                          <input class="form-control" /> <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-envelope"></i> Send it to me!
+                          </button></span>
+                        </div>
+                      </form><br />
+                      <p class="text-justify">
+                      <small>If you've forgotten your username and password, you must first <span class="text-primary" data-target="#carousel-example-account" data-slide-to="3"><a href="javascript:void(0);" style="color:#ff6600 !important;">retrieve your username</a></span> (using your email address) and then reset your password using those details.</small>
+                      </p>
+                    </div>
+
+<!-- ######      CREATE NEW ACCOUNT SERVICE CENTER  (ITEM 5)    ###### -->
+
+                    <div class="item">
+                      <h3 class="text-right"><i class="fa fa-user iconpadLG"></i>New Service Center</h3>
+                      <div class="row">
+                        <form role="form">
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <input type="text" class="input-sm form-control" id="inputName" name="inputName" placeholder="Business Name" />
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <input type="text" class="input-sm form-control" id="inputOwner" name="inputOwner" placeholder="Owner/Contact" />
+                            </div>
+                          </div>
+                          <div class="col-xs-7 col-md-12">
+                            <div class="form-group">
+                              <input type="text" class="input-sm form-control" id="inputAddress" name="inputAddress" placeholder="Address" />
+                            </div>
+                          </div>
+                          <div class="col-xs-5 col-md-5">
+                            <div class="form-group">
+                              <input type="text" class="input-sm form-control" id="inputCity" name="inputCity" placeholder="City" />
+                            </div>
+                          </div>
+                          <div class="col-xs-7 col-md-4">
+                            <div class="form-group">
+                              <select class="input-sm form-control" name="inputState" id="inputState" size="1">
+                                <option value="" selected disabled>State</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">Dist of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xs-5 col-md-3">
+                            <div class="form-group">
+                              <input type="number" class="input-sm form-control" id="inputZip" name="inputZip" placeholder="Zip" />
+                            </div>
+                          </div>
+                          <div class="col-xs-7 col-md-7">
+                            <div class="form-group">
+                              <input type="email" class="input-sm form-control" id="inputEmail" name="inputEmail" placeholder="Your Email" />
+                            </div>
+                          </div>
+                          <div class="col-xs-5 col-md-5">
+                            <div class="form-group">
+                              <input type="number" class="input-sm form-control" id="inputPhone" name="inputPhone" placeholder="Phone" />
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <input type="password" class="input-sm form-control" id="inputPassword1" name="inputPassword1" placeholder="Choose Password" />
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <input type="password" class="input-sm form-control" id="inputPassword2" name="inputPassword2" placeholder="Confirm Password" />
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <center><input type="checkbox"><small> I agree to the <a href="#">terms of service</a></small></center>
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                              <button class="btn btn-default pull-right" type="submit"><i class="fa fa-save"></i> Create your account</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div><br />
+                    </div>
+
+<!-- ######      CONTACT US CONTENT  (ITEM 6)    ###### -->
+
+                    <div class="item">
+                      <h3 class="text-right"><i class="fa fa-envelope iconpadLG"></i>Contact us</h3>
+                        <div class="row">
+                          <form role="form">
+                            <div class="col-xs-6 col-md-6 ">
+                              <div class="form-group">
+                                <input class="input-sm form-control" id="inputName" name="inputName" placeholder="Your Name" />
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-md-6 ">
+                              <div class="form-group">
+                                <input type="email" class="input-sm form-control" id="inputEmail" name="inputEmail" placeholder="Your Email" />
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12 ">
+                              <div class="form-group">
+                                <input type="text" class="input-sm form-control" id="inputSubject" name="inputSubject" placeholder="Subject" />
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12 ">
+                              <div class="form-group">
+                                <textarea class="form-control" id="inputMessage" name="inputMessage" rows="3">Description</textarea>
+                              </div>
+                            </div>
+                            <div class="form-group col-sm-offset-3 col-sm-9">
+                              <button class="btn btn-default pull-right" type="submit">
+                              <i class="fa fa-chevron-circle-right"></i> Send
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+<!-- ######      RIGHT SIDE DROPDOWN LINKS    ###### -->
+
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <ol class="carousel-indicators navbar-carousel-indicators">
+                      <li data-target="#carousel-example-account" data-slide-to="0" class="active">
+                        <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-user iconpad" style=""></i>Your Profile</span><span class="desc reverse hidden-xs">Show profile information</span></a>
+                      </li>
+                      <li data-target="#carousel-example-account">
+                        <a href="#"><span class="WRorange"><i class="fa fa-dashboard iconpad"></i>Your Dashboard</span><span class="desc reverse hidden-xs">Review your requests and more!</span></a>
+                      </li>
+                      <li data-target="#carousel-example-account" data-slide-to="1">
+                        <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-lock iconpad"></i>Sign In</span><span class="desc reverse hidden-xs">Gain account access</span></a>
+                      </li>
+                      <li data-target="#carousel-example-account" data-slide-to="2">
+                        <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-gears iconpad"></i>Sign Up</span><span class="desc reverse hidden-xs">Create new account</span></a>
+                      </li>
+                      <li data-target="#carousel-example-account" data-slide-to="6">
+                        <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-envelope iconpad"></i>Contact us</span><span class="desc reverse hidden-xs">If you have any questions ...</span></a>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+    </div>
+  </div>
+</nav>

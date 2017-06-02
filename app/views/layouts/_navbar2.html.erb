@@ -1,0 +1,25 @@
+
+
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Welcome, <strong><%= current_user.email %></strong> |
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+
+  <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+    </div>
+    <div class="checkbox">
+      <%= f.check_box :remember_me %><%= f.label :remember_me %>
+    </div>
+    <%= f.submit 'Login', class: "btn btn-default" %>
+    <% end %>
+<% end %>
+  </p>
