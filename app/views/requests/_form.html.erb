@@ -19,9 +19,12 @@
             <% cat.services.all.each do |rt| %>
                 <%= f.radio_button(:service, rt.name) %>
                 <%= f.label :service, rt.name %>
+                <% end %>
             <% end %>
-
-            <% end %>
+          </div>
+          <div class="field">
+            <%= f.label 'Describe problem:' %><br>
+            <%= f.text_field :description %>
           </div>
 
       </tr>
