@@ -28,6 +28,8 @@ class RequestsController < ApplicationController
     # form to create a new request
     def new
       @request = Request.new
+      @service_category = ServiceCategory.all
+      
     end
 
     # GET /requests/1/edit

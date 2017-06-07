@@ -10,6 +10,7 @@ class ServiceCategoriesController < ApplicationController
   # GET /service_categories/1
   # GET /service_categories/1.json
   def show
+    @service_category = ServiceCategory.find(params[:id])
   end
 
   # GET /service_categories/new
@@ -19,6 +20,7 @@ class ServiceCategoriesController < ApplicationController
 
   # GET /service_categories/1/edit
   def edit
+    @service_category = ServiceCategory.find(params[:id])
   end
 
   # POST /service_categories

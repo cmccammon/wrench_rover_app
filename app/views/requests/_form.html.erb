@@ -10,17 +10,25 @@
       </ul>
     </div>
   <% end %>
-  <p></p>
-  <div class="field">
-    <%= f.label 'Work to be performed'%><br>
-    <%= f.select(:service, options_for_select([['brakes', 'brakes'], ['cooling system', 'cooling system'], ['Suspension', 'Suspension'], ['Oil change', 'oil change'], ['transmission', 'transmission']])) %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
+<table>
+  <tbody>
+      <% @service_category.each do |cat| %>
+      <tr>
+        <td><strong><%= cat.name %></strong>
+          <div class="field">
+            <% cat.services.all.each do |rt| %>
+                <%= f.radio_button(:service, rt.name) %>
+                <%= f.label :service, rt.name %>
+            <% end %>
+
+            <% end %>
+          </div>
+
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %></td>
   </div>
 <% end %>

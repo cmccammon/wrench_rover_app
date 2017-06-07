@@ -1,8 +1,36 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+
+<div>
+  <strong>Category:</strong>
   <%= @service_category.name %>
+</div>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th><strong>Service:</strong></th>
+      </tr>
+    </thead>
+    <div>
+      <tbody>
+        <% @service_category.services.each do |service| %>
+      <tr>
+        <td><%= service.name %></td>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
+<p>
+<%= form_for([@service_category, @service_category.services.new]) do |f|%>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 </p>
 
 <%= link_to 'Edit', edit_service_category_path(@service_category) %> |
