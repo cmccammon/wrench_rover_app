@@ -1,7 +1,7 @@
 class AutosController < ApplicationController
-  before_action :set_auto, only: [ :show, :edit, :update, :destroy]
+  before_action :set_auto, only: [ :show, :edit, :update, :destroy ]
+  skip_before_filter :authenticate_user!, only: [:new]
   include Edmunds_get
-
 
   # GET /autos
   # GET /autos.json
@@ -19,6 +19,7 @@ class AutosController < ApplicationController
     @auto = Auto.new
     @makes = Edmunds::Make.new.find_new_and_used_makes_by_model_year(1999)
     @models = Edmunds::Model.new.find_models_by_make_and_year("honda", 1999)
+    @auto.user = current_user
     @get_makes = get_makes
     @get_years = get_years
     @get_models = get_models
@@ -32,7 +33,6 @@ class AutosController < ApplicationController
   # POST /autos.json
   def create
     @auto = Auto.new(auto_params)
-    @auto.user = current_user
 
     respond_to do |format|
       if @auto.save

@@ -1,6 +1,5 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
     # GET /requests
     # requests/index.html.erb
@@ -29,7 +28,7 @@ class RequestsController < ApplicationController
     def new
       @request = Request.new
       @service_category = ServiceCategory.all
-      
+
     end
 
     # GET /requests/1/edit
@@ -88,7 +87,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def request_params
-    params.require(:request).permit(:service, :description, :user_id, :auto_id)
+    params.require(:request).permit( :description, :user_id, :auto_id, service:[])
   end
 
 end

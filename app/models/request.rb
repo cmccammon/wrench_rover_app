@@ -3,5 +3,7 @@ class Request < ApplicationRecord
   belongs_to :user
   belongs_to :auto
 
+
+  serialize :service
   validates_associated :quotes
 end

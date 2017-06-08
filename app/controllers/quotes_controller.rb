@@ -1,6 +1,5 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   def create
       @request = Request.find(params[:request_id])

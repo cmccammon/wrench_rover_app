@@ -17,7 +17,7 @@
         <td><strong><%= cat.name %></strong>
           <div class="field">
             <% cat.services.all.each do |rt| %>
-                <%= f.radio_button(:service, rt.name) %>
+                <%= f.check_box(:service, { :multiple => true }, rt.name, nil) %>
                 <%= f.label :service, rt.name %>
                 <% end %>
             <% end %>

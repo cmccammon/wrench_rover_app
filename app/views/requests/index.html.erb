@@ -16,11 +16,11 @@
         <% @requests.each do |req| %>
           <tr>
             <td><%= req.user.email %></td>
-            <td><%= link_to req.service, req %></td>
+            <td><%= link_to req.service.to_s, req %></td>
             <td><%= req.description %></td>
             <td><%= req.quotes.count %></td>
             <td><%= link_to 'Add quote', add_quote_url(req) %></td>
-            <td><%= link_to 'Remove', req, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Remove', req, method: :delete %></td>
         <% end %>
           <tr>
       </tbody>
