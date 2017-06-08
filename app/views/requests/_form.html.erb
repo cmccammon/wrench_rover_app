@@ -1,31 +1,36 @@
 <%= form_for(@request) do |f| %>
-  <% if @request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+<% if @request.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@request.errors.count, "error") %>
+    prohibited this request from being saved:</h2>
 
-      <ul>
-      <% @request.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @request.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <table>
   <tbody>
-      <% @service_category.each do |cat| %>
-      <tr>
-        <td><strong><%= cat.name %></strong>
-          <div class="field">
-            <% cat.services.all.each do |rt| %>
-                <%= f.check_box(:service, { :multiple => true }, rt.name, nil) %>
-                <%= f.label :service, rt.name %>
-                <% end %>
-            <% end %>
-          </div>
-          <div class="field">
-            <%= f.label 'Describe problem:' %><br>
-            <%= f.text_field :description %>
-          </div>
+    <% @service_category.each do |cat| %>
+    <tr>
+      <td>
+        <strong><%= cat.name %></strong></br>
+        <div class="btn-group" data-toggle="buttons">
+          <% cat.services.each do |rt| %>
+          <label class="btn btn-primary">
+            <%= f.check_box :service, { multiple: true }, rt.name, false %>
+            <%= f.label rt.name %>
+          </label>
+          <% end %>
+
+        </div>
+        <% end %>
+        <div class="field">
+          <%= f.label 'Describe problem:' %><br>
+          <%= f.text_area :description %>
+        </div>
 
       </tr>
     </tbody>
@@ -33,5 +38,5 @@
 
   <div class="actions">
     <%= f.submit %></td>
-  </div>
+</div>
 <% end %>
