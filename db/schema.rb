@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602203827) do
+ActiveRecord::Schema.define(version: 20170613144013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20170602203827) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_quotes_on_request_id", using: :btree
+  end
+
+  create_table "request_services", force: :cascade do |t|
+    t.string   "service"
+    t.integer  "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_request_services_on_request_id", using: :btree
   end
 
   create_table "requests", force: :cascade do |t|
@@ -80,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170602203827) do
 
   add_foreign_key "autos", "users"
   add_foreign_key "quotes", "requests"
+  add_foreign_key "request_services", "requests"
   add_foreign_key "requests", "autos"
   add_foreign_key "requests", "users"
   add_foreign_key "services", "service_categories"

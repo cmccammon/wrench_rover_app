@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :request_services
   resources :autos
   root 'requests#index'
 

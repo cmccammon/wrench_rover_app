@@ -1,0 +1,34 @@
+<%= form_for(auto) do |f| %>
+  <% if auto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(auto.errors.count, "error") %> prohibited this auto from being saved:</h2>
+
+      <ul>
+      <% auto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br /><br />
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.select(:year, options_for_select(@get_years)) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :make %>
+    <%= f.select(:make, ['Select Make']) %>
+  </div>
+
+<select id="models" name="models" disabled="disabled">
+    <option>Select Model</option>
+</select>
+<select id="styles" name="styles" disabled="disabled">
+    <option>Select Trim</option>
+</select>
+</div>
+<div class='btn btn-primary' id='newAuto'>Add Auto</div>
+<br /><br /><br /><br />
+<div id="details">No Vehicle Selected Yet!</div>
+<% end %>
