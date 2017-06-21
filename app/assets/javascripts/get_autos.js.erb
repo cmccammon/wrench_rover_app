@@ -25,12 +25,12 @@ function get_models(make, year) {
         data: '',
         dataType: 'jsonp',
         success: function(data) {
-            $('#models').empty();
-            $('#models').append("<option>Select Model</option>");
+            $('#auto_model').empty();
+            $('#auto_model').append("<option>Select Model</option>");
             $.each(data.modelHolder, function(i, val) {
-                $('#models').append("<option value='" + data.modelHolder[i].niceName + "'>" + data.modelHolder[i].name + "</option>");
+                $('#auto_model').append("<option value='" + data.modelHolder[i].niceName + "'>" + data.modelHolder[i].name + "</option>");
             });
-            $('#models').removeAttr('disabled');
+            $('#auto_model').removeAttr('disabled');
             console.log('Step 4: Models select was populated and enabled');
         }
     });
@@ -44,13 +44,13 @@ function get_styles(make, model, year) {
         data: '',
         dataType: 'jsonp',
         success: function(data) {
-            $('#styles').empty();
-            $('#styles').append("<option>Select Trim</option>");
+            $('#auto_trim').empty();
+            $('#auto_trim').append("<option>Select Trim</option>");
             $.each(data.styleHolder, function(i, val) {
                 console.log(data.styleHolder[i]);
-                $('#styles').append("<option value='" + data.styleHolder[i].id + "'>" + data.styleHolder[i].name + "</option>");
+                $('#auto_trim').append("<option value='" + data.styleHolder[i].id + "'>" + data.styleHolder[i].name + "</option>");
             });
-            $('#styles').removeAttr('disabled');
+            $('#auto_trim').removeAttr('disabled');
             console.log('Step 6: Styles(trim) select was populated and enabled');
         }
     });
@@ -68,7 +68,7 @@ function get_style_details(style_id) {
         }
     });
 }
-$(document).ready(function() {
+$('#autos').ready(function() {
     $('#auto_year').change(function() {
         console.log('Step 1: Year ' + $(this).val() + ' was selected');
         get_makes($(this).val());
@@ -78,11 +78,11 @@ $(document).ready(function() {
         console.log('Step 3: Make ' + $(this).val() + ' was selected');
         get_models($(this).val(), $('#auto_year').val());
     });
-    $('#models').change(function() {
+    $('#auto_model').change(function() {
         console.log('Step 5: Model ' + $(this).val() + ' was selected');
         get_styles($('#auto_make').val(), $(this).val(), $('#auto_year').val());
     });
-    $('#styles').change(function() {
+    $('#auto_trim').change(function() {
         console.log('Step 7: Style ' + $(this).val() + ' was selected');
         get_style_details($(this).val());
     });

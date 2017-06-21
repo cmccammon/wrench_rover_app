@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-  <br /><br />
+  <div class="field">
+    <%= f.hidden_field :user_id, value: @auto.user.id %>
+  </div>
+  <div id="autos">
   <div class="field">
     <%= f.label :year %>
     <%= f.select(:year, options_for_select(@get_years)) %>
@@ -21,14 +24,16 @@
     <%= f.select(:make, ['Select Make']) %>
   </div>
 
-<select id="models" name="models" disabled="disabled">
-    <option>Select Model</option>
-</select>
-<select id="styles" name="styles" disabled="disabled">
-    <option>Select Trim</option>
-</select>
-</div>
-<div class='btn btn-primary' id='newAuto'>Add Auto</div>
-<br /><br /><br /><br />
-<div id="details">No Vehicle Selected Yet!</div>
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.select(:model, ['Select Model']) %>
+  </div>
+  <div class="field">
+    <%= f.label :trim %>
+    <%= f.select(:trim, ['Select Trim']) %>
+  </div>
+  <br /><br /><br /><br />
+  <div id="details">No Vehicle Selected Yet!</div>
+  </div>
+<div class='btn btn-primary' id="newAuto">Add Auto</div>
 <% end %>
