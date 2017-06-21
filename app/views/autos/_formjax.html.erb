@@ -10,30 +10,27 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <p>
     <%= f.hidden_field :user_id, value: @auto.user.id %>
-  </div>
+  </p>
   <div id="autos">
-  <div class="field">
-    <%= f.label :year %>
+  <p>     
     <%= f.select(:year, options_for_select(@get_years)) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :make %>
+  </p>
+  <p>
     <%= f.select(:make, ['Select Make']) %>
+  </p>
+  <p>
+    <%= f.select(:model, ['Select Model']) %>
+  </p>
+  <p>
+    <%= f.select(:trim, ['Select Trim']) %>
+  </p>
+  <br /><br />
+  <div class="actions" id='newAuto'>
+    <%= f.submit %>
   </div>
 
-  <div class="field">
-    <%= f.label :model %>
-    <%= f.select(:model, ['Select Model']) %>
   </div>
-  <div class="field">
-    <%= f.label :trim %>
-    <%= f.select(:trim, ['Select Trim']) %>
-  </div>
-  <br /><br /><br /><br />
-  <div id="details">No Vehicle Selected Yet!</div>
-  </div>
-<div class='btn btn-primary' id="newAuto">Add Auto</div>
+
 <% end %>

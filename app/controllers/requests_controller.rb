@@ -45,7 +45,7 @@ class RequestsController < ApplicationController
     def create
       @request = Request.new(request_params)
       @request.user = current_user
-      @request.auto = current_user.autos.first
+      @request.auto = current_user.autos.last
 
       if @request.save
         redirect_to @request, notice: 'Request was successfully created.'
