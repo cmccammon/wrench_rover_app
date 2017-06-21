@@ -1,6 +1,6 @@
 class AutosController < ApplicationController
   before_action :set_auto, only: [ :show, :edit, :update, :destroy ]
-  skip_before_filter :authenticate_user!, only: [:new]
+
   include Edmunds_get
 
   # GET /autos
@@ -33,7 +33,7 @@ class AutosController < ApplicationController
 
     respond_to do |format|
       if @auto.save
-        format.html { redirect_to @auto, notice: 'Auto was successfully created.' }
+        format.html { redirect_to new_request_path, notice: 'Auto was successfully created.' }
         format.json { render :show, status: :created, location: @auto }
       else
         format.html { render :new }

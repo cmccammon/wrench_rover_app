@@ -17,6 +17,6 @@ Rails.application.routes.draw do
 
   get '/requests/add_quote/:id', to: 'requests#add_quote', as: 'add_quote'
 
-  root 'requests#index'
+  root 'autos#new'
 
 end

@@ -5,6 +5,7 @@
       <thead>
         <tr>
           <th>Email</td>
+          <th>Vehicle</td>
           <th>Requests</th>
           <th>description</th>
           <th>Quotes</th>
@@ -16,6 +17,7 @@
         <% @requests.each do |req| %>
           <tr>
             <td><%= req.user.email %></td>
+            <td><%= req.auto.year %> | <%= req.auto.model.capitalize %></td>
             <td><%= link_to req.service.to_sentence, req %></td>
             <td><%= req.description %></td>
             <td><%= req.quotes.count %></td>
