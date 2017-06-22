@@ -19,9 +19,11 @@
         <strong><%= cat.name %></strong></br>
         <div class="btn-group" data-toggle="buttons">
           <% cat.services.each do |rt| %>
-          <label class="btn btn-primary">
-            <%= f.check_box :service, { multiple: true }, rt.name, false %>
-            <%= f.label rt.name %>
+
+
+          <label>
+          <%= f.label rt.name %>
+          <%= f.check_box :service, { multiple: true }, rt.name, false %>
           </label>
           <% end %>
 
