@@ -1,4 +1,3 @@
-const EDMUNDS_API_KEY = '<%= Rails.configuration.edmunds_vehicle_api_key %>';
 function get_makes(year) {
     url = 'http://api.edmunds.com/v1/api/vehicle/makerepository/findmakesbymodelyear?year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
     $.ajax({
@@ -73,4 +72,4 @@ $('#autos').ready(function() {
     $('#auto_trim').change(function() {
         console.log('Step 7: Style ' + $(this).val() + ' was selected');
     });
-})
+});
