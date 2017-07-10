@@ -9,6 +9,7 @@
       <th>Model</th>
       <th>Year</th>
       <th>Trim</th>
+      <th>Mileage</th>
       <th>User email</th>
       <th colspan="3"></th>
     </tr>
@@ -21,6 +22,7 @@
         <td><%= auto.model %></td>
         <td><%= auto.year %></td>
         <td><%= auto.trim %></td>
+        <td><%= auto.mileage %></td>
         <td><%= auto.user.email %></td>
         <td><%= link_to 'Show', auto %></td>
         <td><%= link_to 'Edit', edit_auto_path(auto) %></td>

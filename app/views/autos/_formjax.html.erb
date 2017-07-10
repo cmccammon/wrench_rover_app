@@ -10,14 +10,13 @@
       </ul>
     </div>
   <% end %>
-
-    <h3>What type of vehicle to you have?</h3>
+    <h3 class="light">What type of vehicle to you have?</h3>
     <div class="container" id="autos" style="width:auto;height:auto;">
       <form>
       <%= f.hidden_field :user_id, value: @auto.user.id %>
         <div class="form-group row">
           <div class="col-md-6 col-sm-12">
-          <%= f.select(:year, options_for_select(@get_years),{}, {autofocus: 'true', class: "form-control"}) %>
+          <%= f.select(:year, options_for_select(@get_years), {}, {autofocus: 'true', class: "form-control"}) %>
           </div>
           <div class="col-md-6 col-sm-12">
             <%= f.select(:make, ['Select Make'], {}, {class: "form-control"}) %>
@@ -33,7 +32,7 @@
         </div>
         <div class="form-group row">
           <div class="col-md-6 col-sm-12">
-            <input type="number" maxlength="6" min="1" max="999999" class="form-control" id="Vmileage1" placeholder="Mileage">
+            <%= f.text_field :mileage, class: "form-control", placeholder: "Mileage" %>
           </div>
         </div>
         <div class="form-group row text-center">
@@ -43,10 +42,10 @@
         </div>
         <div class="form-group row">
           <div class="col-md-6 col-sm-12">
-            <input type="text" maxlength="17" minlength="17" class="form-control" id="Vvin" placeholder="Vehicle VIN">
+            <input type="text" maxlength="17" minlength="17" class="form-control" id="Vvin" placeholder="Vehicle VIN" disabled>
           </div>
           <div class="col-md-6 col-sm-12">
-            <input type="number" maxlength="6" min="1" max="999999" class="form-control" id="Vmileage2" placeholder="Mileage">
+            <input type="number" maxlength="6" min="1" max="999999" class="form-control" id="Vmileage2" placeholder="Mileage" disabled>
           </div>
         </div>
         <div class="form-group row text-center">
@@ -56,5 +55,4 @@
         </div>
       </form>
     </div>
-
 <% end %>

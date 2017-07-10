@@ -74,6 +74,6 @@ class AutosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auto_params
-      params.require(:auto).permit(:make, :model, :year, :trim, :image, :user_id)
+      params.require(:auto).permit(:make, :model, :year, :trim, :mileage, :image, :user_id)
     end
 end

@@ -100,6 +100,13 @@ body {
 }
 
 /* STEP 1 STYLES */
+.vehSelect {
+  background: image-url('transparent.png');
+  border:solid 1px black;
+  height:auto;
+  margin-top:25px;
+}
+
 hr.vehicleHR {
 	border-top: 1px solid #000;
 	text-align: center;
