@@ -1,7 +1,132 @@
-<div>
-  <h1>Listing Requests</h1>
-  <div>
-    <table class='table table-striped'>
+<!--/////////////////// START USER  PROFILE ROW /////////////////////-->
+	<!--<div class="row userRow">
+		<div class="col-md-6 col-sm-6 userText">
+			<div style="float:left;padding:9px 0px;margin-right:15px;"><i class="fa fa-user fa-3x"></i></div>
+			<div style="padding:12px 0px;"><b>Dru Delong</b><br>Member since 2016</div>
+		</div>
+		<div class="col-md-6 col-sm-6 userText">
+			<div style="float:left;padding:9px 0px;margin-right:15px;"><i class="fa fa-car fa-3x"></i></div>
+			<div style="padding:12px 0px;"><b>2008 Saturn Sky</b><br>Redline 2dr 4cyl</div>
+		</div>
+	</div>-->
+<!--/////////////////// START WELCOME MESSAGE ROW /////////////////////-->
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<h1>Welcome back <%= @user.email %></h1>
+			We value you as a customer and strive to deliver a solution that is right for you.<br><br>
+		</div>
+	</div>
+<!--/////////////////// START NOTIFICATION ROW /////////////////////-->
+	<div class="row apptRow">
+		<div class="col-md-2 col-sm-12 apptHead" style="line-height:80px;height:80px;text-align:center;">
+			<h4>You have a new<br>appointment!</h4>
+		</div>
+		<div class="col-md-4 col-sm-12" style="padding:0;">
+			<div class="apptHead">Where & When</div>
+			<div class="apptText">Chucks Auto Repair<br>Tuesday, Feb 3 at 1:30pm</div>
+		</div>
+		<div class="col-md-3 col-sm-12" style="padding:0;">
+			<div class="apptHead">Your Vehicle</div>
+			<div class="apptText"><%= @user_auto.year %><br><%= @user_auto.make %> <%= @user_auto.model %></div>
+		</div>
+		<div class="col-md-3 col-sm-12" style="padding:0;">
+			<div class="apptHead">Services</div>
+			<div class="apptText"><%= @requests.first.service.to_sentence %></div>
+		</div>
+	</div>
+<!--/////////////////// START MAINTENANCE LISTINGS COLUMN /////////////////////-->
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<h3>Your Maintenance</h3>
+			<ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#mainNew">NEW</a></li>
+			  <li class="inactive"><a data-toggle="tab" href="#mainPending">PENDING</a></li>
+			  <li class="inactive"><a data-toggle="tab" href="#mainHistory">HISTORY</a></li>
+			</ul>
+			<div class="tab-content" style="border:solid 2px #ff6600;">
+				<div id="mainNew" class="tab-pane fade in active">
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+              <table class='table table-striped'>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Vehicle</th>
+                    <th>Request</th>
+                    <th>description</th>
+                    <th>Quotes</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @requests.each do |req| %>
+                    <tr>
+                      <td><%= req.created_at.strftime("%m-%d-%y") %></td>
+                      <td><%= req.auto.year %> | <%= req.auto.model.capitalize %></td>
+                      <td><%= link_to req.service.to_sentence, req %></td>
+                      <td><%= req.description %></td>
+                      <td><%= req.quotes.count %></td>
+                      <!-- <td><%= link_to 'Add quote', add_quote_url(req) %></td> -->
+                      <td><%= link_to 'Remove', req, method: :delete %></td>
+                  <% end %>
+                    </tr>
+                </tbody>
+              </table>
+						</div>
+					</div>
+				</div>
+				<div id="mainPending" class="tab-pane fade">
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+						<b><%= @requests_pend.created_at.strftime("%m-%d-%y") %> - <%= @requests_pend.service.to_sentence %></b><br>
+						Your comments: <i><%= @requests.first.description %></i><br>
+						Service Notes: <i>"We will inspect the discs and pads thoroughly"</i>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+						Service Center: <b>Juffy Lube</b>
+						</div>
+						<div class="col-md-6 col-sm-12">
+						Bid Amount: <b>$85.00</b>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+						<span style="color:#ff6600; font-weight:bold;">PENDING</span>
+						</div>
+					</div>
+				</div>
+				<div id="mainHistory" class="tab-pane fade">
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+						<b>7/15/16 - Tire Rotation</b><br>
+						Service Notes: <i>"We can also look at wear and tear on your tires"</i>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+						Service Center: <b>Joe's Auto</b>
+						</div>
+						<div class="col-md-6 col-sm-12">
+						Bid Amount: <b>$27.00</b>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+						<span style="color:#ff6600; font-weight:bold;">COMPLETE</span>
+						</div>
+					</div>
+			</div>
+		</div>
+<!--/////////////////// START YOUR LOCATION COLUMN /////////////////////-->
+		<div class="col-md-4 col-sm-12">
+			<br>
+		</div>
+	</div>
+</div>
+<!--///////////////// OLD CODE ////////////////////-->
+    <!-- <table class='table table-striped'>
       <thead>
         <tr>
           <th>Email</td>
@@ -12,7 +137,7 @@
           <th colspan="3"></th>
         </tr>
       </thead>
-      <div>
+
       <tbody>
         <% @requests.each do |req| %>
           <tr>
@@ -26,8 +151,4 @@
         <% end %>
           <tr>
       </tbody>
-      </table>
-    </div>
-    </div>
-
-  </div>
+      </table> -->

@@ -1,7 +1,9 @@
+<div class='container'>
+  <div class='row'>
+    <div class='m12'>
+      <p><%= link_to 'New Auto', new_auto_path %>|<%= link_to 'Requests', requests_path %>|<%= link_to 'New Request', new_request_path %></p>
 
-
-
-<p class="navbar-text pull-right">
+<div class="navbar-text pull-right">
 <% if user_signed_in? %>
   Welcome, <strong><%= current_user.email %></strong> |
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -22,4 +24,7 @@
     <%= f.submit 'Login', class: "btn btn-default" %>
     <% end %>
 <% end %>
-  </p>
+      </div>
+  </div>
+  </div>
+</div>

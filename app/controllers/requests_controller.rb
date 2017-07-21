@@ -6,6 +6,9 @@ class RequestsController < ApplicationController
     # displays all requests
     def index
       @requests = current_user.requests.order('created_at DESC')
+      @user_auto = current_user.autos.last
+      @requests_pend = current_user.requests.last
+      @user = current_user
     end
 
     # GET /requests/1

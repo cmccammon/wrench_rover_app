@@ -17,14 +17,11 @@
     <tr>
       <td>
         <strong><%= cat.name %></strong></br>
-        <div class="btn-group" data-toggle="buttons">
+        <div>
           <% cat.services.each do |rt| %>
-          <label class="btn btn-primary">
           <%= f.label rt.name %>
           <%= f.check_box :service, { multiple: true }, rt.name, false %>
-        </label>
           <% end %>
-
         </div>
         <% end %>
         <div class="field">
