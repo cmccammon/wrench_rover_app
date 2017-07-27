@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='m12'>
-      <p><%= link_to 'New Auto', new_auto_path %>|<%= link_to 'Requests', requests_path %>|<%= link_to 'New Request', new_request_path %></p>
+      <p><%= link_to 'New Auto', new_auto_path %>|<%= link_to 'Requests', requests_path %>|<%= link_to 'New Request', new_request_path %>|<%= link_to 'Sign up as service center', new_service_center_registration_path %>|<%= link_to "Sign out service_center", destroy_service_center_session_path, method: :delete, :class => 'navbar-link'  %></p>
 
 <div class="navbar-text pull-right">
 <% if user_signed_in? %>

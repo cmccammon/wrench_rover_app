@@ -9,6 +9,11 @@ class User < ApplicationRecord
   has_many :requests, through: :autos
   accepts_nested_attributes_for :autos, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :requests, allow_destroy: true
+end
 
-
+class User::ParameterSanitizer < Devise::ParameterSanitizer
+  def initialize(*)
+    super
+    permit(:sign_up, keys: [:first_name, :last_name, :zipcode, :email])
+  end
 end

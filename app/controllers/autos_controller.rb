@@ -1,4 +1,5 @@
 class AutosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_auto, only: [ :show, :edit, :update, :destroy ]
 
   include Edmunds_get
@@ -19,7 +20,6 @@ class AutosController < ApplicationController
     @auto = Auto.new
     @auto.user = current_user
     @get_years = get_years
-
   end
 
   # GET /autos/1/edit

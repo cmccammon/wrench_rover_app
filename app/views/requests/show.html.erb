@@ -14,5 +14,8 @@
     <% end %>
   </ol>
 </p>
-
-<%= link_to 'Back', requests_path %>
+<% if service_center_signed_in?%>
+<%= link_to 'Back', sc_dashboard_requests_path %>
+<% else %>
+<%= link_to 'back', requests_path %>
+<% end %>

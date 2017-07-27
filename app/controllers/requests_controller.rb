@@ -1,5 +1,13 @@
 class RequestsController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+
+
+
+
+    def sc_dashboard
+      @requests = Request.last(5)
+    end
 
     # GET /requests
     # requests/index.html.erb
