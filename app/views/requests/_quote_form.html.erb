@@ -1,8 +1,11 @@
 <%= form_for([@request, @request.quotes.new]) do |f|%>
-  
+
+<p> Service Center name: <%= @service_center.service_center_name %> </p>
+<p> Service Center ID: <%= @service_center.id %> </p>
+  <%= f.hidden_field :service_center_id, value: @service_center.id %>
   <div class="field">
     <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
+    <%= f.number_field :cost %>
   </div>
   <div class="field">
     <%= f.label :comment %><br>

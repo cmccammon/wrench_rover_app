@@ -1,2 +1,16 @@
+<body>
+<form name="myform">
+<table>
+<tr>
+<td><input type="text" id="service1" value="" style="border:none;"></td>
+<td><input type="reset" id="clear1" value="X" class="hideme" onClick="hideme()"></td>
+</tr>
+</table>
+</form>
+<br><br>
 
+<input type="button" onclick="transferField(this.value)" value="Oil change - Synthetic"><br>
+<input type="button" onclick="transferField(this.value)" value="Engine light">
+
+</body>
 <%= render 'form' %>

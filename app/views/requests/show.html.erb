@@ -8,9 +8,16 @@
 <p>
 <strong> Quotes:</strong>
   <ol>
+
     <% @request.quotes.each do |quote| %>
-    <li><p><%= number_to_currency(quote.cost)  %></p>
-    <p><%= quote.comment %></p></li>
+
+    <li>
+      <p> Service Center ID: <%= quote.service_center.id %> </p>
+      <p> Service Center Owner: <%= quote.service_center.first_name %> </p>
+      <p><%= quote.service_center.service_center_name if quote.service_center %></p>
+      <p><%= number_to_currency(quote.cost) %></p>
+      <p><%= quote.comment %></p>
+    </li>
     <% end %>
   </ol>
 </p>

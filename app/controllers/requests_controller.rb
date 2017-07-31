@@ -29,6 +29,7 @@ class RequestsController < ApplicationController
 
     def add_quote
       @request = Request.find(params[:id])
+      @service_center = current_service_center
     end
 
 

@@ -31,7 +31,9 @@
 		</div>
 		<div class="col-md-3 col-sm-12" style="padding:0;">
 			<div class="apptHead">Services</div>
+			<% if @requests.first %>
 			<div class="apptText"><%= @requests.first.service.to_sentence %></div>
+			<% end %>
 		</div>
 	</div>
 <!--/////////////////// START MAINTENANCE LISTINGS COLUMN /////////////////////-->
@@ -78,8 +80,9 @@
 				<div id="mainPending" class="tab-pane fade">
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-						<b><%= @requests_pend.created_at.strftime("%m-%d-%y") %> - <%= @requests_pend.service.to_sentence %></b><br>
-						Your comments: <i><%= @requests.first.description %></i><br>
+							<% if @requests_pend %>
+						<b><%= @requests_pend.created_at.strftime("%m-%d-%y") %> - <%= @requests_pend.service.to_sentence if @requests_pend %><% end %></b><br>
+						Your comments: <i><%= @requests.first.description if @requests.first %></i><br>
 						Service Notes: <i>"We will inspect the discs and pads thoroughly"</i>
 						</div>
 					</div>
