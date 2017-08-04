@@ -7,16 +7,26 @@
 
 <p>
 <strong> Quotes:</strong>
+
+<% if @request.quotes.blank? %>
+  <p> No Quotes yet. </p>
+  <% else %>
   <ol>
-
     <% @request.quotes.each do |quote| %>
-
     <li>
-      <p> Service Center ID: <%= quote.service_center.id %> </p>
-      <p> Service Center Owner: <%= quote.service_center.first_name %> </p>
-      <p><%= quote.service_center.service_center_name if quote.service_center %></p>
-      <p><%= number_to_currency(quote.cost) %></p>
-      <p><%= quote.comment %></p>
+      <p> Service Center: <%= quote.service_center.service_center_name %> </p>
+      <p> Service Center location: <%= quote.service_center.city %> </p>
+      <p>Quote cost: <%= number_to_currency(quote.cost) %></p>
+      <p>Comments: <%= quote.comment %></p>
+
+      <div class='block'>
+        <button class='inline-block-tight btn'>Wed</button>
+        <button class='inline-block-tight btn'>thursday</button>
+        <button class='inline-block-tight btn'>Saturday</button>
+      </div></br>
+
+      <% end %>
+
     </li>
     <% end %>
   </ol>

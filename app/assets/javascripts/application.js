@@ -15,13 +15,3 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
-
-function transferField(someval) {
-  document.myform.service1.value = someval;
-  if (document.myform.service1.value != "") {
-  document.myform.clear1.className = "showme";
-    }
-  }
-function hideme() {
-  document.myform.clear1.className = "hideme";
-}

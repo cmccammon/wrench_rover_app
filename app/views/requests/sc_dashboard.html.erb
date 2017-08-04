@@ -1,4 +1,159 @@
-<h2> SC Dashboard </h2>
+
+<!-- Main page content -->
+  <div class="col-md-12 col-sm-12">
+    <h2> <%= @service_center.service_center_name %> Dashboard </h2>
+    <br/>
+    <main>
+
+      <input id="tab1" type="radio" name="tabs" checked>
+      <label for="tab1">Pending Bids (<%= @requests.count %>) </label>
+
+      <input id="tab2" type="radio" name="tabs">
+      <label for="tab2">Active Bids (3)</label><!--count total entries-->
+
+      <input id="tab3" type="radio" name="tabs">
+      <label for="tab3">Past Bids</label>
+
+      <input id="tab4" type="radio" name="tabs">
+      <label for="tab4" class="appts">Appointments (2)</label>
+
+      <section id="content1">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+        <!-- Pending bids go here -->
+
+        <% @requests.each do |req| %>
+        <p>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><b><%= req.created_at.strftime("%m-%d-%y") %></b>  <%= req.service.to_sentence %>
+          </button>
+        </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-block">
+              <p><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %><br><p> Issue: <%= req.description %></p>
+            </div>
+          </div>
+          <% end %>
+
+
+
+          <!-- <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Full Synthetic</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/19/16</b>&nbsp;&nbsp;&nbsp;AC Service - Recharge</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/18/16</b>&nbsp;&nbsp;&nbsp;Tires - Wheel Alignment | Brakes - Pad Replacement</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/12/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Synthetic Blend | Warning Light - Check Engine</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/10/16</b>&nbsp;&nbsp;&nbsp;Describe - "My car pulls to the right when I push the brakes while..."</button> <!--set up char limit-->
+          <!-- <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div> -->
+        </div>
+      </div>
+      </section>
+
+      <section id="content2">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+        <!-- Active bids go here -->
+          <button class="accordion"><b>8/29/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Standard Oil | Warning Light - Oil</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/28/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/22/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Full Synthetic</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section id="content3">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+        <!-- Past bids go here -->
+          <button class="accordion"><b>8/22/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Standard Oil</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Full Synthetic</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/19/16</b>&nbsp;&nbsp;&nbsp;AC Service - Recharge</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/18/16</b>&nbsp;&nbsp;&nbsp;Tires - Wheel Alignment | Brakes - Pad Replacement</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/12/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Synthetic Blend | Warning Light - Check Engine</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/10/16</b>&nbsp;&nbsp;&nbsp;Describe - "My car pulls to the right when I push the brakes while..."</button><!--set up char limit-->
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section id="content4">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+        <!-- Appointments go here -->
+          <button class="accordion"><b>8/22/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Standard Oil</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+
+          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
+          <div class="panel">
+            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+          </div>
+        </div>
+      </div>
+      </section>
+
+    </main>
+  </div>
+
+
 
 <table class='table table-striped'>
   <thead>
@@ -16,7 +171,7 @@
       <tr>
         <td><%= req.created_at.strftime("%m-%d-%y") %></td>
         <td><%= req.auto.year %> | <%= req.auto.model.capitalize %></td>
-        <td><%= link_to req.service.to_sentence, req %></td>
+        <td><%= req.service.to_sentence %></td>
         <td><%= req.description %></td>
         <td><%= req.quotes.count %></td>
         <td><%= link_to 'Add quote', add_quote_url(req) %></td>

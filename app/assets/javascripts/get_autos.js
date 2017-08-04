@@ -9,7 +9,7 @@ function get_makes(year) {
             $('#auto_make').empty();
             $('#auto_make').append("<option>Select Make</option>");
             $.each(data.makeHolder, function(i, val) {
-                $('#auto_make').append("<option value='" + data.makeHolder[i].niceName + "'>" + data.makeHolder[i].name + "</option>");
+                $('#auto_make').append("<option value='" + data.makeHolder[i].name + "'>" + data.makeHolder[i].name + "</option>");
             });
             $('#auto_make').removeAttr('disabled');
             console.log('Step 2: Makes select was populated and enabled');
@@ -27,7 +27,7 @@ function get_models(make, year) {
             $('#auto_model').empty();
             $('#auto_model').append("<option>Select Model</option>");
             $.each(data.modelHolder, function(i, val) {
-                $('#auto_model').append("<option value='" + data.modelHolder[i].niceName + "'>" + data.modelHolder[i].name + "</option>");
+                $('#auto_model').append("<option value='" + data.modelHolder[i].name + "'>" + data.modelHolder[i].name + "</option>");
             });
             $('#auto_model').removeAttr('disabled');
             console.log('Step 4: Models select was populated and enabled');

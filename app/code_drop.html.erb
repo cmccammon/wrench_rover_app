@@ -1,0 +1,4 @@
+<button class="accordion"><b><%= req.created_at.strftime("%m-%d-%y") %></b>  <%= req.service.to_sentence %></button>
+<div class="panel">
+  <p><%= req.auto.year %> | <%= req.auto.model.capitalize %><br><%= req.description %></p>
+</div>

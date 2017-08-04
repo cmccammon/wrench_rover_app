@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index, :new]
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
 
@@ -7,6 +7,7 @@ class RequestsController < ApplicationController
 
     def sc_dashboard
       @requests = Request.last(5)
+      @service_center = current_service_center
     end
 
     # GET /requests
@@ -31,8 +32,6 @@ class RequestsController < ApplicationController
       @request = Request.find(params[:id])
       @service_center = current_service_center
     end
-
-
 
     # GET /requests/new
     # requests/new.html.erb

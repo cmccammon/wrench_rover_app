@@ -1,22 +1,22 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Gist
- @cmccammon
- Sign out
- Watch 603
-  Star 12,087
- Fork 3,089 twbs/bootstrap-sass
- Code  Issues 31  Pull requests 3  Projects 0 Insights
-Branch: master Find file Copy pathbootstrap-sass/assets/javascripts/bootstrap.js
-563a9ba  on Jul 25, 2016
-@glebm glebm rake convert
-2 contributors @glebm @thomas-mcdonald
-RawBlameHistory
-2378 lines (1795 sloc)  68.1 KB
+// Skip to content
+// This repository
+// Search
+// Pull requests
+// Issues
+// Marketplace
+// Gist
+//  @cmccammon
+//  Sign out
+//  Watch 603
+//   Star 12,087
+//  Fork 3,089 twbs/bootstrap-sass
+//  Code  Issues 31  Pull requests 3  Projects 0 Insights
+// Branch: master Find file Copy pathbootstrap-sass/assets/javascripts/bootstrap.js
+// 563a9ba  on Jul 25, 2016
+// @glebm glebm rake convert
+// 2 contributors @glebm @thomas-mcdonald
+// RawBlameHistory
+// 2378 lines (1795 sloc)  68.1 KB
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -2394,5 +2394,3 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help

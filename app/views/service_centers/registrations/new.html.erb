@@ -28,7 +28,11 @@
       <br />
       <%= f.text_field :address2, placeholder: 'Apt, suite, etc...' %>
     </div>
-
+    <div class="field">
+      <!-- <%= f.label 'zipcode' %> -->
+      <br />
+      <%= f.text_field :city, placeholder: "City" %>
+    </div>
     <div class="field">
       <!-- <%= f.label 'zipcode' %> -->
       <br />
@@ -38,9 +42,15 @@
     <div class="field">
       <!-- <%= f.label :state %> -->
       <br />
-      <%= f.text_field :state, placeholder: 'State'%>
+      <% states = %w(AL AK AZ AR CA CO CT DC DE FL GA HI ID IL IN IA KS KY LA ME MA MI MN MO MS
+    MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY) %>
+      <%= f.select :state, options_for_select(states), {prompt: 'State'},  { class: "btn btn-default dropdown-toggle"} %>
     </div>
-
+    <div class="field">
+      <!-- <%= f.label 'zipcode' %> -->
+      <br />
+      <%= f.phone_field :phone_number, placeholder: "Phone number" %>
+    </div>
 
   <div class="field">
     <!-- <%= f.label :email %> -->

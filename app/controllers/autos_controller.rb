@@ -1,5 +1,5 @@
 class AutosController < ApplicationController
-  before_action :authenticate_user!
+  
   before_action :set_auto, only: [ :show, :edit, :update, :destroy ]
 
   include Edmunds_get
