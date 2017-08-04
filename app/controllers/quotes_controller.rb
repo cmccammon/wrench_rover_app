@@ -21,6 +21,6 @@ class QuotesController < ApplicationController
 
 
     def quote_params
-      params.require(:quote).permit(:cost, :comment, :request_id, :service_center_id)
+      params.require(:quote).permit(:cost, :comment, :request_id, :appointment1, :appointment2, :appointment3, :service_center_id)
     end
 end

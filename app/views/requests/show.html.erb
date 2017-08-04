@@ -18,11 +18,12 @@
       <p> Service Center location: <%= quote.service_center.city %> </p>
       <p>Quote cost: <%= number_to_currency(quote.cost) %></p>
       <p>Comments: <%= quote.comment %></p>
+      <p>time: </p>
 
       <div class='block'>
-        <button class='inline-block-tight btn'>Wed</button>
-        <button class='inline-block-tight btn'>thursday</button>
-        <button class='inline-block-tight btn'>Saturday</button>
+        <button class='inline-block-tight btn'><%= quote.appointment1.strftime('%A, %d %b %Y %l:%M %P') if quote.appointment1 %></button>
+        <button class='inline-block-tight btn'><%= quote.appointment2.strftime('%A, %d %b %Y %l:%M %P') if quote.appointment2 %></button>
+        <button class='inline-block-tight btn'><%= quote.appointment3.strftime('%A, %d %b %Y %l:%M %P') if quote.appointment3 %></button>
       </div></br>
 
       <% end %>

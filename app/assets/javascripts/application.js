@@ -13,5 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('#datetimepicker1').datetimepicker();
+});
+$(function() {
+  $('#datetimepicker2').datetimepicker();
+});
+$(function() {
+  $('#datetimepicker3').datetimepicker();
+});

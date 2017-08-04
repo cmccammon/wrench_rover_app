@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#datetime picker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 #figaro for secrets
 gem 'figaro'

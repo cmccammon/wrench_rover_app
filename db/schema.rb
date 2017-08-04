@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731210449) do
+ActiveRecord::Schema.define(version: 20170804204105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 20170731210449) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "service_center_id"
+    t.datetime "appointment1"
+    t.datetime "appointment2"
+    t.datetime "appointment3"
     t.index ["request_id"], name: "index_quotes_on_request_id", using: :btree
     t.index ["service_center_id"], name: "index_quotes_on_service_center_id", using: :btree
   end
