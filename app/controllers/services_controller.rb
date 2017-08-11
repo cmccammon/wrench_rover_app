@@ -27,8 +27,6 @@ class ServicesController < ApplicationController
     @service_category = ServiceCategory.find(params[:service_category_id])
     @service = @service_category.services.create(service_params)
 
-
-
     respond_to do |format|
       if @service.save
         format.html { redirect_to @service_category, notice: 'Service was successfully created.' }

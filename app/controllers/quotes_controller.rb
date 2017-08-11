@@ -13,6 +13,8 @@ class QuotesController < ApplicationController
       end
   end
 
+
+
   private
 
     def set_quote
@@ -21,6 +23,6 @@ class QuotesController < ApplicationController
 
 
     def quote_params
-      params.require(:quote).permit(:cost, :comment, :request_id, :appointment1, :appointment2, :appointment3, :service_center_id)
+      params.require(:quote).permit(:cost, :comment, :request_id, :appointment1, :appointment2, :appointment3, :appointment_selected :service_center_id)
     end
 end

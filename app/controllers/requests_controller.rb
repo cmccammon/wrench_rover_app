@@ -26,6 +26,8 @@ class RequestsController < ApplicationController
     # will also contain the comment form to create a new comment and show comments
     def show
       @request = Request.find(params[:id])
+      @user = current_user
+      @appointment = Appointment.new
     end
 
     def add_quote

@@ -5,7 +5,7 @@
   <p>Auto:
     <%= @request.auto.year %> <%= @request.auto.make %> <%= @request.auto.model %> </p>
 
-<p>
+<div>
 <strong> Quotes:</strong>
 
 <% if @request.quotes.blank? %>
@@ -17,21 +17,41 @@
       <p> Service Center: <%= quote.service_center.service_center_name %> </p>
       <p> Service Center location: <%= quote.service_center.city %> </p>
       <p>Quote cost: <%= number_to_currency(quote.cost) %></p>
-      <p>Comments: <%= quote.comment %></p>
+      <p>Comments: <%= quote.comment %> | <%= quote.id %></p>
       <p>time: </p>
 
-      <div class='block'>
-        <button class='inline-block-tight btn'><%= quote.appointment1.strftime('%A, %d %b %Y %l:%M %P') if quote.appointment1 %></button>
-        <button class='inline-block-tight btn'><%= quote.appointment2.strftime('%A, %d %b %Y %l:%M %P') if quote.appointment2 %></button>
-        <button class='inline-block-tight btn'><%= quote.appointment3.strftime('%A, %d %b %Y %l:%M %P') if quote.appointment3 %></button>
-      </div></br>
+      <%= form_for(@appointment) do |f| %>
+        <% if @appointment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
+            <ul>
+            <% @appointment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :selected_appointment %>
+          <% if quote.appointment1 %>
+          <%= f.select :selected_appointment, [quote.appointment1.strftime('%A, %d %b %Y %l:%M %P'), quote.appointment2.strftime('%A, %d %b %Y %l:%M %P'), quote.appointment3.strftime('%A, %d %b %Y %l:%M %P')], {}, { class: 'form-control' } %>
+          <% end %>
+
+        </div>
+        <%= f.hidden_field :quote_id, value: quote.id %>
+
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
       <% end %>
-
     </li>
     <% end %>
   </ol>
-</p>
+  <% end %>
+</div>
 <% if service_center_signed_in?%>
 <%= link_to 'Back', sc_dashboard_requests_path %>
 <% else %>

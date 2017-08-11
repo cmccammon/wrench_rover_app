@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+  resources :appointments
 # devise routes
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   devise_for :service_centers, path: 'service_centers', controllers: { sessions: "service_centers/sessions", registrations: "service_centers/registrations" }
@@ -8,7 +9,9 @@ Rails.application.routes.draw do
   resources :autos
 # nested routes
   resources :requests do
-    resources :quotes
+    resources :quotes do
+      resources :appointments
+    end
     collection do
       get "sc_dashboard" # generate  get "/requests/sc_dashboard"
     end
