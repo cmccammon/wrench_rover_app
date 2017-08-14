@@ -1,1 +1,21 @@
 /* MegaNavbar v2.2.0 (http://www.MegaNavbar.com) Copyright 2014 MegaNavbar.com. All Rights Reserved. ** Licensed under Regular License (http://codecanyon.net/licenses/regular) or Extended License (http://codecanyon.net/licenses/extended) ** We will take legal action against those who copy our HTML content, CSS style sheets and JavaScript functions without a license. */
+/* Top Navigation styles */
+
+.iconpad {width:20px;}
+.iconpadLG {margin-right:10px;}
+.nav-tabs {border:0;}
+   .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {border-width:0; background:#ff6600 !important;}
+   .nav-tabs > li > a {border: none; color: #fff; background:#aaa;}
+       .nav-tabs > li.active > a, .nav-tabs > li > a:hover {border: none; color: #fff !important; background:#ff6600;}
+       .nav-tabs > li > a::after {content:""; background:#aaa; height:2px; position:absolute; width:100%; left:0px; transition:all 250ms ease 0s; transform:scale(0);}
+   .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform:scale(0); }
+.tab-nav > li > a::after {background:#000 none repeat scroll 0% 0%; color:#fff;}
+.tab-pane {padding:2px 0;}
+.tab-content{padding:8px; height:auto;}
+
+.userRow {background-color:#ddd; line-height:auto;}
+.userText {vertical-align:middle;}
+
+.apptRow {height:auto; background-color:#ff6600;}
+.apptHead {padding:2px 4px; background-color:#222; color:#fff;}
+.apptText {padding:2px 4px; color:#fff;}

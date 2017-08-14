@@ -1,57 +1,161 @@
-//
-// .hideme {display:none;}
-// .hideme2 {display:none;}
-// .showme {display:block;}
-// /* STEP 2 STYLES */
-// .getStarted {padding:20px;}
-// .getStarted img {filter:invert(100%);}
-// .tablink, {color:#000!important;text-decoration:none;padding:5px;font-size:22pt;width:60%;}
-// .probRed {color:#fff!important;background-color:#ff6600!important;text-decoration:none;border-right:solid 8px #ff6600!important;}
-// .probContainer {padding:0;margin:0;border:solid 2px #FF6600;height:590px;padding:0;}
-// .probHeader {background:#eee;width:100%;padding:8px 0px 8px 15px;}
-// .probSidenav {z-index:1;margin-bottom:20px;align:right;}
-// .probSidenav a {padding:4px 0px 4px 0px;height:120px;text-decoration:none;color:#fff;margin-bottom:15px;background-color:#777;border-right:solid 8px #fff;}
-// .probSidenav a:hover {background-color:#888;text-decoration:none;}
-// .probSidenav a {display:block}
-// .probSidenav span {font-size:45pt;}
-// .probSidenav .w3-dropdown-hover:hover,.probSidenav .w3-dropdown-hover:first-child,.probSidenav .w3-dropdown-click:hover,.w3-dropnav a:hover{background-color:#ccc;color:#000}
-// .propNavItem {width:80px;}
-// img.warning:hover {filter: none;-webkit-filter: grayscale(0%);-moz-filter: grayscale(0%);-ms-filter: grayscale(0%);-o-filter: grayscale(0%);cursor:pointer;}
-// img.warning {filter: none;-webkit-filter: grayscale(0%);-moz-filter: grayscale(0%);-ms-filter: grayscale(0%);-o-filter: grayscale(0%);cursor: pointer;transition: all 100ms ease;}
-// .warnDescribe {width:95%;}
-// .dropt img {width:20%; height:auto;}
-// span.dropt span {position: absolute; left: -9999px; top: 450px; margin:0; padding: 5px; border:solid 1px #F26C1E;}
-// span.dropt:hover {text-decoration: none; background: #fff; z-index: 6;}
-// span.dropt:hover span {margin: 20px 0 0 10px; left: 10px; background: #fff; z-index: 6;}
-// @media only screen and (max-width: 991px) {
-//   .probSidenav {
-//     -webkit-column-count: 3; /* Chrome, Safari, Opera */
-//     -moz-column-count: 3; /* Firefox */
-//     column-count: 3;
-//   }
-//   .probSidenav {z-index:1;margin-bottom:0px;align:right;height:80px;}
-//   .probSidenav a{padding:0px 0px 2px 0px;height:80px;text-decoration:none;color:#fff;margin-bottom:0px;background-color:#777;border-bottom:solid 3px #fff;border-right:0px;}
-//   .probRed {color:#fff!important;background-color:#ff6600!important;text-decoration:none;border-bottom:solid 3px #ff6600!important;border-right:0px!important;}
-//   .probSidenav span {font-size:20pt;}
-//   .propNavItem {width:40px!important;margin-top:8px;}
-//   .probContainer {padding:0;margin:0;border:0px;height:auto;padding:0;}
-//   .dropt img {width:20%; height:auto;}
-//   .navbar-brand img {width:90%;height:auto;}
-// }
-// @media only screen and (max-width: 768px) {
-//   .navbar-collapse li a { background:#ff6600;color:#fff;}
-//   .navbar-collapse li a:hover { background:#D95700;color:#fff;}
-//   H2 {font-size:130%;}
-// }
-// .probBanner {background-image:URL('../images/HomepageCar.png');background-position:center;}
-// 
-// .carContain {border:solid 1px #000;margin-left:0;}
-// .carHeader {background-color:#000;color:#fff;padding:10px;font-size:110%;}
-// .carData {padding:15px;font-size:120%;}
-//
-// #services input {border:none;}
-// #services b {cursor:pointer;text-transform:uppercase;}
-// #services b:hover {cursor:pointer;color:#ff6600;}
-// #servicesRows td {}
-//
-// #commonTable button {margin-right:5px;}
+
+
+
+
+/* SERVICE CENTER STYLES */
+/* Service Center Tabs styles */
+main {
+ max-width: 100%;
+ margin: 0 auto;
+ background: #fff;
+}
+
+div.inline {float:left;}
+ol { counter-reset: level1 }
+ol li.mapListNumber:before {background:#ff6600;font-size:16pt;border:solid 3px #ff6600;color:white;text-align:center;border-radius:100%;padding:0px 5px 0px 5px;height:35px;width:35px; content: counter(level1) " ";counter-increment: level1;}
+.mapListBidPrice {color:#ff6600;font-size:16pt;float:right;}
+.mapListCompany {font-size:13pt;font-weight:bold;}
+.mapListAppt {font-size:9pt;}
+.supersmall {color:black;font-size:10pt;}
+.boldHead div {font-weight:bold;}
+div .text-center {width:50px;}
+div .text-center button {width:45px;margin-bottom:5px;}
+.apptTime button {width:65px;margin-bottom:5px;margin-right:4px;float:left;}
+
+section {
+ display:none;
+ padding:20px;
+ min-height:400px;
+ max-height:100%;
+ border: solid 2px #ff6600;
+ overflow:hidden;
+}
+
+label.labelBG {
+ font-weight: normal;
+ display: inline-block;
+ margin: 0;
+ padding: 15px 25px;
+ text-align: center;
+ color: #fff;
+ background-color:#888;
+ border-bottom: 3px solid #fff;
+}
+
+label:before {
+ font-family: fontawesome;
+ font-weight: normal;
+ margin-right: 10px;
+}
+
+label[for*='1']:before { content: '\f253'; }
+label[for*='2']:before { content: '\f005'; }
+label[for*='3']:before { content: '\f01c'; }
+label[for*='4']:before { content: '\f1b9'; }
+
+label.labelBG:hover {
+ background-color: #999;
+ cursor: pointer;
+}
+
+input:checked + label {
+ color: #fff;
+ background-color:#ff6600;
+ border-bottom: 3px solid #ff6600;
+}
+
+.appts {
+ background-color:#000;
+}
+
+.appts:hover {
+ background-color: #000;
+ cursor: pointer;
+}
+
+input:checked + .appts {
+ color: #fff;
+ background-color:#ff6600;
+ border-bottom: 3px solid #ff6600;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+ display: block;
+}
+
+@media screen and (max-width: 750px) {
+ label {
+   font-size: 14px;
+ }
+ label:before {
+   margin: 0;
+   font-size: 18px;
+ }
+}
+
+@media screen and (max-width: 400px) {
+ label {
+   padding: 15px;
+ }
+}
+
+.btn-default:hover {background-color:#ff6600; color:#fff;}
+
+/* Service Center Accordion styles */
+button.myaccordion {
+   background-color: #eee;
+   color: #444;
+   cursor: pointer;
+   padding: 18px;
+   width: 100%;
+   border: none;
+   text-align: left;
+   outline: none;
+   font-size: 15px;
+   transition: 0.4s;
+}
+
+button.myaccordion:hover {
+   background-color: #777;
+   color:#fff;
+}
+
+button.myaccordion.active {
+   background-color: #000;
+   color:#fff;
+}
+
+button.myaccordion:after {
+   font-family: fontawesome;
+   font-weight: normal;
+   margin-right: 12px;
+   content: '\f0fe';
+   color: #000;
+   float: right;
+   margin-left: 5px;
+}
+
+button.myaccordion.active:after {
+   font-family: fontawesome;
+   font-weight: normal;
+   margin-right: 12px;
+   content: "\f146";
+   color: #bbb;
+}
+
+div.panel {
+   padding: 0 18px;
+   background-color: white;
+   max-height: 0;
+   overflow: auto;
+   transition: 0.6s ease-in-out;
+   opacity: 0;
+}
+
+div.panel.show {
+   opacity: 1;
+   max-height: 300px;
+}

@@ -3,7 +3,7 @@
   <p>Description:
   <%= @request.description %></p>
   <p>Auto:
-    <%= @request.auto.year %> <%= @request.auto.make %> <%= @request.auto.model %> </p>
+  <%= @request.auto.year %> <%= @request.auto.make %> <%= @request.auto.model %> </p>
 
 <div>
 <strong> Quotes:</strong>
@@ -17,7 +17,7 @@
       <p> Service Center: <%= quote.service_center.service_center_name %> </p>
       <p> Service Center location: <%= quote.service_center.city %> </p>
       <p>Quote cost: <%= number_to_currency(quote.cost) %></p>
-      <p>Comments: <%= quote.comment %> | <%= quote.id %></p>
+      <p>Comments: <%= quote.comment %></p>
       <p>time: </p>
 
       <%= form_for(@appointment) do |f| %>

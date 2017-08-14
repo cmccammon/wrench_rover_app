@@ -5,7 +5,7 @@ class QuotesController < ApplicationController
 
   def create
       @request = Request.find(params[:request_id])
-      @quote = @request.quotes.create(quote_params)
+      @quote = @request.quotes.new(quote_params)
       if @quote.save
         redirect_to :sc_dashboard_requests
       else
@@ -23,6 +23,6 @@ class QuotesController < ApplicationController
 
 
     def quote_params
-      params.require(:quote).permit(:cost, :comment, :request_id, :appointment1, :appointment2, :appointment3, :appointment_selected :service_center_id)
+      params.require(:quote).permit(:cost, :comment, :request_id, :appointment1, :appointment2, :appointment3, :service_center_id)
     end
 end
