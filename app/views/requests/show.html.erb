@@ -38,10 +38,10 @@
           <% if quote.appointment1 %>
           <%= f.select :selected_appointment, [quote.appointment1.strftime('%A, %d %b %Y %l:%M %P'), quote.appointment2.strftime('%A, %d %b %Y %l:%M %P'), quote.appointment3.strftime('%A, %d %b %Y %l:%M %P')], {}, { class: 'form-control' } %>
           <% end %>
-
         </div>
         <%= f.hidden_field :quote_id, value: quote.id %>
-
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :request_id, value: @request.id %>
 
         <div class="actions">
           <%= f.submit %>

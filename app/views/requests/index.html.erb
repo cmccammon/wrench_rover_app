@@ -17,13 +17,18 @@
 		</div>
 	</div>
 <!--/////////////////// START NOTIFICATION ROW /////////////////////-->
+<% if @appointments.blank? %>
+<div>
+	<p> No appointments yet </p>
+	<div>
+	<% else %>
 	<div class="row apptRow">
 		<div class="col-md-2 col-sm-12 apptHead" style="line-height:80px;height:80px;text-align:center;">
 			<h4>You have a new<br>appointment!</h4>
 		</div>
 		<div class="col-md-4 col-sm-12" style="padding:0;">
 			<div class="apptHead">Where & When</div>
-			<div class="apptText"><%= @appointment.quote.service_center.service_center_name %><br><%= @appointment.selected_appointment %></div>
+			<div class="apptText"><%= @appointments.first.quote.service_center.service_center_name %><br><%= @appointments.first.selected_appointment %></div>
 		</div>
 		<div class="col-md-3 col-sm-12" style="padding:0;">
 			<div class="apptHead">Your Vehicle</div>
@@ -36,6 +41,7 @@
 			<% end %>
 		</div>
 	</div>
+	<% end %>
 
 <!--/////////////////// START MAINTENANCE LISTINGS COLUMN /////////////////////-->
 	<div class="row">

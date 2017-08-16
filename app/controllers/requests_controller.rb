@@ -17,7 +17,7 @@ class RequestsController < ApplicationController
       @requests = current_user.requests.order('created_at DESC')
       @user_auto = current_user.autos.last
       @requests_pend = current_user.requests.last #Temp data
-      @appointment = current_user.appointments.last
+      @appointments = current_user.appointments
       @user = current_user
     end
 
