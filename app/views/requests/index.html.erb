@@ -23,7 +23,7 @@
 		</div>
 		<div class="col-md-4 col-sm-12" style="padding:0;">
 			<div class="apptHead">Where & When</div>
-			<div class="apptText">Chucks Auto Repair<br>Tuesday, Feb 3 at 1:30pm</div>
+			<div class="apptText"><%= @appointment.quote.service_center.service_center_name %><br><%= @appointment.selected_appointment %></div>
 		</div>
 		<div class="col-md-3 col-sm-12" style="padding:0;">
 			<div class="apptHead">Your Vehicle</div>
@@ -36,6 +36,7 @@
 			<% end %>
 		</div>
 	</div>
+
 <!--/////////////////// START MAINTENANCE LISTINGS COLUMN /////////////////////-->
 	<div class="row">
 		<div class="col-md-12 col-sm-12">

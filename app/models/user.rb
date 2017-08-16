@@ -5,13 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :first_name,  presence: true
-  validates :first_name,  presence: true
   validates :last_name,   presence: true
   validates :zipcode,     presence: true
 
 
   has_many :autos
   has_many :requests, through: :autos
+  has_many :quotes, through: :requests
+  has_many :appointments, through: :quotes
+  
   accepts_nested_attributes_for :autos, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :requests, allow_destroy: true
 end

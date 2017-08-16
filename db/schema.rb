@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809184726) do
+ActiveRecord::Schema.define(version: 20170816194538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,11 @@ ActiveRecord::Schema.define(version: 20170809184726) do
     t.integer  "quote_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "request_id"
+    t.integer  "user_id"
     t.index ["quote_id"], name: "index_appointments_on_quote_id", using: :btree
+    t.index ["request_id"], name: "index_appointments_on_request_id", using: :btree
+    t.index ["user_id"], name: "index_appointments_on_user_id", using: :btree
   end
 
   create_table "autos", force: :cascade do |t|
@@ -132,6 +136,8 @@ ActiveRecord::Schema.define(version: 20170809184726) do
   end
 
   add_foreign_key "appointments", "quotes"
+  add_foreign_key "appointments", "requests"
+  add_foreign_key "appointments", "users"
   add_foreign_key "autos", "users"
   add_foreign_key "quotes", "requests"
   add_foreign_key "quotes", "service_centers"
