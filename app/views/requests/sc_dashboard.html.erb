@@ -1,185 +1,100 @@
 
 <!-- Main page content -->
+<div class="row">
   <div class="col-md-12 col-sm-12">
-    <h2> <%= @service_center.service_center_name %> Dashboard </h2>
-    <br/>
-    <main>
+    <h3> <%= @service_center.service_center_name %> Dashboard </h3>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#mainNew">New Requests(<%= @requests.count %>)</a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids</a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainHistory">Appointments</a></li>
+    </ul>
+    <div class="tab-content" style="border:solid 2px #ff6600;">
+      <div id="mainNew" class="tab-pane fade in active">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <table class='table table-striped'>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Vehicle</th>
+                  <th>Request</th>
+                  <th>description</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
 
-      <input id="tab1" type="radio" name="tabs" checked>
-      <label for="tab1">Pending Bids (<%= @requests.count %>) </label>
+                <% @requests.each do |req| %>
+                  <tr>
 
-      <input id="tab2" type="radio" name="tabs">
-      <label for="tab2">Active Bids (3)</label><!--count total entries-->
+                    <td><%= req.created_at.strftime("%m-%d-%y") %></td>
+                    <td><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %></td>
+                    <td><%= req.service.to_sentence %></td>
+                    <td><%= req.description %></td>
+                    <td><%= link_to 'Add quote', add_quote_url(req) %></td>
+                  
 
-      <input id="tab3" type="radio" name="tabs">
-      <label for="tab3">Past Bids</label>
-
-      <input id="tab4" type="radio" name="tabs">
-      <label for="tab4" class="appts">Appointments (2)</label>
-
-      <section id="content1">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-        <!-- Pending bids go here -->
-
-        <% @requests.each do |req| %>
-        <p>
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><b><%= req.created_at.strftime("%m-%d-%y") %></b>  <%= req.service.to_sentence %>
-          </button>
-        </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-block">
-              <p><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %><br><p> Issue: <%= req.description %></p>
-            </div>
-          </div>
-          <% end %>
-
-
-
-          <!-- <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Full Synthetic</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/19/16</b>&nbsp;&nbsp;&nbsp;AC Service - Recharge</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/18/16</b>&nbsp;&nbsp;&nbsp;Tires - Wheel Alignment | Brakes - Pad Replacement</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/12/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Synthetic Blend | Warning Light - Check Engine</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/10/16</b>&nbsp;&nbsp;&nbsp;Describe - "My car pulls to the right when I push the brakes while..."</button>-->
-
-          <!--set up char limit-->
-
-          <!-- <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div> -->
-        </div>
-      </div>
-      </section>
-
-      <section id="content2">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-        <!-- Active bids go here -->
-          <button class="accordion"><b>8/29/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Standard Oil | Warning Light - Oil</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/28/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/22/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Full Synthetic</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+                <% end %>
+                  </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      </section>
-
-      <section id="content3">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-        <!-- Past bids go here -->
-          <button class="accordion"><b>8/22/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Standard Oil</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Full Synthetic</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/19/16</b>&nbsp;&nbsp;&nbsp;AC Service - Recharge</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/18/16</b>&nbsp;&nbsp;&nbsp;Tires - Wheel Alignment | Brakes - Pad Replacement</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/12/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Synthetic Blend | Warning Light - Check Engine</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/10/16</b>&nbsp;&nbsp;&nbsp;Describe - "My car pulls to the right when I push the brakes while..."</button><!--set up char limit-->
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+      <div id="mainPending" class="tab-pane fade">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <table class='table table-striped'>
+              <thead class="thead-default">
+                <tr>
+                  <th>Date</th>
+                  <th>Vehicle</th>
+                  <th>Request</th>
+                  <th>Description</th>
+                  <th>Quote</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+              <%  @service_center.quotes.each do |q| %>
+              <tr>
+                <td><%= q.request.created_at.strftime("%m-%d-%y") %></td>
+                <td><%= q.request.auto.year %> <%= q.request.auto.make.capitalize %> <%= q.request.auto.model.capitalize %></td>
+                <td><%= q.request.service.to_sentence %></td>
+                <td><%= q.request.description %></td>
+                <td><%= q.cost %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
           </div>
         </div>
       </div>
-      </section>
-
-      <section id="content4">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-        <!-- Appointments go here -->
-          <button class="accordion"><b>8/22/16</b>&nbsp;&nbsp;&nbsp;Oil Change - Standard Oil</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
-          </div>
-
-          <button class="accordion"><b>8/21/16</b>&nbsp;&nbsp;&nbsp;Regular Maintenance - 30k Mile Service</button>
-          <div class="panel">
-            <p>Content goes here<br>More content here<br>The rest of the content here</p>
+      <div id="mainHistory" class="tab-pane fade">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+          <b>7/15/16 - Tire Rotation</b><br>
+          Service Notes: <i>"We can also look at wear and tear on your tires"</i>
           </div>
         </div>
-      </div>
-      </section>
-
-    </main>
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+          Service Center: <b>Joe's Auto</b>
+          </div>
+          <div class="col-md-6 col-sm-12">
+          Bid Amount: <b>$27.00</b>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+          <span style="color:#ff6600; font-weight:bold;">COMPLETE</span>
+          </div>
+        </div>
+    </div>
   </div>
-
-
-
-<table class='table table-striped'>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Vehicle</th>
-      <th>Request</th>
-      <th>description</th>
-      <th>Quotes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @requests.each do |req| %>
-      <tr>
-        <td><%= req.created_at.strftime("%m-%d-%y") %></td>
-        <td><%= req.auto.year %> | <%= req.auto.model.capitalize %></td>
-        <td><%= req.service.to_sentence %></td>
-        <td><%= req.description %></td>
-        <td><%= req.quotes.count %></td>
-        <td><%= link_to 'Add quote', add_quote_url(req) %></td>
-        <td><%= link_to 'Remove', req, method: :delete %></td>
-    <% end %>
-      </tr>
-  </tbody>
-</table>
+<!--/////////////////// START YOUR LOCATION COLUMN /////////////////////-->
+    <div class="col-md-4 col-sm-12">
+      <br>
+    </div>
+  </div>
+</div>

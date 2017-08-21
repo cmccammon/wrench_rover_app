@@ -2,11 +2,8 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new]
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
-
-
-
     def sc_dashboard
-      @requests = Request.last(5)
+      @requests = Request.includes(:quotes).where( :quotes => {:service_center_id => nil} )
       @service_center = current_service_center
     end
 
@@ -15,7 +12,8 @@ class RequestsController < ApplicationController
     # displays all requests
     def index
       @requests = current_user.requests.order('created_at DESC')
-      @user_auto = current_user.autos.last
+
+      @user_auto = current_user.appointments
       @requests_pend = current_user.requests.last #Temp data
       @appointments = current_user.appointments
       @user = current_user
