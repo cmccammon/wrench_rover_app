@@ -13,10 +13,15 @@ class User < ApplicationRecord
   has_many :requests, through: :autos
   has_many :quotes, through: :requests
   has_many :appointments, through: :quotes
-  
+
   accepts_nested_attributes_for :autos, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :requests, allow_destroy: true
 end
+
+
+
+
+
 
 class User::ParameterSanitizer < Devise::ParameterSanitizer
   def initialize(*)
