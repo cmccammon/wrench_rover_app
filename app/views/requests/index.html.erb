@@ -7,7 +7,7 @@
 		</div>
 		<div class="col-md-6 col-sm-6 userText">
 			<div style="float:left;padding:9px 0px;margin-right:15px;"><i class="fa fa-car fa-3x"></i></div>
-			<div style="padding:12px 0px;"><b><%= u.autos.last.year %> <%= u.autos.last.make %> <%= u.autos.last.model %></b><%= u.autos.last.trim %></div>
+			<div style="padding:12px 0px;"><b><%= u.autos.last.year %> <%= u.autos.last.make %> <%= u.autos.last.model %></b> <%= u.autos.last.trim.truncate(27, separator: ' ') %></div>
 
 		</div>
 	</div>
@@ -19,31 +19,29 @@
 		</div>
 	</div>
 <!--/////////////////// START NOTIFICATION ROW /////////////////////-->
-<% if @appointments.blank? %>
-<div>
+<% if @appointments.empty? %>
+<div class="row apptRow">
 
-	<div>
+</div>
 	<% else %>
 	<div class="row apptRow">
 		<div class="col-md-2 col-sm-12 apptHead" style="line-height:80px;height:80px;text-align:center;">
 			<h4>You have a new<br>appointment!</h4>
 		</div>
+		<% @appointments.each do |a| %>
 		<div class="col-md-4 col-sm-12" style="padding:0;">
 			<div class="apptHead">Where & When</div>
-			<div class="apptText"><%= @appointments.last.quote.service_center.service_center_name %><br><%= @appointments.last.selected_appointment %></div>
+			<div class="apptText"><%= a.quote.service_center.service_center_name %><br><%= a.selected_appointment %></div>
 		</div>
 		<div class="col-md-3 col-sm-12" style="padding:0;">
-			<% @user_auto.each do |a| %>
 			<div class="apptHead">Your Vehicle</div>
-			<div class="apptText"><%= a.last.quote.request.auto.year %><br><%= a.last.quote.request.auto.make %> <%= a.last.quote.request.auto.model %></div>
-			<% end %>
+			<div class="apptText"><%= a.quote.request.auto.year %><br><%= a.quote.request.auto.make %> <%= a.quote.request.auto.model %></div>
 		</div>
 		<div class="col-md-3 col-sm-12" style="padding:0;">
 			<div class="apptHead">Services</div>
-
-			<div class="apptText"><%= @appointments.last.request.service.to_sentence if @appointments.last.request.service %></div>
-
+				<div class="apptText"><%= a.request.service.to_sentence if a.request.service %></div>
 		</div>
+		<% end %>
 	</div>
 	<% end %>
 
@@ -53,19 +51,23 @@
 			<h3>Your Maintenance</h3>
 			<ul class="nav nav-tabs">
 			  <li class="active"><a data-toggle="tab" href="#mainNew">Quotes</a></li>
-			  <li class="inactive"><a data-toggle="tab" href="#mainPending">Appointments</a></li>
+				<li class="inactive"><a data-toggle="tab" href="#mainRequests">Open Requests</a></li>
+			  <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
 			  <li class="inactive"><a data-toggle="tab" href="#mainHistory">Past work</a></li>
 			</ul>
 			<div class="tab-content" style="border:solid 2px #ff6600;">
 				<div id="mainNew" class="tab-pane fade in active">
 					<div class="row">
-
-								<% if current_user.quotes.empty? %>
+								<% if @user.quotes.empty? %>
 						<div class="col-md-12 col-sm-12">
 							<p>No Quotes yet, but our dogs are finding the best services </p>
 						</div>
+								<% elsif @user.appointments %>
+						<div class="col-md-12 col-sm-12">
+							<p>You have selected a quote, check your appointments </p>
+						</div>
 								<% else %>
-					<% current_user.quotes.each do |q| %>
+					<% @user.quotes.each do |q| %>
 							<%= link_to q.request do %>
 					<div class="col-md-12 col-sm-12">
 						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service.to_sentence %></b><br>
@@ -86,29 +88,61 @@
 				<% end %>
 			</div>
 				</div>
-				<div id="mainPending" class="tab-pane fade">
+				<div id="mainRequests" class="tab-pane fade">
+					<% if @requests.blank? %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<% if @requests_pend %>
-						<b><%= @requests_pend.created_at.strftime("%m-%d-%y") %> - <%= @requests_pend.service.to_sentence if @requests_pend %><% end %></b><br>
-						Your comments: <i><%= @requests.first.description if @requests.first %></i><br>
-						Service Notes: <i>"We will inspect the discs and pads thoroughly"</i>
+							<p>Go create a new requests</p>
 						</div>
 					</div>
+					<% else %>
+				<% @requests.each do |r| %>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
-						Service Center: <b>Juffy Lube</b>
+							<b><%= r.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= r.auto.year %> <%= r.auto.make %> <%= r.auto.model %></b> - Services: <%= r.service.to_sentence %></b><br>
+							Your comments: <i><%= r.description %></i><br>
 						</div>
 						<div class="col-md-6 col-sm-12">
-						Bid Amount: <b>$85.00</b>
+						<%= link_to 'Remove', r, method: :delete, class: "btn btn-default" %>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-						<span style="color:#ff6600; font-weight:bold;">PENDING</span>
-						</div>
-					</div>
+					</div><br>
+					<%end%>
+				<% end %>
 				</div>
+				<div id="mainAppointments" class="tab-pane fade">
+					<% if @appointments.blank? %>
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<p>No Appointments yet.</p>
+						</div>
+					</div>
+					<% else %>
+				<% @appointments.each do |a| %>
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+						<b><%= a.selected_appointment %> - <%= a.request.service.to_sentence %></b><br>
+						Your comments: <i><%= a.request.description %></i><br>
+						Service Notes: <i><%= a.quote.comment %></i>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+						Service Center: <b><%= a.quote.service_center.service_center_name %></b>
+						</div>
+						<div class="col-md-6 col-sm-12">
+						Bid Amount: <b><%= a.quote.cost %></b>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+
+						<span style="color:#ff6600; font-weight:bold;"><%= check_box_tag :completed %> Completed</span>
+						</div>
+					</div>
+					<%end%>
+				<% end %>
+				</div>
+
 				<div id="mainHistory" class="tab-pane fade">
 					<div class="row">
 						<div class="col-md-12 col-sm-12">

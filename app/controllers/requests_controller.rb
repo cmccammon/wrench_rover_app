@@ -11,10 +11,8 @@ class RequestsController < ApplicationController
     # requests/index.html.erb
     # displays all requests
     def index
-      @requests = current_user.requests.order('created_at DESC')
-
-      @user_auto = current_user.appointments
-      @requests_pend = current_user.requests.last #Temp data
+      @requests_all = current_user.requests.order('created_at DESC')
+      @requests = current_user.requests.includes(:appointments).where( :appointments => {:request_id => nil} )
       @appointments = current_user.appointments
       @user = current_user
     end

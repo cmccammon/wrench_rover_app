@@ -1,34 +1,32 @@
 <div class='container'>
   <div class='row'>
-    <div class='m12'>
+    <div class="navbar-text pull-left">
       <p><%= link_to 'New Auto', new_auto_path, class: "btn btn-default" %> <%= link_to 'Requests', requests_path, class: "btn btn-default" %> <%= link_to 'New Request', new_request_path, class: "btn btn-default" %> <%= link_to 'Sign in as service center', new_service_center_session_path, class: "btn btn-default" %></p>
+    </div>
 
-<div class="navbar-text pull-right">
-<% if user_signed_in? %>
-  <p>Welcome, <strong><%= current_user.email %></strong> |
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></p>
-<% elsif service_center_signed_in? %>
-    <p>Welcome, <strong><%= current_service_center.first_name %></strong> |
-    <%= link_to 'Edit profile', edit_service_center_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Sign out", destroy_service_center_session_path, method: :delete, :class => 'navbar-link'  %></p>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-
-  <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
-    <div class="form-group">
-      <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-    </div>
-    <div class="checkbox">
-      <%= f.check_box :remember_me %><%= f.label :remember_me %>
-    </div>
-    <%= f.submit 'Login', class: "btn btn-default" %>
+    <div class="navbar-text pull-right">
+    <% if user_signed_in? %>
+      <p>Welcome, <strong><%= current_user.email %></strong> |
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></p>
+    <% elsif service_center_signed_in? %>
+        <p>Welcome, <strong><%= current_service_center.first_name %></strong> |
+        <%= link_to 'Edit profile', edit_service_center_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Sign out", destroy_service_center_session_path, method: :delete, :class => 'navbar-link'  %></p>
+    <% else %>
+      <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box :remember_me %><%= f.label :remember_me %>
+        </div>
+        <%= f.submit 'Login', class: "btn btn-default", style: 'margin-right: 5px;' %> Or <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link btn btn-default', style: 'margin-left: 5px;' %>
       <% end %>
     <% end %>
-      </div>
-  </div>
+    </div>
   </div>
 </div>
