@@ -23,7 +23,6 @@ Things you may want to cover:
 
 * ...
 # wrench_rover_app
+'https://api.edmunds.com/api/vehicle/v2/' + make +'/models/count?fmt=json&api_key=' + EDMUNDS_API_KEY;
 
-<% if quote.appointment1 %><%= radio_button_tag(:selected_appointment, quote.appointment1.strftime('%A, %d %b %Y %l:%M %P'), class: 'btn btn-primary') %><% end %>
-<% if quote.appointment2 %><%= radio_button_tag(:selected_appointment, quote.appointment2.strftime('%A, %d %b %Y %l:%M %P'), class: 'btn btn-primary') %><% end %>
-<% if quote.appointment3 %><%= radio_button_tag(:selected_appointment, quote.appointment3.strftime('%A, %d %b %Y %l:%M %P'), class: 'btn btn-primary') %><% end %
+<

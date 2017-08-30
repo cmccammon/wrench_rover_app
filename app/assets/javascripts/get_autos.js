@@ -1,3 +1,5 @@
+const EDMUNDS_API_KEY = 'j6rkty2b6axssxvcnz28umfb';
+
 function get_makes(year) {
     url = 'https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&year=' + year + '&api_key=' + EDMUNDS_API_KEY;
     $.ajax({
@@ -19,7 +21,7 @@ function get_makes(year) {
     });
 }
 function get_models(make, year) {
-    url = 'https://api.edmunds.com/v1/api/vehicle/modelrepository/findmodelsbymakeandyear?make=' + make + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
+    url =  'https://api.edmunds.com/v1/api/vehicle/modelrepository/findmodelsbymakeandyear?make=' + make + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
     $.ajax({
         type: "POST",
         url: url,
