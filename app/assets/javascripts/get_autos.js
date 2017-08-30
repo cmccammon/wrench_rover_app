@@ -1,5 +1,5 @@
 function get_makes(year) {
-    url = 'https://api.edmunds.com/v1/api/vehicle/makerepository/findmakesbymodelyear?year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
+    url = 'https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&year=' + year + '&api_key=' + EDMUNDS_API_KEY;
     $.ajax({
         type: "POST",
         url: url,
@@ -8,11 +8,13 @@ function get_makes(year) {
         success: function(data) {
             $('#auto_make').empty();
             $('#auto_make').append("<option>Select Make</option>");
-            $.each(data.makeHolder, function(i, val) {
-                $('#auto_make').append("<option value='" + data.makeHolder[i].name + "'>" + data.makeHolder[i].name + "</option>");
+            $.each(data.makes, function(i, val) {
+                $('#auto_make').append("<option value='" + data.makes[i].name + "'>" + data.makes[i].name + "</option>");
             });
             $('#auto_make').removeAttr('disabled');
+
             console.log('Step 2: Makes select was populated and enabled');
+            console.log(data.makes);
         }
     });
 }
