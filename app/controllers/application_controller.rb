@@ -2,12 +2,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
+
   def after_sign_in_path_for(resource)
      # check for the class of the object to determine what type it is
-     if resource.class == User
-       requests_path
+     if resource.class == User && resource.sign_in_count == 1
+       root_path
      elsif resource.class == ServiceCenter
        sc_dashboard_requests_path
+     else
+       requests_path
      end
    end
 

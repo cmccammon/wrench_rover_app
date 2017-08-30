@@ -1,5 +1,5 @@
 function get_makes(year) {
-    url = 'http://api.edmunds.com/v1/api/vehicle/makerepository/findmakesbymodelyear?year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
+    url = 'https://api.edmunds.com/v1/api/vehicle/makerepository/findmakesbymodelyear?year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
     $.ajax({
         type: "POST",
         url: url,
@@ -17,7 +17,7 @@ function get_makes(year) {
     });
 }
 function get_models(make, year) {
-    url = 'http://api.edmunds.com/v1/api/vehicle/modelrepository/findmodelsbymakeandyear?make=' + make + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
+    url = 'https://api.edmunds.com/v1/api/vehicle/modelrepository/findmodelsbymakeandyear?make=' + make + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
     $.ajax({
         type: "POST",
         url: url,
@@ -35,7 +35,7 @@ function get_models(make, year) {
     });
 }
 function get_styles(make, model, year) {
-    url = 'http://api.edmunds.com/v1/api/vehicle/stylerepository/findstylesbymakemodelyear?make=' + make + '&model=' + model + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
+    url = 'https://api.edmunds.com/v1/api/vehicle/stylerepository/findstylesbymakemodelyear?make=' + make + '&model=' + model + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
     $.ajax({
         type: "POST",
         timeout: 20000,
