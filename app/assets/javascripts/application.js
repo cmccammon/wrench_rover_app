@@ -17,3 +17,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+    $('.alert').delay(3000).fadeOut();
+    $('.notice').delay(3000).fadeOut();
+  });

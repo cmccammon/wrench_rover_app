@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
      # check for the class of the object to determine what type it is
      if resource.class == User
-       root_path
+       requests_path
      elsif resource.class == ServiceCenter
        sc_dashboard_requests_path
      end

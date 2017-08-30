@@ -26,14 +26,11 @@
 
                 <% @requests.each do |req| %>
                   <tr>
-
                     <td><%= req.created_at.strftime("%m-%d-%y") %></td>
                     <td><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %></td>
                     <td><%= req.service.to_sentence %></td>
                     <td><%= req.description %></td>
                     <td><%= link_to 'Add quote', add_quote_url(req) %></td>
-
-
                 <% end %>
                   </tr>
               </tbody>
@@ -71,25 +68,42 @@
         </div>
       </div>
       <div id="mainAppointments" class="tab-pane fade">
+        <% if @service_center.appointments.empty? %>
         <div class="row">
           <div class="col-md-12 col-sm-12">
-          <!-- <b>7/15/16 - Tire Rotation</b><br>
-          Service Notes: <i>"We can also look at wear and tear on your tires"</i> -->
+          No appointments yet
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 col-sm-12">
-          <!-- Service Center: <b>Joe's Auto</b> -->
-          </div>
-          <div class="col-md-6 col-sm-12">
-          <!-- Bid Amount: <b>$27.00</b> -->
-          </div>
-        </div>
+        <% else %>
         <div class="row">
           <div class="col-md-12 col-sm-12">
-          <!-- <span style="color:#ff6600; font-weight:bold;">COMPLETE</span> -->
+            <table class='table table-striped'>
+              <thead class="thead-default">
+                <tr>
+                  <th>Appointment Date</th>
+                  <th>Vehicle</th>
+                  <th>Request</th>
+                  <th>Description</th>
+                  <th>Quote</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+              <%  @service_center.appointments.each do |a| %>
+              <tr>
+                <td><%= a.selected_appointment %></td>
+                <td><%= a.request.auto.year %> <%= a.request.auto.make.capitalize %> <%= a.request.auto.model.capitalize %></td>
+                <td><%= a.request.service.to_sentence %></td>
+                <td><%= a.request.description %></td>
+                <td><%= a.quote.cost %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
           </div>
         </div>
+
+        <% end %>
     </div>
   </div>
 <!--/////////////////// START YOUR LOCATION COLUMN /////////////////////-->

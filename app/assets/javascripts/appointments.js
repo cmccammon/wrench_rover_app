@@ -5,4 +5,4 @@ $(document).on('turbolinks:load', function() {
   $('#datetimepicker2').datetimepicker();
 
   $('#datetimepicker3').datetimepicker();
-})
+});
