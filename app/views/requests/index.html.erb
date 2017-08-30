@@ -62,7 +62,7 @@
 						<div class="col-md-12 col-sm-12">
 							<p>No Quotes yet, but our dogs are finding the best services </p>
 						</div>
-								<% elsif @user.appointments %>
+								<% elsif @user.appointments.any? %>
 						<div class="col-md-12 col-sm-12">
 							<p>You have selected a quote, check your appointments </p>
 						</div>
@@ -136,7 +136,7 @@
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 
-						<span style="color:#ff6600; font-weight:bold;"><%= check_box_tag :completed %> Completed</span>
+						<span style="color:#ff6600; font-weight:bold;"><%= link_to 'Cancel appointment', a, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure you want to cancel this?'} %></span>
 						</div>
 					</div>
 					<%end%>

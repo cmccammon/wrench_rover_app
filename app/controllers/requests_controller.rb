@@ -11,7 +11,6 @@ class RequestsController < ApplicationController
     # requests/index.html.erb
     # displays all requests
     def index
-      @requests_all = current_user.requests.order('created_at DESC')
       @requests = current_user.requests.includes(:appointments).where( :appointments => {:request_id => nil} )
       @appointments = current_user.appointments
       @user = current_user
@@ -97,7 +96,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def request_params
-    params.require(:request).permit( :description, :user_id, :auto_id, service:[])
+    params.require(:request).permit( :description, :completed, :user_id, :auto_id, service:[])
   end
 
 end

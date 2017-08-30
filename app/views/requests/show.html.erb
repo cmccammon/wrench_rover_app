@@ -42,6 +42,7 @@
         <%= f.hidden_field :quote_id, value: quote.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :request_id, value: @request.id %>
+        <%= f.hidden_field :service_center_id, value: quote.service_center_id %>
 
         <div class="actions">
           <%= f.submit %>

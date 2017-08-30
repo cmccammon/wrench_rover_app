@@ -55,21 +55,23 @@ function get_styles(make, model, year) {
     });
 }
 
-$('#autos').ready(function() {
-    $('#auto_year').change(function() {
-        console.log('Step 1: Year ' + $(this).val() + ' was selected');
-        get_makes($(this).val());
-    });
+$(document).on('turbolinks:load', function() {
+  $('#autos').ready(function() {
+      $('#auto_year').change(function() {
+          console.log('Step 1: Year ' + $(this).val() + ' was selected');
+          get_makes($(this).val());
+      });
 
-    $('#auto_make').change(function() {
-        console.log('Step 3: Make ' + $(this).val() + ' was selected');
-        get_models($(this).val(), $('#auto_year').val());
-    });
-    $('#auto_model').change(function() {
-        console.log('Step 5: Model ' + $(this).val() + ' was selected');
-        get_styles($('#auto_make').val(), $(this).val(), $('#auto_year').val());
-    });
-    $('#auto_trim').change(function() {
-        console.log('Step 7: Style ' + $(this).val() + ' was selected');
-    });
+      $('#auto_make').change(function() {
+          console.log('Step 3: Make ' + $(this).val() + ' was selected');
+          get_models($(this).val(), $('#auto_year').val());
+      });
+      $('#auto_model').change(function() {
+          console.log('Step 5: Model ' + $(this).val() + ' was selected');
+          get_styles($('#auto_make').val(), $(this).val(), $('#auto_year').val());
+      });
+      $('#auto_trim').change(function() {
+          console.log('Step 7: Style ' + $(this).val() + ' was selected');
+      });
+  });
 });

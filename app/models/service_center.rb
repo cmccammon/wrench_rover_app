@@ -16,6 +16,7 @@ validates :phone_number,        presence: true
 
 
 has_many :quotes
+has_many :appointments
 
 end
 

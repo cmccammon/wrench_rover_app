@@ -56,7 +56,7 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     respond_to do |format|
-      format.html { redirect_to appointments_url, notice: 'Appointment was successfully destroyed.' }
+      format.html { redirect_to requests_path, notice: 'Appointment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:selected_appointment, :user_id, :request_id, :quote_id)
+      params.require(:appointment).permit(:selected_appointment, :completed, :user_id, :request_id, :quote_id, :service_center_id)
     end
 end

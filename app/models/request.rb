@@ -12,5 +12,4 @@ class Request < ApplicationRecord
   serialize :service
   validates_associated :quotes
 
-
 end
