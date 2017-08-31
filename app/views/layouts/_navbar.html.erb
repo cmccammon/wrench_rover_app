@@ -2,11 +2,18 @@
   <div class='row'>
     <% if service_center_signed_in? %>
     <div class="navbar-text pull-left">
-    
+
     </div>
     <% else %>
     <div class="navbar-text pull-left">
-      <p><%= link_to 'New Auto', new_auto_path, class: "btn btn-default" %> <%= link_to 'Requests', requests_path, class: "btn btn-default" %> <%= link_to 'New Request', new_request_path, class: "btn btn-default" %> <%= link_to 'Sign in as service center', new_service_center_session_path, class: "btn btn-default" %></p>
+      <p><%= link_to 'New Auto', new_auto_path, class: "btn btn-default" %>
+      <%= link_to 'Requests', requests_path, class: "btn btn-default" %>
+      <%= link_to 'New Request', new_request_path, class: "btn btn-default" %>
+
+      <%= link_to 'Sign in as service center', new_service_center_session_path, class: "btn btn-default" %>
+      <%= link_to 'Sign up service center', new_service_center_registration_path, class: 'btn btn-default' %></p>
+      
+
     </div>
     <% end %>
 
