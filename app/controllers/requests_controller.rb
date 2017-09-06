@@ -3,7 +3,8 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
     def sc_dashboard
-      @requests = Request.includes(:quotes).where( :quotes => {:service_center_id => nil} )
+      @requests_noquotes = Request.includes(:quotes).where( quotes: { id: nil } ).order(created_at: :desc)
+      @requests = Request.includes(:quotes).where.not( quotes: { service_center_id: current_service_center.id } ).order(created_at: :desc)
       @service_center = current_service_center
     end
 
