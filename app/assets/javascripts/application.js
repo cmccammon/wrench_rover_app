@@ -22,3 +22,7 @@ $(document).on('turbolinks:load', function() {
     $('.alert').delay(3000).fadeOut();
     $('.notice').delay(3000).fadeOut();
   });
+
+$('text').change(function(){
+  $('#vehSubmit').removeAttr('disabled');
+  });
