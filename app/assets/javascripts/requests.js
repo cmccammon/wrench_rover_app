@@ -37,6 +37,7 @@ function openProb(evt, tabName) {
   for (i = 0; i < x.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" probRed", "");
   }
+  console.log(tablinks);
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " probRed";
 }

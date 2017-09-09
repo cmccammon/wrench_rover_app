@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>application.scss - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../Procfile.html">Procfile</a>
+  
+    <li><a href="../../../README_md.html">README</a>
+  
+    <li><a href="../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../app/assets/config/manifest_js.html">manifest.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/appointments_js.html">appointments.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/bootstrap_js.html">bootstrap.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/cable_js.html">cable.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/get_autos_js.html">get_autos.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/maps_js.html">maps.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/quotes_coffee.html">quotes.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/requests_js.html">requests.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/service_categories_coffee.html">service_categories.coffee</a>
+  
+    <li><a href="../../../app/assets/stylesheets/application_scss.html">application.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/appointments_scss.html">appointments.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/autos_scss.html">autos.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/global_scss.html">global.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/meganavbar_scss.html">meganavbar.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/quotes_scss.html">quotes.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/request_services_scss.html">request_services.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/requests_scss.html">requests.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/scaffolds_scss.html">scaffolds.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/service_categories_scss.html">service_categories.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/services_scss.html">services.scss</a>
+  
+    <li><a href="../../../app/views/appointments/_appointment_json_jbuilder.html">_appointment.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/appointments/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/appointments/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/autos/_auto_json_jbuilder.html">_auto.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/autos/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/autos/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/request_services/_request_service_json_jbuilder.html">_request_service.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/request_services/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/request_services/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/service_categories/_service_category_json_jbuilder.html">_service_category.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/service_categories/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/service_categories/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/services/_service_json_jbuilder.html">_service.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/services/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/services/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../log/development_log.html">development.log</a>
+  
+    <li><a href="../../../public/404_html.html">404.html</a>
+  
+    <li><a href="../../../public/422_html.html">422.html</a>
+  
+    <li><a href="../../../public/500_html.html">500.html</a>
+  
+    <li><a href="../../../public/apple-touch-icon-precomposed_png.html">apple-touch-icon-precomposed.png</a>
+  
+    <li><a href="../../../public/apple-touch-icon_png.html">apple-touch-icon.png</a>
+  
+    <li><a href="../../../public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../../../public/robots_txt.html">robots</a>
+  
+    <li><a href="../../../tmp/pids/server_pid.html">server.pid</a>
+  
+    <li><a href="../../../tmp/restart_txt.html">restart</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page app/assets/stylesheets/application.scss">
+
+<pre>  This is a manifest file that&#39;ll be compiled into application.css, which will include all the files
+  listed below.
+
+  Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+  or any plugin&#39;s vendor/assets/stylesheets directory can be referenced here using a relative path.
+
+  You&#39;re free to add application-wide styles to this file and they&#39;ll appear at the bottom of the
+  compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+  files in this directory. Styles in this file should be added after the last require_* statement.
+  It is generally better to create a new file per style scope.
+
+// import bootstrap-sprockets before bootstrap if using bootstrap &gt;= 3.2</pre>
+
+<p>@import &#39;bootstrap-sprockets&#39;; @import &#39;bootstrap&#39;; @import
+&#39;bootstrap-datetimepicker&#39;;</p>
+
+<pre class="ruby"><span class="ruby-constant">GLOBAL</span> <span class="ruby-constant">STYLES</span>
+</pre>
+
+<p>html {</p>
+
+<pre>font-family: Tahoma;
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%;</pre>
+
+<p>} @media only screen and (max-width: 991px) {</p>
+
+<pre>.mobileHide {display:none;}</pre>
+
+<p>}</p>
+
+<p>i {font-family: Tahoma;}</p>
+
+<p>a {color:#000 !important;} a:focus, a:hover {color:#ff6600 !important;}</p>
+
+<p>.WRorange {color:#ff6600;}</p>
+
+<p>:focus {</p>
+
+<pre>outline-color: #D95700 !important;
+outline-style: none;</pre>
+
+<p>}</p>
+
+<p>input:hover input:active, input:focus, textarea:active, textarea:hover,
+textarea:focus, button:focus, button:active, button:hover {</p>
+
+<pre>outline:0px !important;</pre>
+
+<p>} <a href="disabled">select</a> {</p>
+
+<pre>color: #bbb;</pre>
+
+<p>}</p>
+
+<p>h1.light, h3.light {</p>
+
+<pre>color:#fff;
+text-shadow: 2px 2px 4px #000;</pre>
+
+<p>}</p>
+
+<p>/* ADDING THIS TO CHANGE THE SELECT BOX COLOR */ select{</p>
+
+<pre>background: white !important;
+color:#FFF;
+text-shadow:0 1px 0 rgba(0,0,0,0.4);</pre>
+
+<p>} option:checked, select:checked, option:checked:hover, select:focus
+option:checked:hover, option:focus, option:active {</p>
+
+<pre>background-color: #D95700;
+color: #fff;</pre>
+
+<p>} checkbox:checked {</p>
+
+<pre>background-color: #D95700;
+color: #D95700;</pre>
+
+<p>} body {</p>
+
+<pre>margin: 0;
+padding-top:0px;</pre>
+
+<p>}</p>
+
+<p>.btn {width:auto;}</p>
+
+<p>.hideme {display:none;} .centerSignup
+{background-color:#ff6600;color:#fff;padding:2px;border-radius:10px;}
+.centerSignup:hover {background-color:#000;color:#fff;} .centerSignup a
+{color:#fff;} .WRfooter {</p>
+
+<pre>padding: 4rem 0;
+margin-top: 4rem;
+font-size: 85%;
+text-align: center;
+background-color: #bbb;</pre>
+
+<p>} .WRfooterLinks {</p>
+
+<pre>display: inline;
+padding-left: 0;
+margin-bottom: 1rem;
+list-style-type: none;</pre>
+
+<p>}</p>
+
+<p>/* STEP 1 STYLES */</p>
+
+<p>.probBanner {background-image:
+url(HomepageCar.png);background-position:center;}</p>
+
+<p>.vehSelect {</p>
+
+<pre>background: image-url(&#39;transparent.png&#39;);
+border:solid 1px black;
+height:auto;
+margin-top:25px;</pre>
+
+<p>}</p>
+
+<p>hr.vehicleHR {</p>
+
+<pre>border-top: 1px solid #000;
+text-align: center;</pre>
+
+<p>} hr.vehicleHR:after {</p>
+
+<pre>content: &#39;OR&#39;;
+display: inline-block;
+position: relative;
+top: -14px;
+padding: 0 10px;
+background: #333;
+color: #fff;
+font-size: 18px;
+border-radius: 8px;
+border:solid 1px #000</pre>
+
+<p>} .hideme {display:none;} .hideme2 {display:none;} .showme {display:block;}</p>
+
+<p>.iconpad {width:20px;} .iconpadLG {margin-right:10px;} .nav-tabs
+{border:0;}</p>
+
+<pre>.nav-tabs &gt; li.active &gt; a, .nav-tabs &gt; li.active &gt; a:focus, .nav-tabs &gt; li.active &gt; a:hover {border-width:0; background:#ff6600 !important;}
+.nav-tabs &gt; li &gt; a {border: none; color: #fff; background:#aaa;}
+    .nav-tabs &gt; li.active &gt; a, .nav-tabs &gt; li &gt; a:hover {border: none; color: #fff !important; background:#ff6600;}
+    .nav-tabs &gt; li &gt; a::after {content:&quot;&quot;; background:#aaa; height:2px; position:absolute; width:100%; left:0px; transition:all 250ms ease 0s; transform:scale(0);}
+.nav-tabs &gt; li.active &gt; a::after, .nav-tabs &gt; li:hover &gt; a::after { transform:scale(0); }</pre>
+
+<p>.tab-nav &gt; li &gt; a::after {background:#000 none repeat scroll 0% 0%;
+color:#fff;} .tab-pane {padding:2px 0;} .tab-content{padding:8px;
+height:auto;}</p>
+
+<p>.userRow {background-color:#ddd; line-height:auto;} .userText
+{vertical-align:middle;}</p>
+
+<p>.apptRow {height:auto; background-color:#ff6600;} .apptHead {padding:2px
+4px; background-color:#222; color:#fff;} .apptText {padding:2px 4px;
+color:#fff;}</p>
+
+<p>/* STEP 2 STYLES */ .getStarted {padding:20px;} .getStarted img
+{filter:invert(100%);} .tablink,
+{color:#000!important;text-decoration:none;padding:5px;font-size:22pt;width:60%;}
+.probRed
+{color:#fff!important;background-color:#ff6600!important;text-decoration:none;border-right:solid
+8px ff6600!important;} .probContainer {padding:0;margin:0;border:solid 2px
+#FF6600;height:590px;padding:0;} .probHeader
+{background:#eee;width:100%;padding:8px 0px 8px 15px;} .probSidenav
+{z-index:1;margin-bottom:20px;align:right;} .probSidenav a {padding:4px 0px
+4px
+0px;height:120px;text-decoration:none;color:#fff;margin-bottom:15px;background-color:#777;border-right:solid
+8px fff;} .probSidenav a:hover
+{background-color:#888;text-decoration:none;} .probSidenav a
+{display:block} .probSidenav span {font-size:45pt;} .probSidenav
+.w3-dropdown-hover:hover,.probSidenav
+.w3-dropdown-hover:first-child,.probSidenav
+.w3-dropdown-click:hover,.w3-dropnav
+a:hover{background-color:#ccc;color:#000} .propNavItem {width:80px;}
+img.warning:hover {filter: none;-webkit-filter: grayscale(0%);-moz-filter:
+grayscale(0%);-ms-filter: grayscale(0%);-o-filter:
+grayscale(0%);cursor:pointer;} img.warning {filter: none;-webkit-filter:
+grayscale(0%);-moz-filter: grayscale(0%);-ms-filter:
+grayscale(0%);-o-filter: grayscale(0%);cursor: pointer;transition: all
+100ms ease;} .warnDescribe {width:95%;} .dropt img {width:20%;
+height:auto;} span.dropt span {position: absolute; left: -9999px; top:
+450px; margin:0; padding: 5px; border:solid 1px #F26C1E;} span.dropt:hover
+{text-decoration: none; background: fff; z-index: 6;} span.dropt:hover span
+{margin: 20px 0 0 10px; left: 10px; background: fff; z-index: 6;} @media
+only screen and (max-width: 991px) {</p>
+
+<pre>.probSidenav {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+}
+.probSidenav {z-index:1;margin-bottom:0px;align:right;height:80px;}
+.probSidenav a{padding:0px 0px 2px 0px;height:80px;text-decoration:none;color:#fff;margin-bottom:0px;background-color:#777;border-bottom:solid 3px #fff;border-right:0px;}
+.probRed {color:#fff!important;background-color:#ff6600!important;text-decoration:none;border-bottom:solid 3px #ff6600!important;border-right:0px!important;}
+.probSidenav span {font-size:20pt;}
+.propNavItem {width:40px!important;margin-top:8px;}
+.probContainer {padding:0;margin:0;border:0px;height:auto;padding:0;}
+.dropt img {width:20%; height:auto;}
+.navbar-brand img {width:90%;height:auto;}</pre>
+
+<p>} @media only screen and (max-width: 768px) {</p>
+
+<pre>.navbar-collapse li a { background:#ff6600;color:#fff;}
+.navbar-collapse li a:hover { background:#D95700;color:#fff;}
+H2 {font-size:130%;}</pre>
+
+<p>} .probBanner
+{background-image:URL(&#39;../images/HomepageCar.png&#39;);background-position:center;}</p>
+
+<p>.carContain {border:solid 1px #000;margin-left:0;} .carHeader
+{background-color:#000;color:#fff;padding:10px;font-size:110%;} .carData
+{padding:15px;font-size:120%;}</p>
+
+<p>services input {border:none;background-color:white;} services b
+{cursor:pointer;text-transform:uppercase;} services b:hover
+{cursor:pointer;color:#ff6600;} servicesRows td {}</p>
+
+<p>commonTable button {margin-right:5px;}</p>
+
+<p>/* SERVICE CENTER STYLES */</p>
+
+<p>/* <a href="../../../Service.html">Service</a> Center Tabs styles */ main {</p>
+
+<pre>max-width: 100%;
+margin: 0 auto;
+background: #fff;</pre>
+
+<p>}</p>
+
+<p>div.inline {float:left;} ol { counter-reset: level1 } ol
+li.mapListNumber:before {background:#ff6600;font-size:16pt;border:solid 3px
+ff6600;color:white;text-align:center;border-radius:100%;padding:0px 5px 0px
+5px;height:35px;width:35px; content: counter(level1) “ ”;counter-increment:
+level1;} .mapListBidPrice {color:#ff6600;font-size:16pt;float:right;}
+.mapListCompany {font-size:13pt;font-weight:bold;} .mapListAppt
+{font-size:9pt;} .supersmall {color:black;font-size:10pt;} .boldHead div
+{font-weight:bold;} div .text-center {width:50px;} div .text-center button
+{width:45px;margin-bottom:5px;} .apptTime button
+{width:65px;margin-bottom:5px;margin-right:4px;float:left;}</p>
+
+<p>section {</p>
+
+<pre>display:none;
+padding:20px;
+min-height:400px;
+max-height:100%;
+border: solid 2px #ff6600;
+overflow:hidden;</pre>
+
+<p>}</p>
+
+<p>label.labelBG {</p>
+
+<pre>font-weight: normal;
+display: inline-block;
+margin: 0;
+padding: 15px 25px;
+text-align: center;
+color: #fff;
+background-color:#888;
+border-bottom: 3px solid #fff;</pre>
+
+<p>}</p>
+
+<p>label:before {</p>
+
+<pre>font-family: fontawesome;
+font-weight: normal;
+margin-right: 10px;</pre>
+
+<p>}</p>
+
+<p><a href="for*='1'">label</a>:before { content: &#39;f253&#39;; } <a
+href="for*='2'">label</a>:before { content: &#39;f005&#39;; } <a
+href="for*='3'">label</a>:before { content: &#39;f01c&#39;; } <a
+href="for*='4'">label</a>:before { content: &#39;f1b9&#39;; }</p>
+
+<p>label.labelBG:hover {</p>
+
+<pre>background-color: #999;
+cursor: pointer;</pre>
+
+<p>}</p>
+
+<p>input:checked + label {</p>
+
+<pre>color: #fff;
+background-color:#ff6600;
+border-bottom: 3px solid #ff6600;</pre>
+
+<p>}</p>
+
+<p>.appts {</p>
+
+<pre>background-color:#000;</pre>
+
+<p>}</p>
+
+<p>.appts:hover {</p>
+
+<pre>background-color: #000;
+cursor: pointer;</pre>
+
+<p>}</p>
+
+<p>input:checked + .appts {</p>
+
+<pre>color: #fff;
+background-color:#ff6600;
+border-bottom: 3px solid #ff6600;</pre>
+
+<p>}</p>
+
+<p>tab1:checked ~ content1, tab2:checked ~ content2, tab3:checked ~ content3,
+tab4:checked ~ content4 {</p>
+
+<pre>display: block;</pre>
+
+<p>}</p>
+
+<p>@media screen and (max-width: 750px) {</p>
+
+<pre>label {
+  font-size: 14px;
+}
+label:before {
+  margin: 0;
+  font-size: 18px;
+}</pre>
+
+<p>}</p>
+
+<p>@media screen and (max-width: 400px) {</p>
+
+<pre>label {
+  padding: 15px;
+}</pre>
+
+<p>}</p>
+
+<p>.btn-default:hover {background-color:#ff6600; color:#fff;}</p>
+
+<p>/* <a href="../../../Service.html">Service</a> Center Accordion styles */
+button.myaccordion {</p>
+
+<pre>background-color: #eee;
+color: #444;
+cursor: pointer;
+padding: 18px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 15px;
+transition: 0.4s;</pre>
+
+<p>}</p>
+
+<p>button.myaccordion:hover {</p>
+
+<pre>background-color: #777;
+color:#fff;</pre>
+
+<p>}</p>
+
+<p>button.myaccordion.active {</p>
+
+<pre>background-color: #000;
+color:#fff;</pre>
+
+<p>}</p>
+
+<p>button.myaccordion:after {</p>
+
+<pre>font-family: fontawesome;
+font-weight: normal;
+margin-right: 12px;
+content: &#39;\f0fe&#39;;
+color: #000;
+float: right;
+margin-left: 5px;</pre>
+
+<p>}</p>
+
+<p>button.myaccordion.active:after {</p>
+
+<pre>font-family: fontawesome;
+font-weight: normal;
+margin-right: 12px;
+content: &quot;\f146&quot;;
+color: #bbb;</pre>
+
+<p>}</p>
+
+<p>div.panel {</p>
+
+<pre>padding: 0 18px;
+background-color: white;
+max-height: 0;
+overflow: auto;
+transition: 0.6s ease-in-out;
+opacity: 0;</pre>
+
+<p>}</p>
+
+<p>div.panel.show {</p>
+
+<pre>opacity: 1;
+max-height: 300px;</pre>
+
+<p>}</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -150,7 +150,6 @@ hr.vehicleHR:after {
 .apptHead {padding:2px 4px; background-color:#222; color:#fff;}
 .apptText {padding:2px 4px; color:#fff;}
 
-
 /* STEP 2 STYLES */
 .getStarted {padding:20px;}
 .getStarted img {filter:invert(100%);}
@@ -168,7 +167,10 @@ hr.vehicleHR:after {
 img.warning:hover {filter: none;-webkit-filter: grayscale(0%);-moz-filter: grayscale(0%);-ms-filter: grayscale(0%);-o-filter: grayscale(0%);cursor:pointer;}
 img.warning {filter: none;-webkit-filter: grayscale(0%);-moz-filter: grayscale(0%);-ms-filter: grayscale(0%);-o-filter: grayscale(0%);cursor: pointer;transition: all 100ms ease;}
 .warnDescribe {width:95%;}
-
+.dropt img {width:20%; height:auto;}
+span.dropt span {position: absolute; left: -9999px; top: 450px; margin:0; padding: 5px; border:solid 1px #F26C1E;}
+span.dropt:hover {text-decoration: none; background: #fff; z-index: 6;}
+span.dropt:hover span {margin: 20px 0 0 10px; left: 10px; background: #fff; z-index: 6;}
 @media only screen and (max-width: 991px) {
   .probSidenav {
     -webkit-column-count: 3; /* Chrome, Safari, Opera */
@@ -189,12 +191,13 @@ img.warning {filter: none;-webkit-filter: grayscale(0%);-moz-filter: grayscale(0
   .navbar-collapse li a:hover { background:#D95700;color:#fff;}
   H2 {font-size:130%;}
 }
+.probBanner {background-image:URL('../images/HomepageCar.png');background-position:center;}
 
 .carContain {border:solid 1px #000;margin-left:0;}
 .carHeader {background-color:#000;color:#fff;padding:10px;font-size:110%;}
 .carData {padding:15px;font-size:120%;}
 
-#services input {border:none;}
+#services input {border:none;background-color:white;}
 #services b {cursor:pointer;text-transform:uppercase;}
 #services b:hover {cursor:pointer;color:#ff6600;}
 #servicesRows td {}
