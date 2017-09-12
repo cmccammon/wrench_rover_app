@@ -4,9 +4,9 @@
   <div class="col-md-12 col-sm-12">
     <h3> <%= @service_center.service_center_name %> Dashboard </h3>
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#mainNew">New Requests(<%= @requests.count %>)</a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids</a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
+      <li class="active"><a data-toggle="tab" href="#mainNew">New Requests(<%= @requests.count + @requests_noquotes.count %>)</a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids(<%= @service_center.quotes.count %>)</a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments(<%= @service_center.appointments.count %>)</a></li>
     </ul>
     <div class="tab-content" style="border:solid 2px #ff6600;">
       <div id="mainNew" class="tab-pane fade in active">

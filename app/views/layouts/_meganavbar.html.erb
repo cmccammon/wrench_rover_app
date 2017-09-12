@@ -4,7 +4,12 @@
   <div class="container">
     <div class="navbar-header">
       <ul class="nav navbar-nav navbar-left">
-      <a class="navbar-brand" href="#"><img src="images/WrenchRover_Logo_Web.png"></a>
+        <% if user_signed_in? %>
+          <%= link_to image_tag('WrenchRover_Logo_Web.png'), requests_path %>
+          <br/><%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to image_tag('WrenchRover_Logo_Web.png'), root_path %>
+        <% end %>
       </ul>
     </div>
     <div>

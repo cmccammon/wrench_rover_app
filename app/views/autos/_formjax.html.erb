@@ -21,7 +21,7 @@
 
         <div class="form-group row">
           <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-          <%= f.select(:year, options_for_select(@get_years), {}, {autofocus: 'true', class: "form-control"}) %>
+          <%= f.select :year, options_for_select(@get_years), {}, {autofocus: 'true', class: "form-control"} %>
           </div>
           <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
             <%= f.select(:make, ['Select Make'], {}, {class: "form-control"}) %>
@@ -55,7 +55,6 @@
           <div class="col-md-12 col-sm-12">
             <!-- If user.id is false, pop up sign in -->
             <%= f.submit 'START', class: 'btn btn-primary', id: "btn_id" %>
-
           </div>
         </div>
         </div>

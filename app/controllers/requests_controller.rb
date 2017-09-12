@@ -14,7 +14,6 @@ class RequestsController < ApplicationController
     def index
       @requests = current_user.requests.includes(:appointments).where( :appointments => {:request_id => nil} )
       @appointments = current_user.appointments
-      @user = current_user
     end
 
     # GET /requests/1
@@ -23,7 +22,6 @@ class RequestsController < ApplicationController
     # will also contain the comment form to create a new comment and show comments
     def show
       @request = Request.find(params[:id])
-      @user = current_user
       @appointment = Appointment.new
     end
 
@@ -37,8 +35,6 @@ class RequestsController < ApplicationController
     # form to create a new request
     def new
       @request = Request.new
-      @service_category = ServiceCategory.all
-
     end
 
     # GET /requests/1/edit
@@ -56,7 +52,6 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
       @request.user = current_user
       @request.auto = current_user.autos.last
-
       if @request.save
         redirect_to requests_path, notice: 'Request was successfully created.'
       else

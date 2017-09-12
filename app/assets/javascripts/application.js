@@ -16,6 +16,7 @@
 //= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
+//= require bootstrap-transition
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {

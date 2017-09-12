@@ -158,6 +158,19 @@
         </div>
         <div class="col-md-12 col-sm-12 carData">
         <!-- POPULATE WITH SELECTED SERVICES -->
+        <%= form_for(@request) do |f| %>
+        <% if @request.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@request.errors.count, "error") %>
+            prohibited this request from being saved:</h2>
+
+          <ul>
+            <% @request.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
   <form id="services" name="ServicesForm" class="form-inline" style="display:inline!important;">
   <table id="servicesRows">
   <!-- START COMMON SERVICES INPUTS-->
@@ -292,14 +305,15 @@
     <td valign="top"><b onclick="clearData('input060');hideClose.call(this)" id="input060close" class="hideme2">x</b></td>
   <tr>
   </table>
-
         </div>
       </div>
       <div class="row text-center">
         <div class="col-md-12 col-sm-12"><br>
-          <button class="btn btn-primary" href="#">NEXT STEP <span class="glyphicon glyphicon-play"></span></button
+          <button class="btn btn-primary" href="#">NEXT STEP <span> class="glyphicon glyphicon-play"></span></button>
         </div>
       </div>
+    </form>
+    <% end %>
     </div>
   </div>
 </div>

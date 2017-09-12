@@ -2,7 +2,7 @@
 	<!-- <div class="row userRow">
 		<div class="col-md-6 col-sm-6 userText">
 			<div style="float:left;padding:9px 0px;margin-right:15px;"><i class="fa fa-user fa-3x"></i></div>
-			<% u = @user %>
+			<% u = current_user %>
 			<div style="padding:12px 0px;"><b><%= u.first_name %> <%= u.last_name %></b><br>Member since <%= u.created_at.strftime('%Y')%></div>
 		</div>
 		<div class="col-md-6 col-sm-6 userText">
@@ -15,14 +15,14 @@
 <% if current_user.sign_in_count < 2 %>
 	<div class="row welcome">
 		<div class="col-md-12 col-sm-12">
-			<h1>Welcome back <%= @user.first_name %></h1>
+			<h1>Welcome back <%= current_user.first_name %></h1>
 			We value you as a customer and strive to deliver a solution that is right for you.<br><br>
 		</div>
 	</div>
 	<% else %>
 	  <div class="row">
 			<div class="col-md-12 col-sm-12">
-				<h1><%= @user.first_name %></h1>
+				<h1><%= current_user.first_name %></h1>
 				We value you as a customer and strive to deliver a solution that is right for you.<br><br>
 			</div>
 	  </div>
@@ -67,16 +67,16 @@
 			<div class="tab-content" style="border:solid 2px #ff6600;">
 				<div id="mainNew" class="tab-pane fade in active">
 					<div class="row">
-								<% if @user.quotes.empty? %>
+								<% if current_user.quotes.empty? %>
 						<div class="col-md-12 col-sm-12">
 							<p>No Quotes yet, but our dogs are finding the best services </p>
 						</div>
-								<% elsif @user.appointments.any? %>
+								<% elsif current_user.appointments.any? %>
 						<div class="col-md-12 col-sm-12">
 							<p>You have selected a quote, check your appointments </p>
 						</div>
 								<% else %>
-					<% @user.quotes.each do |q| %>
+					<% current_user.quotes.each do |q| %>
 							<%= link_to q.request do %>
 					<div class="col-md-12 col-sm-12">
 						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service.to_sentence %></b><br>
