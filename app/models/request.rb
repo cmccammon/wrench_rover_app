@@ -1,5 +1,4 @@
 class Request < ApplicationRecord
-
   belongs_to :user
   belongs_to :auto
   has_many :quotes, dependent: :destroy
