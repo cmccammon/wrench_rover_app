@@ -2,7 +2,12 @@
 <!-- Main page content -->
 <div class="row">
   <div class="col-md-12 col-sm-12">
-    <h3> <%= @service_center.service_center_name %> Dashboard </h3>
+        <h3> <%= @service_center.service_center_name %>'s personal dashboard <%= @service_center.id %> </h3>
+        <p>Member since <%= @service_center.created_at.strftime('%Y')%></p><br/>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 col-sm-12">
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#mainNew">New Requests(<%= @requests.count + @requests_noquotes.count %>)</a></li>
       <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids(<%= @service_center.quotes.count %>)</a></li>

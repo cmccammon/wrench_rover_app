@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new]
+  before_action :authenticate_service_center!, only: [:sc_dashboard, :add_quote]
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
     def sc_dashboard

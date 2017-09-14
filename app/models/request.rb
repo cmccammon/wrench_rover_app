@@ -6,7 +6,6 @@ class Request < ApplicationRecord
   has_many :request_services, dependent: :destroy
   has_many :appointments, through: :quotes
 
-
   validates :service, presence: true
 
   serialize :service
