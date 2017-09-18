@@ -34,9 +34,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #bootstrap-sass for rails
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 3.2'
+# Font Awesome!
+gem "font-awesome-rails"
 #datetime picker
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'

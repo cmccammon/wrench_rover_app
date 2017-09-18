@@ -2,17 +2,13 @@
 <html>
   <head>
     <title>WrenchRoverApp</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
-    <header class='container'>
-      <%= render 'layouts/meganavbar' %>
-    </header>
 
   <body>
-
+    <%= render 'layouts/meganavbar' %>
+  <main>
     <div class='container'>
       <div class='row'>
         <div class='m12'>
@@ -29,7 +25,7 @@
         </div>
       </div>
     </div>
-
+    </main>
     <footer class="WRfooter">
       <div class="container">
         <div class="row">
@@ -41,7 +37,7 @@
               <% if service_center_signed_in? %>
               <li><%= link_to "Service Center Sign out", destroy_service_center_session_path, method: :delete, :class => 'navbar-link'  %></li>
               <% elsif user_signed_in? %>
-              <li><%= link_to "Sign out", destroy_service_center_session_path, method: :delete, :class => 'navbar-link'  %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
               <% end %>
             </ul>
           </div>
@@ -54,7 +50,6 @@
       </div>
     </div>
     </footer>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
-
-
 </html>

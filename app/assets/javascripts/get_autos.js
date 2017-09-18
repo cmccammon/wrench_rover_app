@@ -80,19 +80,21 @@ $(document).on('turbolinks:load', function() {   
   });
 });
 
+$(document).on('turbolinks:load', function() {
 $('#autos').ready(function (){
     validate();
     $('#auto_make, #auto_model, #auto_trim').change(validate);
     console.log('#auto_trim');
 });
 
-function validate(){
-    if ($('#auto_make').val()   ==   "Select Make"   &&
-        $('#auto_model').val()  ==   "Select Model"   &&
-        $('#auto_trim').val()  ==   "Select Trim") {
-        $("input[type=submit]").prop("disabled", true);
-    }
-    else {
-        $("input[type=submit]").prop("disabled", false);
-    }
-}
+  function validate(){
+      if ($('#auto_make').val()   ==   "Select Make"   &&
+          $('#auto_model').val()  ==   "Select Model"   &&
+          $('#auto_trim').val()  ==   "Select Trim") {
+          $("input[type=submit]").prop("disabled", true);
+      }
+      else {
+          $("input[type=submit]").prop("disabled", false);
+      }
+  }
+});

@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @services = Service.all.order(created_at: :asc)
   end
 
   # GET /services/1
@@ -24,12 +24,10 @@ class ServicesController < ApplicationController
   # POST /services
   # POST /services.json
   def create
-    @service_category = ServiceCategory.find(params[:service_category_id])
-    @service = @service_category.services.create(service_params)
-
+    @service = Service.new(service_params)
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service_category, notice: 'Service was successfully created.' }
+        format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }

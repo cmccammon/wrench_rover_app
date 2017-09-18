@@ -5,26 +5,27 @@
     <div class="navbar-header">
       <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
-          <%= link_to image_tag('WrenchRover_Logo_Web.png'), requests_path %>
-          <br/><%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <%= link_to image_tag('WrenchRover_Logo_Web.png', class: 'img-responsive brand'), requests_path, class: 'navbar-brand navbar-left' %>
+          <br/>
         <% else %>
-          <%= link_to image_tag('WrenchRover_Logo_Web.png'), root_path %>
+          <%= link_to image_tag('WrenchRover_Logo_Web.png', class: 'img-responsive brand'), root_path, class: 'navbar-brand navbar-left' %>
         <% end %>
       </ul>
     </div>
     <div>
-      <ul class="nav navbar-nav navbar-right"><br>
+			<ul class="nav navbar-nav navbar-right">
 
 <!-- ACCOUNT DROPDOWN -->
 
-        <li class="dropdown-grid" style="background:#fff;">
-        <a href="javascript:void(0);" id="ddaccount" data-toggle="dropdown" class="dropdown-toggle" style="float:right;"><i class="fa fa-user fa-1x iconpad"></i><span class="hidden-xs">Sign In</span><span class="hidden-sm hidden-md hidden-lg">Dru</span><span class="caret"></span></a>
-        <div class="dropdown-grid-wrapper" role="menu">
-          <div class="dropdown-menu col-xs-12 col-sm-10 col-md-8 col-lg-7" style="border:0;">
-            <div id="carousel-example-account" class="carousel">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8">
-                  <div class="carousel-inner">
+				<li class="dropdown-grid" style="background:#fff;">
+				<a href="javascript:void(0);" id="ddaccount" data-toggle="dropdown" class="dropdown-toggle" style="float:right;"><i class="fa fa-user fa-1x iconpad"></i><span class="hidden-xs">Account</span><span class="caret"></span></a>
+				<div class="dropdown-grid-wrapper" role="menu">
+					<ul class="dropdown-menu col-xs-12 col-sm-10 col-md-8 col-lg-7" style="border:0;">
+						<li>
+						<div id="carousel-example-account" class="carousel">
+							<div class="row">
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<div class="carousel-inner">
 
 <!-- ######      FORGOT USERNAME CONTENT (ITEM 0)     ###### -->
 

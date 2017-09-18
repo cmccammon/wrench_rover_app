@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -23,6 +23,8 @@ $(document).on('turbolinks:load', function() {
     $('.notice').delay(3000).fadeOut();
   });
 
-$('text').change(function(){
-  $('#vehSubmit').removeAttr('disabled');
-  });
+
+  //to prevent unexpected top navigation menu close when using some components (like accordion, tabs, forms, etc)
+ $( window ).load(function() {
+     $(document).on('click', '.navbar .dropdown-menu', function(e) {e.stopPropagation();});
+ });
