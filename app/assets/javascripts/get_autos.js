@@ -89,9 +89,10 @@ $('#autos').ready(function (){
 
   function validate(){
       if ($('#auto_make').val()   ==   "Select Make"   &&
-          $('#auto_model').val()  ==   "Select Model"   &&
+          $('#auto_model').val()  ==   "Select Model"  &&
           $('#auto_trim').val()  ==   "Select Trim") {
           $("input[type=submit]").prop("disabled", true);
+          console.log('#auto_trim');
       }
       else {
           $("input[type=submit]").prop("disabled", false);

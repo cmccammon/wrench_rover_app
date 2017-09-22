@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 # devise routes
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   devise_for :service_centers, path: 'service_centers', controllers: { sessions: "service_centers/sessions", registrations: "service_centers/registrations" }
+
+#routes
   resources :appointments, only: [:create, :update, :destroy]
-  resources :request_services, only: [:create, :update, :destroy]
   resources :autos, only: [:new, :create]
+
 # nested routes
   resources :requests do
     resources :quotes
@@ -14,10 +16,11 @@ Rails.application.routes.draw do
       get "sc_dashboard" # generate  get "/requests/sc_dashboard"
     end
   end
-  resources :services
+  resources :services, only: [:index]
 
 # custom routes
   get '/requests/add_quote/:id', to: 'requests#add_quote', as: 'add_quote'
+
 # root
   root 'autos#new'
 

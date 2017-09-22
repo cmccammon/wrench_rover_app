@@ -11,6 +11,7 @@ function populateData(myInput,myValue,myClose) {
 document.getElementById(myInput).value = myValue;
 document.getElementById(myInput).className = "showme";
 document.getElementById(myClose).className = "showme";
+console.log(myValue);
 }
 function populateDescribeData(myInput,myClose) {
 myValue = document.getElementById('inputText060').value
@@ -24,7 +25,6 @@ document.getElementById(myInput).className = "hideme2";
 }
 
 
-// REMOVE THIS FUNCTIONALITY AND REPLACE WITH JSON CONTROLLER
 // HIGHLIGHT LEFT NAV CATEGORY SECTIONS & DISPLAYS ALL CONTENT FOR THAT SECTION
 function openProb(evt, tabName) {
   var i, x, tablinks;

@@ -15,6 +15,7 @@ class RequestServicesController < ApplicationController
   # GET /request_services/new
   def new
     @request_service = RequestService.new
+    @service = Service.all
   end
 
   # GET /request_services/1/edit
@@ -28,7 +29,7 @@ class RequestServicesController < ApplicationController
 
     respond_to do |format|
       if @request_service.save
-        format.html { redirect_to @request_service, notice: 'Request service was successfully created.' }
+        format.html { redirect_to requests_path, notice: 'Request service was successfully created.' }
         format.json { render :show, status: :created, location: @request_service }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class RequestServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_service_params
-      params.require(:request_service).permit(:service, :request_id)
+      params.require(:request_service).permit(:service_id, :request_id)
     end
 end

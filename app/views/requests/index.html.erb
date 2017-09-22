@@ -19,13 +19,6 @@
 			We value you as a customer and strive to deliver a solution that is right for you.<br><br>
 		</div>
 	</div>
-	<% else %>
-	  <div class="row">
-			<div class="col-md-12 col-sm-12">
-				<h1><%= current_user.first_name %></h1>
-				We value you as a customer and strive to deliver a solution that is right for you.<br><br>
-			</div>
-	  </div>
 	<% end %>
 <!--/////////////////// START NOTIFICATION ROW /////////////////////-->
 <% if @appointments.empty? %>
@@ -108,8 +101,9 @@
 				<% @requests.each do |r| %>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
-							<b><%= r.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= r.auto.year %> <%= r.auto.make %> <%= r.auto.model %></b> - Services: <%= r.service.to_sentence %></b><br>
-							Your comments: <i><%= r.description %></i><br>
+							<%= r.created_at.strftime("%m/%d/%y") %> <br/><b>Auto:</b> <%= r.auto.year %> <%= r.auto.make %> <%= r.auto.model %><br/>
+							<b>Services:</b> <%= r.service.compact.reject(&:empty?).to_sentence %><br>
+							<b>Your comments:</b> <i><%= r.description %></i><br>
 						</div>
 						<div class="col-md-6 col-sm-12">
 						<%= link_to 'Remove', r, method: :delete, class: "btn btn-default" %>
@@ -180,30 +174,3 @@
 		</div>
 	</div>
 </div>
-<!--///////////////// OLD CODE ////////////////////-->
-    <!-- <table class='table table-striped'>
-      <thead>
-        <tr>
-          <th>Email</td>
-          <th>Vehicle</td>
-          <th>Requests</th>
-          <th>description</th>
-          <th>Quotes</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @requests.each do |req| %>
-          <tr>
-            <td><%= req.user.email %></td>
-            <td><%= req.auto.year %> | <%= req.auto.model.capitalize %></td>
-            <td><%= link_to req.service.to_sentence, req %></td>
-            <td><%= req.description %></td>
-            <td><%= req.quotes.count %></td>
-            <td><%= link_to 'Add quote', add_quote_url(req) %></td>
-            <td><%= link_to 'Remove', req, method: :delete %></td>
-        <% end %>
-          <tr>
-      </tbody>
-      </table> -->

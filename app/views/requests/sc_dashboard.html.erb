@@ -32,7 +32,7 @@
                   <tr>
                     <td><%= req.created_at.strftime("%m-%d-%y") %></td>
                     <td><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %></td>
-                    <td><%= req.service.to_sentence %></td>
+                    <td><%= req.service %></td>
                     <td><%= req.description %></td>
                     <td><%= link_to 'Add quote', add_quote_url(req) %></td>
                 <% end %>

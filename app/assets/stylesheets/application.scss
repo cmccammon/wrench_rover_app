@@ -128,7 +128,11 @@ hr.vehicleHR:after {
 }
 .hideme {display:none;}
 .hideme2 {display:none;}
-.showme {display:block;}
+.showme {
+  display:block;
+  border:none;
+  resize: none;
+}
 
 .iconpad {width:20px;}
 .iconpadLG {margin-right:10px;}
