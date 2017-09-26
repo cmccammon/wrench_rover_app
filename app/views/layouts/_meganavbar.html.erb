@@ -12,15 +12,13 @@
         <% end %>
       </ul>
     </div>
+    <!-- ACCOUNT DROPDOWN -->
     <div>
 			<ul class="nav navbar-nav navbar-right">
-
-<!-- ACCOUNT DROPDOWN -->
-
 				<li class="dropdown-grid" style="background:#fff;">
-				<a href="javascript:void(0);" id="ddaccount" data-toggle="dropdown" class="dropdown-toggle" style="float:right;"><i class="fa fa-user fa-1x iconpad"></i><span class="hidden-xs">Account</span><span class="caret"></span></a>
+				<a href="javascript:void(0);" id="ddaccount" data-toggle="dropdown" class="dropdown-toggle" style="float:right;"><i class="fa fa-user fa-1x iconpad"></i><% if user_signed_in? %><span class="hidden-xs">Account</span><% else %><span class="hidden-xs">Sign in</span><% end %><span class="caret"></span></a>
 				<div class="dropdown-grid-wrapper" role="menu">
-					<ul class="dropdown-menu col-xs-12 col-sm-10 col-md-8 col-lg-7" style="border:0;">
+					<ul class="dropdown-menu col-xs-12 col-sm-10 col-md-8 col-lg-7" style="background:#e7e7e7;border:0;right:15px;">
 						<li>
 						<div id="carousel-example-account" class="carousel">
 							<div class="row">
@@ -28,8 +26,11 @@
 									<div class="carousel-inner">
 
 <!-- ######      FORGOT USERNAME CONTENT (ITEM 0)     ###### -->
-
+                  <% if user_signed_in? %>
                     <div class="item active">
+                  <% else %>
+                    <div class="item">
+                  <% end %>
                       <h3 class="text-right"><i class="fa fa-home iconpadLG"></i>Welcome back!</h3>
                       <div class="row">
                         <div class="col-md-6 col-sm-12 userText">
@@ -50,78 +51,99 @@
                     </div>
 
 <!-- ######      SIGN IN CONTENT (ITEM 1)     ###### -->
-
-                    <div class="item">
+                    <% unless user_signed_in? %>
+                      <div class="item active">
+                    <% else %>
+                      <div class="item">
+                    <% end %>
                       <h3 class="text-right"><i class="fa fa-lock iconpadLG"></i>Sign in</h3>
-                      <form class="form-horizontal" role="form">
-                        <div class="form-group">
+                    <%= form_for(:user, url: session_path(:user), html: { role: "form" }) do |f| %>
+
                           <div class="col-sm-10 col-xs-12" style="float:right;">
-                            <input class="input-sm form-control" id="inputEmail" placeholder="Email Address" />
+                            <div class="form-group">
+                         <%= f.text_field :email, :placeholder => "Email Address", class: "input-sm form-control" %>
                           </div>
                         </div>
-                        <div class="form-group">
+
                           <div class="col-sm-10 col-xs-12" style="float:right;">
-                            <input type="password" class="input-sm form-control" id="inputPassword" placeholder="Password" />
+                            <div class="form-group">
+                            <%= f.password_field :password, :placeholder => "Password", class: "input-sm form-control" %>
                           </div>
                         </div>
-                        <div class="form-group">
-                          <div class="col-sm-offset-3 col-sm-9">
-                            <button class="btn btn-default pull-right" type="submit"><i class="fa fa-unlock-alt"></i> Sign in</button>
-                            <p class="text-primary"><input type="checkbox">&nbsp;<small>I am a Service Center</small></p>
-                            <p class="text-primary" style="cursor: pointer;" data-target="#carousel-example-account" data-slide-to="4"><small><a href="javascript:void(0);">Forgot your password?</a></small></p>
+
+                          <div class="col-xs-6 col-md-6">
+                            <div class="form-group">
+                            <p class="text-primary pull-left" style="cursor: pointer;" data-target="#carousel-example-account" data-slide-to="4"><small><a href="javascript:void(0);">Forgot your password?</a></small></p></br>
+                            <span class="text-primary pull-left" data-target="#carousel-example-account" data-slide-to="7">
+                              <button class="btn btn-default" type="button"><i class="fa fa-automobile"></i> Service Center Sign In</button>
+                            </span>
                           </div>
                         </div>
-                      </form>
-                    </div>
+                          <div class="col-xs-6 col-md-6" style="margin-top:30px;">
+                            <div class="form-group">
+                          <%= button_tag(type: "submit", class: "btn btn-default pull-right") do %>
+                              <span><i class="fa fa-lock iconpadSM"></i> Sign in</span>
+                            <% end %>
+                          </div>
+                        </div>
+                        <% end %>
+                      </div>
 
 <!-- ######      CREATE NEW ACCOUNT  CONTENT  (ITEM 2)     ###### -->
 
                     <div class="item">
                       <h3 class="text-right"><i class="fa fa-user iconpadLG"></i>Create new account</h3>
                       <div class="row">
-                        <form role="form">
+                          <%= form_for(:user, url: registration_path(:user), html: { role: "form" }) do |f| %>
                           <div class="col-xs-8 col-md-6 ">
                             <div class="form-group">
-                              <input type="text" class="input-sm form-control" id="inputName" name="inputName" placeholder="Your Name" />
+                              <%= f.text_field :first_name, :placeholder => "First name", class: "input-sm form-control" %>
+                            </div>
+                          </div>
+                          <div class="col-xs-8 col-md-6 ">
+                            <div class="form-group">
+                              <%= f.text_field :last_name, :placeholder => "Last name", class: "input-sm form-control" %>
                             </div>
                           </div>
                           <div class="col-xs-4 col-md-6 ">
                             <div class="form-group">
-                              <input type="number" class="input-sm form-control" id="inputEmail" name="inputEmail" placeholder="Zip Code" />
+                              <%= f.text_field :zipcode, :placeholder => "Zip Code", class: "input-sm form-control" %>
                             </div>
                           </div>
                           <div class="col-xs-12 col-md-6">
                             <div class="form-group">
-                              <input type="password" class="input-sm form-control" id="inputSubject" name="inputSubject" placeholder="Choose Password" />
+                              <%= f.email_field :email, placeholder: "Your Email", class: "input-sm form-control" %>
                             </div>
                           </div>
                           <div class="col-xs-12 col-md-6">
                             <div class="form-group">
-                              <input type="password" class="input-sm form-control" id="inputSubject" name="inputSubject" placeholder="Confirm Password" />
+                              <%= f.password_field :password, placeholder: "Password", class: "input-sm form-control" %>
                             </div>
                           </div>
-                          <div class="col-xs-12 col-md-12">
+                          <div class="col-xs-12 col-md-6">
                             <div class="form-group">
-                              <input type="email" class="input-sm form-control" id="inputSubject" name="inputSubject" placeholder="Your Email" />
+                              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation", class: "input-sm form-control" %>
                             </div>
                           </div>
-                          <div class="col-xs-6 col-md-6">
-                            <div class="form-group">
-                              <center><span class="text-primary" data-target="#carousel-example-account" data-slide-to="5">
-                                <button class="btn btn-default pull-right" type="button"><i class="fa fa-automobile"></i> I am a Service Center</button>
-                              </span></center>
-                            </div>
+                          <div class="col-xs-6 col-md-6" style="margin-top:39px;">
+                          <div class="form-group">
+                            <center><span class="text-primary" data-target="#carousel-example-account" data-slide-to="5">
+                              <button class="btn btn-default pull-left" type="button"><i class="fa fa-automobile"></i> I am a Service Center</button>
+                            </span></center>
+                          </div>
+                          <% end %>
                           </div>
                           <div class="col-xs-6 col-md-6">
                             <div class="form-group">
                               <div class="pull-right">
                                 <input type="checkbox"><small> I agree to the <a href="#">terms of service</a></small><br><br>
+                                <%= button_tag(type: "submit", class: "btn btn-default pull-right") do %>
+                                  <span><i class="fa fa-lock iconpadSM"></i> Create your account</span>
+                                <% end %>
                               </div>
-                              <button class="btn btn-default pull-right" type="submit"><i class="fa fa-save"></i> Create your account</button>
                             </div>
                           </div>
-                        </form>
-                      </div><br />
+                      </div>
                     </div>
 
 <!-- ######      FORGOT USERNAME CONTENT (ITEM 3)    ###### -->
@@ -314,11 +336,38 @@
                           </form>
                         </div>
                       </div>
-                    </div>
 
+
+<!-- ######      CONTACT US CONTENT  (ITEM 7)    ###### -->
+
+                    <div class="item">
+                    <h3 class="text-right"><i class="fa fa-lock iconpadLG"></i>Service Center Sign In</h3>
+                  <%= form_for(:service_center, url: session_path(:service_center), html: { class: "form-horizontal", role: "form" }) do |f| %>
+                      <div class="form-group">
+                        <div class="col-sm-10 col-xs-12" style="float:right;">
+                       <%= f.text_field :email, :placeholder => "Email Address", class: "input-sm form-control" %>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-10 col-xs-12" style="float:right;">
+                          <%= f.password_field :password, :placeholder => "Password", class: "input-sm form-control" %>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                          <p class="text-primary pull-left" style="cursor: pointer;" data-target="#carousel-example-account" data-slide-to="4"><small><a href="javascript:void(0);">Forgot your password?</a></small></p>
+                          <%= button_tag(type: "submit", class: "btn btn-default pull-right") do %>
+                            <span><i class="fa fa-lock iconpadSM"></i> Sign in</span>
+                          <% end %>
+                        </div>
+                      </div>
+                      <% end %>
+                  </div>
+                </div>
 <!-- ######      RIGHT SIDE DROPDOWN LINKS    ###### -->
 
                   </div>
+                  <% if user_signed_in? %>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <ol class="carousel-indicators navbar-carousel-indicators">
                       <li data-target="#carousel-example-account" data-slide-to="0" class="active">
@@ -327,6 +376,14 @@
                       <li data-target="#carousel-example-account">
                         <a href="#"><span class="WRorange"><i class="fa fa-dashboard iconpad"></i>Your Dashboard</span><span class="desc reverse hidden-xs">Review your requests and more!</span></a>
                       </li>
+                      <li data-target="#carousel-example-account" data-slide-to="6">
+                        <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-envelope iconpad"></i>Contact us</span><span class="desc reverse hidden-xs">If you have any questions ...</span></a>
+                      </li>
+                    </ol>
+                  </div>
+                  <% else %>
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <ol class="carousel-indicators navbar-carousel-indicators">
                       <li data-target="#carousel-example-account" data-slide-to="1">
                         <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-lock iconpad"></i>Sign In</span><span class="desc reverse hidden-xs">Gain account access</span></a>
                       </li>
@@ -338,10 +395,11 @@
                       </li>
                     </ol>
                   </div>
+                  <% end %>
                 </div>
               </div>
-
           </div>
+        </ul>
         </div>
       </li>
     </ul>
