@@ -9,15 +9,16 @@
 <div class="row">
   <div class="col-md-12 col-sm-12">
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#mainNew">New Requests(<%= @requests.count + @requests_noquotes.count %>)</a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids(<%= @service_center.quotes.count %>)</a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments(<%= @service_center.appointments.count %>)</a></li>
+      <li class="active"><a data-toggle="tab" href="#mainNew">New Requests <%= @requests.count + @requests_noquotes.count %> </a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids <%= @service_center.quotes.count %></a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments <%= @service_center.appointments.count %></a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainCompleted">Completed</a></li>
     </ul>
     <div class="tab-content" style="border:solid 2px #ff6600;">
       <div id="mainNew" class="tab-pane fade in active">
         <div class="row">
           <div class="col-md-12 col-sm-12">
-            <table class='table table-striped'>
+            <table class='table table-hover'>
               <thead>
                 <tr>
                   <th>Date</th>
@@ -53,7 +54,7 @@
       <div id="mainPending" class="tab-pane fade">
         <div class="row">
           <div class="col-md-12 col-sm-12">
-            <table class='table table-striped'>
+            <table class='table table-hover'>
               <thead class="thead-default">
                 <tr>
                   <th>Date</th>
@@ -89,7 +90,7 @@
         <% else %>
         <div class="row">
           <div class="col-md-12 col-sm-12">
-            <table class='table table-striped'>
+            <table class='table table-hover'>
               <thead class="thead-default">
                 <tr>
                   <th>Appointment Date</th>
@@ -114,13 +115,35 @@
           </table>
           </div>
         </div>
-
         <% end %>
     </div>
-  </div>
-<!--/////////////////// START YOUR LOCATION COLUMN /////////////////////-->
-    <div class="col-md-4 col-sm-12">
-      <br>
+
+  <div id="mainCompleted" class="tab-pane fade">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <table class='table table-hover'>
+          <thead class="thead-default">
+            <tr>
+              <th>Completed Date</th>
+              <th>Vehicle</th>
+              <th>Request</th>
+              <th>cost</th>
+              <th>Email sent</th>
+            </tr>
+          </thead>
+          <tbody>
+          <%  @service_center.quotes.each do |q| %>
+          <tr>
+            <td><%= q.request.updated_at.strftime("%m-%d-%y") %></td>
+            <td><%= q.request.auto.year %> <%= q.request.auto.make.capitalize %> <%= q.request.auto.model.capitalize %></td>
+            <td><%= q.request.service.to_sentence %></td>
+            <td><%= q.cost %></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
     </div>
   </div>
-</div>
+  </div>

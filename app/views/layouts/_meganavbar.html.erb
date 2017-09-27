@@ -28,44 +28,42 @@
 <!-- ######      FORGOT USERNAME CONTENT (ITEM 0)     ###### -->
                   <% if user_signed_in? %>
                     <div class="item active">
-                  <% else %>
-                    <div class="item">
-                  <% end %>
+                      <% if current_user.last_sign_in_at > 12.hours.ago %>
                       <h3 class="text-right"><i class="fa fa-home iconpadLG"></i>Welcome back!</h3>
+                      <% else %>
+                      <h3 class="text-right"><i class="fa fa-home iconpadLG"></i>Welcome!</h3>
+                      <% end %>
                       <div class="row">
                         <div class="col-md-6 col-sm-12 userText">
                           <h4 class="hidden-xs">Your Profile<br></h4>
                           <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-user fa-3x"></i></div>
-                          <div style="padding:0px 0px;"><b>Dru Delong</b><br>Member since 2016</div>
+                          <div style="padding:0px 0px;"><b><%= current_user.first_name %></b><br>Member since <%= current_user.created_at.strftime('%Y')%></div>
                           <br>
                           <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-car fa-3x"></i></div>
-                          <div style="padding:0px 0px;"><b>2008 Saturn Sky</b><br>Redline 2dr 4cyl</div>
-                        </div>
-                        <div class="col-md-6 col-sm-12 hidden-xs">
-                          <div style="padding:0px 0px;margin-right:0px;">
-                            <h4>Your Location</h4>
-                            <img src="https://mailinglists.com/sites/default/files/GoogleMap2_small.gif" style="width:200px;">
-                          </div>
+                          <% if current_user.autos.any? %>
+                          <div style="padding:0px 0px;"><b><%= current_user.autos.last.year %> <%= current_user.autos.last.make %> <%= current_user.autos.last.model %></b><br><%= current_user.autos.last.trim.truncate(27, separator: ' ') %></div>
+                          <% end %>
                         </div>
                       </div>
                     </div>
+                    <% else %>
+                      <div class="item">
+                      </div>
+                    <% end %>
 
 <!-- ######      SIGN IN CONTENT (ITEM 1)     ###### -->
                     <% unless user_signed_in? %>
                       <div class="item active">
-                    <% else %>
-                      <div class="item">
-                    <% end %>
                       <h3 class="text-right"><i class="fa fa-lock iconpadLG"></i>Sign in</h3>
-                    <%= form_for(:user, url: session_path(:user), html: { role: "form" }) do |f| %>
-
-                          <div class="col-sm-10 col-xs-12" style="float:right;">
-                            <div class="form-group">
+                      <div class="row">
+                  <%= form_for(:user, url: session_path(:user), html: { role: "form" }) do |f| %>
+                        <div class="col-sm-10 col-md-12">
+                          <div class="form-group">
                          <%= f.text_field :email, :placeholder => "Email Address", class: "input-sm form-control" %>
                           </div>
                         </div>
 
-                          <div class="col-sm-10 col-xs-12" style="float:right;">
+                          <div class="col-sm-10 col-md-12">
                             <div class="form-group">
                             <%= f.password_field :password, :placeholder => "Password", class: "input-sm form-control" %>
                           </div>
@@ -88,6 +86,12 @@
                         </div>
                         <% end %>
                       </div>
+                    </div>
+                    <% else %>
+                    <div class="item">
+
+                    </div>
+                    <% end %>
 
 <!-- ######      CREATE NEW ACCOUNT  CONTENT  (ITEM 2)     ###### -->
 
@@ -340,16 +344,16 @@
 
 <!-- ######      CONTACT US CONTENT  (ITEM 7)    ###### -->
 
-                    <div class="item">
+                  <div class="item">
                     <h3 class="text-right"><i class="fa fa-lock iconpadLG"></i>Service Center Sign In</h3>
-                  <%= form_for(:service_center, url: session_path(:service_center), html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <%= form_for(:service_center, url: session_path(:service_center), html: { class: "form-horizontal", role: "form" }) do |f| %>
                       <div class="form-group">
-                        <div class="col-sm-10 col-xs-12" style="float:right;">
+                        <div class="col-sm-10 col-md-12">
                        <%= f.text_field :email, :placeholder => "Email Address", class: "input-sm form-control" %>
                         </div>
                       </div>
                       <div class="form-group">
-                        <div class="col-sm-10 col-xs-12" style="float:right;">
+                        <div class="col-sm-10 col-md-12">
                           <%= f.password_field :password, :placeholder => "Password", class: "input-sm form-control" %>
                         </div>
                       </div>
@@ -374,7 +378,9 @@
                         <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-user iconpad" style=""></i>Your Profile</span><span class="desc reverse hidden-xs">Show profile information</span></a>
                       </li>
                       <li data-target="#carousel-example-account">
-                        <a href="#"><span class="WRorange"><i class="fa fa-dashboard iconpad"></i>Your Dashboard</span><span class="desc reverse hidden-xs">Review your requests and more!</span></a>
+                        <%= link_to requests_path do %>
+                        <span class="WRorange"><i class="fa fa-dashboard iconpad"></i>Your Dashboard</span><span class="desc reverse hidden-xs">Review your requests and more!</span>
+                        <% end %>
                       </li>
                       <li data-target="#carousel-example-account" data-slide-to="6">
                         <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-envelope iconpad"></i>Contact us</span><span class="desc reverse hidden-xs">If you have any questions ...</span></a>
