@@ -9,4 +9,9 @@ class Request < ApplicationRecord
   serialize :service
 
   validates_associated :quotes
+
+  def display_sentence
+    self.compact.reject(&:empty?).to_sentence
+  end
+  
 end

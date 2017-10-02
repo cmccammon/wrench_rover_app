@@ -25,7 +25,7 @@
 								<div class="col-lg-8 col-md-8 col-sm-8">
 									<div class="carousel-inner">
 
-<!-- ######      FORGOT USERNAME CONTENT (ITEM 0)     ###### -->
+<!-- ######      DEFAULT CONTENT (ITEM 0)     ###### -->
                   <% if user_signed_in? %>
                     <div class="item active">
                       <% if current_user.last_sign_in_at > 12.hours.ago %>
@@ -34,25 +34,45 @@
                       <h3 class="text-right"><i class="fa fa-home iconpadLG"></i>Welcome!</h3>
                       <% end %>
                       <div class="row">
-                        <div class="col-md-6 col-sm-12 userText">
-                          <h4 class="hidden-xs">Your Profile<br></h4>
-                          <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-user fa-3x"></i></div>
-                          <div style="padding:0px 0px;"><b><%= current_user.first_name %></b><br>Member since <%= current_user.created_at.strftime('%Y')%></div>
-                          <br>
-                          <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-car fa-3x"></i></div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 userText">
+                          <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-user fa-3x"></i>
+                          </div>
+                          <div style="padding:0px 0px;"><b><%= current_user.first_name %></b><br>Member since <%= current_user.created_at.strftime('%Y')%>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 userText">
+                          <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-car fa-3x"></i>
+                          </div>
                           <% if current_user.autos.any? %>
-                          <div style="padding:0px 0px;"><b><%= current_user.autos.last.year %> <%= current_user.autos.last.make %> <%= current_user.autos.last.model %></b><br><%= current_user.autos.last.trim.truncate(27, separator: ' ') %></div>
+                          <div style="padding:0px 0px;"><b><%= current_user.autos.last.year %> <%= current_user.autos.last.make %> <%= current_user.autos.last.model %></b><br><%= current_user.autos.last.trim.truncate(27, separator: ' ') %>
+                          </div>
+                        </div>
                           <% end %>
+                        </div>
+                      </div>
+
+                    <% elsif service_center_signed_in? %>
+                    <div class="item active">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                      <% if current_service_center.last_sign_in_at > 12.hours.ago %>
+                      <h3><i class="fa fa-home iconpadLG"></i>Welcome back!</h3>
+                      <% else %>
+                      <h3><i class="fa fa-home iconpadLG"></i>Welcome!</h3>
+                      <% end %><br>
+                          <div><i class="fa fa-user fa-3x"></i></div>
+                          <div><b><%= current_service_center.service_center_name %></b><br><%= current_service_center.first_name %> <%= current_service_center.last_name %><br>Member since <%= current_service_center.created_at.strftime('%Y')%></div>
                         </div>
                       </div>
                     </div>
                     <% else %>
-                      <div class="item">
-                      </div>
+                    <div class="item">
+
+                    </div>
                     <% end %>
 
 <!-- ######      SIGN IN CONTENT (ITEM 1)     ###### -->
-                    <% unless user_signed_in? %>
+                    <% unless user_signed_in? || service_center_signed_in? %>
                       <div class="item active">
                       <h3 class="text-right"><i class="fa fa-lock iconpadLG"></i>Sign in</h3>
                       <div class="row">
@@ -384,6 +404,32 @@
                       </li>
                       <li data-target="#carousel-example-account" data-slide-to="6">
                         <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-envelope iconpad"></i>Contact us</span><span class="desc reverse hidden-xs">If you have any questions ...</span></a>
+                      </li><br>
+                      <li data-target="#carousel-example-account">
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                      <span class="WRorange"><i class="fa fa-sign-out iconpad"></i>Sign out</span>
+                      <% end %>
+                      </li>
+                    </ol>
+                  </div>
+                  <% elsif service_center_signed_in? %>
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <ol class="carousel-indicators navbar-carousel-indicators">
+                      <li data-target="#carousel-example-account" data-slide-to="0" class="active">
+                        <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-user iconpad" style=""></i>Your Profile</span><span class="desc reverse hidden-xs">Show profile information</span></a>
+                      </li>
+                      <li data-target="#carousel-example-account">
+                        <%= link_to sc_dashboard_requests_path do %>
+                        <span class="WRorange"><i class="fa fa-dashboard iconpad"></i>Your Dashboard</span><span class="desc reverse hidden-xs">Add Quotes and more!</span>
+                        <% end %>
+                      </li>
+                      <li data-target="#carousel-example-account" data-slide-to="6">
+                        <a href="javascript:void(0);"><span class="WRorange"><i class="fa fa-envelope iconpad"></i>Contact us</span><span class="desc reverse hidden-xs">If you have any questions ...</span></a>
+                      </li><br>
+                      <li data-target="#carousel-example-account">
+                      <%= link_to destroy_service_center_session_path, method: :delete do %>
+                      <span class="WRorange"><i class="fa fa-sign-out"></i>Sign out</span>
+                      <% end %>
                       </li>
                     </ol>
                   </div>

@@ -41,7 +41,7 @@
 		</div>
 		<div class="col-md-3 col-sm-12" style="padding:0;">
 			<div class="apptHead">Services</div>
-				<div class="apptText"><%= a.request.service.to_sentence if a.request.service %></div>
+				<div class="apptText"><%= a.request.service.compact.reject(&:empty?).to_sentence if a.request.service %></div>
 		</div>
 		<% end %>
 	</div>
@@ -72,7 +72,7 @@
 					<% current_user.quotes.each do |q| %>
 							<%= link_to q.request do %>
 					<div class="col-md-12 col-sm-12">
-						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service.to_sentence %></b><br>
+						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service %></b><br>
 						Your comments: <i><%= q.request.description %></i><br>
 						Service Notes: <i>"We will inspect the discs and pads thoroughly"</i>
 					<div class="row">
@@ -94,7 +94,7 @@
 					<% if @requests.blank? %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<p>Go create a new requests</p>
+							<p>Go create a new <%= link_to 'request', new_request_path %>!</p>
 						</div>
 					</div>
 					<% else %>
@@ -123,7 +123,7 @@
 				<% @appointments.each do |a| %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-						<b><%= a.selected_appointment %> - <%= a.request.service.to_sentence %></b><br>
+						<b><%= a.selected_appointment %> - <%= a.request.service.compact.reject(&:empty?).to_sentence %></b><br>
 						Your comments: <i><%= a.request.description %></i><br>
 						Service Notes: <i><%= a.quote.comment %></i>
 						</div>
@@ -167,10 +167,6 @@
 						</div>
 					</div>
 			</div>
-		</div>
-<!--/////////////////// START YOUR LOCATION COLUMN /////////////////////-->
-		<div class="col-md-4 col-sm-12">
-			<br>
 		</div>
 	</div>
 </div>

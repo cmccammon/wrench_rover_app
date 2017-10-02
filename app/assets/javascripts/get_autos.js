@@ -84,7 +84,6 @@ $(document).on('turbolinks:load', function() {
 $('#autos').ready(function (){
     validate();
     $('#auto_make, #auto_model, #auto_trim').change(validate);
-    console.log('#auto_trim');
 });
 
   function validate(){
