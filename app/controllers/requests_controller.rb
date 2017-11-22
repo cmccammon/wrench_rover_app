@@ -5,7 +5,9 @@ class RequestsController < ApplicationController
 
     def sc_dashboard
       @requests_noquotes = Request.includes(:quotes).where( quotes: { id: nil } ).order(created_at: :desc)
-      @requests = Request.includes(:quotes).where.not( quotes: { service_center_id: current_service_center.id } ).order(created_at: :desc)
+      @requests = Request.where.not( id: Request.joins(:quotes).where(quotes: { service_center_id: current_service_center.id }).select(:id) )
+
+
       @service_center = current_service_center
     end
 
@@ -84,6 +86,8 @@ class RequestsController < ApplicationController
         format.json { head :no_content }
       end
     end
+
+
 
 private
   # Use callbacks to share common setup or constraints between actions.

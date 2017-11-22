@@ -50,14 +50,15 @@
 <!--/////////////////// START MAINTENANCE LISTINGS COLUMN /////////////////////-->
 	<div class="row">
 		<div class="col-md-12 col-sm-12">
-			<h3>Your Maintenance</h3>
+			<h3>Your Maintenance Requests</h3>
 			<ul class="nav nav-tabs">
 			  <li class="active"><a data-toggle="tab" href="#mainNew">Quotes</a></li>
-				<li class="inactive"><a data-toggle="tab" href="#mainRequests">Open Requests</a></li>
+				<li class="inactive"><a data-toggle="tab" href="#mainRequests">Open</a></li>
 			  <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
-			  <li class="inactive"><a data-toggle="tab" href="#mainHistory">Past work</a></li>
+			  <li class="inactive"><a data-toggle="tab" href="#mainHistory">Past</a></li>
 			</ul>
-			<div class="tab-content" style="border:solid 2px #ff6600;">
+			<div class="tab-content" style="border:solid 2px #ff6600; min-height: 350px;
+    overflow: scroll;">
 				<div id="mainNew" class="tab-pane fade in active">
 					<div class="row">
 								<% if current_user.quotes.empty? %>
@@ -72,9 +73,9 @@
 					<% current_user.quotes.each do |q| %>
 							<%= link_to q.request do %>
 					<div class="col-md-12 col-sm-12">
-						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service %></b><br>
+						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service.compact.reject(&:empty?).to_sentence %></b><br>
 						Your comments: <i><%= q.request.description %></i><br>
-						Service Notes: <i>"We will inspect the discs and pads thoroughly"</i>
+						Service Notes: <i><%= q.comment %></i>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 						Service Center: <b><%= q.service_center.service_center_name %></b>

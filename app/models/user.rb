@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
 
   has_many :autos
-  has_many :requests, through: :autos
+  has_many :requests
   has_many :quotes, through: :requests
   has_many :appointments, through: :quotes
 

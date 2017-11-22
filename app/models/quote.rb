@@ -1,6 +1,7 @@
 class Quote < ApplicationRecord
   belongs_to :request
   belongs_to :service_center
+
   has_one :appointment, dependent: :destroy
 
   validates :cost, presence: true

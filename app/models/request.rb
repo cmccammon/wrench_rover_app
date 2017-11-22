@@ -10,8 +10,13 @@ class Request < ApplicationRecord
 
   validates_associated :quotes
 
-  def display_sentence
-    self.compact.reject(&:empty?).to_sentence
+  def self.display_as_sentence
+    compact.reject(&:empty?).to_sentence
   end
-  
+
+  def self.with_no_quotes_by(service_center)
+  joins(:quotes).
+    where.not(quotes: { service_center_id: service_center.id })
+  end
+
 end

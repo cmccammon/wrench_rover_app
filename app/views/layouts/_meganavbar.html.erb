@@ -16,7 +16,7 @@
     <div>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown-grid" style="background:#fff;">
-				<a href="javascript:void(0);" id="ddaccount" data-toggle="dropdown" class="dropdown-toggle" style="float:right;"><i class="fa fa-user fa-1x iconpad"></i><% if user_signed_in? %><span class="hidden-xs">Account</span><% else %><span class="hidden-xs">Sign in</span><% end %><span class="caret"></span></a>
+				<a href="javascript:void(0);" id="ddaccount" data-toggle="dropdown" class="dropdown-toggle" style="float:right;"><i class="fa fa-user fa-1x iconpad"></i><% if user_signed_in? || service_center_signed_in? %><span class="hidden-xs">Account</span><% else %><span class="hidden-xs">Sign in</span><% end %><span class="caret"></span></a>
 				<div class="dropdown-grid-wrapper" role="menu">
 					<ul class="dropdown-menu col-xs-12 col-sm-10 col-md-8 col-lg-7" style="background:#e7e7e7;border:0;right:15px;">
 						<li>
@@ -149,24 +149,24 @@
                               <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation", class: "input-sm form-control" %>
                             </div>
                           </div>
-                          <div class="col-xs-6 col-md-6" style="margin-top:39px;">
+                        <div class="col-xs-6 col-md-6" style="margin-top:39px;">
                           <div class="form-group">
                             <center><span class="text-primary" data-target="#carousel-example-account" data-slide-to="5">
                               <button class="btn btn-default pull-left" type="button"><i class="fa fa-automobile"></i> I am a Service Center</button>
                             </span></center>
                           </div>
-                          <% end %>
-                          </div>
+                        </div>
                           <div class="col-xs-6 col-md-6">
                             <div class="form-group">
                               <div class="pull-right">
                                 <input type="checkbox"><small> I agree to the <a href="#">terms of service</a></small><br><br>
                                 <%= button_tag(type: "submit", class: "btn btn-default pull-right") do %>
-                                  <span><i class="fa fa-lock iconpadSM"></i> Create your account</span>
-                                <% end %>
-                              </div>
+                                    <span><i class="fa fa-lock iconpadSM"></i> Sign up!</span>
+                                  <% end %>
+                                </div>
                             </div>
                           </div>
+                        <% end %>
                       </div>
                     </div>
 

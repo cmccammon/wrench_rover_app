@@ -1,6 +1,6 @@
 <div>
 <strong>Service Request:</strong><br/>
-  <%= @request.service.to_sentence%></p>
+  <%= @request.service.compact.reject(&:empty?).to_sentence %></p>
 <strong>Description:</strong><br/>
   <%= @request.description %></p>
 <strong>Auto:</strong><br/>
