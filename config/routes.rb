@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :appointments, only: [:create, :update, :destroy]
   resources :autos, only: [:new, :create]
 
+  match '/requests/complete/:id' => 'requests#complete', as: 'complete_request', via: :put
+
 # nested routes
   resources :requests do
     resources :quotes

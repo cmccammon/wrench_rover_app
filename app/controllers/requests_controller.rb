@@ -6,11 +6,17 @@ class RequestsController < ApplicationController
     def sc_dashboard
       @requests_noquotes = Request.includes(:quotes).where( quotes: { id: nil } ).order(created_at: :desc)
       @requests = Request.where.not( id: Request.joins(:quotes).where(quotes: { service_center_id: current_service_center.id }).select(:id) )
-
-
       @service_center = current_service_center
+      @service_center_appointments = current_service_center.appointments
+
     end
 
+    def complete
+      @request = Request.find(params[:id])
+      @request.completed = true
+      @request.save
+      redirect_to sc_dashboard_requests_path
+    end
     # GET /requests
     # requests/index.html.erb
     # displays all requests

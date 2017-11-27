@@ -12,7 +12,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#mainNew">New Requests <span class="badge"><%= @requests.count %><span></a></li>
       <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids <span class="badge"><%= @service_center.quotes.count %></span></a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments <span class="badge"><%= @service_center.appointments.count %></span></a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
       <li class="inactive"><a data-toggle="tab" href="#mainCompleted">Completed</a></li>
     </ul>
     <div class="tab-content" style="border:solid 2px #ff6600;min-height: 350px;
@@ -95,14 +95,17 @@
                 </tr>
               </thead>
               <tbody>
-              <%  @service_center.appointments.each do |a| %>
-              <tr>
-                <td><%= a.selected_appointment %></td>
-                <td><%= a.request.auto.year %> <%= a.request.auto.make.capitalize %> <%= a.request.auto.model.capitalize %></td>
-                <td><%= a.request.service.compact.reject(&:empty?).to_sentence %></td>
-                <td><%= a.request.description %></td>
-                <td><%= a.quote.cost %></td>
-              </tr>
+              <%  @service_center_appointments.each do |a| %>
+                <% if a.request.completed = false %>
+                <tr>
+                  <td><%= a.selected_appointment %></td>
+                  <td><%= a.request.auto.year %> <%= a.request.auto.make.capitalize %> <%= a.request.auto.model.capitalize %></td>
+                  <td><%= a.request.service.compact.reject(&:empty?).to_sentence %></td>
+                  <td><%= a.request.description %></td>
+                  <td><%= a.quote.cost %></td>
+                  <td><%= link_to 'Complete', complete_request_path(a.request), method: :put, class: "btn btn-default", data: { confirm: 'Are you sure this appointment is completed?'} %></td>
+                </tr>
+                <% end %>
               <% end %>
             </tbody>
           </table>
