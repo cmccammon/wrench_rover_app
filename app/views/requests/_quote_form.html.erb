@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12">
 <%= form_for([@request, @request.quotes.new]) do |f|%>
 <% if @request.errors.any? %>
   <div id="error_explanation">
@@ -20,20 +22,22 @@
     <%= f.label 'Notes for customer' %><br>
     <%= f.text_area :comment %>
   </div>
+</div>
+<div class="col-md-12 col-sm-12">
   <p> Appointment times </p>
   <div class="row">
-    <div class='col-sm-4'>
+    <div class='col-sm-6'>
       <div class="form-group">
         <%= f.label 'First available' %>
         <div class="input-group date" id="datetimepicker1">
-          <%= f.text_field(:appointment1, class: 'form-control', data: {date_format: 'YYYY/MM/DD hh:mm'}) %>
+          <%= f.text_field(:appointment1, class: 'form-control', data: {date_format: 'DD/MM/YYYY hh:mm'}) %>
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
       </div>
     </div>
       </div>
     <div class="row">
-    <div class='col-sm-4'>
+    <div class='col-sm-6'>
       <div class="form-group">
         <%= f.label 'Second available' %>
         <div class="input-group date" id="datetimepicker2">
@@ -44,7 +48,7 @@
     </div>
       </div>
     <div class="row">
-    <div class='col-sm-4'>
+    <div class='col-sm-6'>
       <div class="form-group">
         <%= f.label 'Third available' %>
         <div class="input-group date" id="datetimepicker3">
@@ -58,4 +62,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+  <% end %>
+  </div>
+</div>

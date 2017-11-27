@@ -6,7 +6,8 @@
       <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
           <%= link_to image_tag('WrenchRover_Logo_Web.png', class: 'img-responsive brand'), requests_path, class: 'navbar-brand navbar-left' %>
-          <br/>
+        <% elsif service_center_signed_in? %>
+          <%= link_to image_tag('WrenchRover_Logo_Web.png', class: 'img-responsive brand'), sc_dashboard_requests_path, class: 'navbar-brand navbar-left' %>
         <% else %>
           <%= link_to image_tag('WrenchRover_Logo_Web.png', class: 'img-responsive brand'), root_path, class: 'navbar-brand navbar-left' %>
         <% end %>

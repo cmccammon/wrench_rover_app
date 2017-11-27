@@ -1,9 +1,10 @@
-
+<div class="row">
+  <div class="col-md-12 col-sm-12">
 <h2> Add a Quote for: <%= @service_center.service_center_name.capitalize %> </h2>
 
 <div>
   <p>Service:
-  <%= @request.service.to_sentence %></p>
+  <%= @request.service.compact.reject(&:empty?).to_sentence %></p>
   <p>Description:
   <%= @request.description %></p>
   <p>Auto:
@@ -21,3 +22,5 @@
 <% else %>
 <%= link_to 'back', requests_path %>
 <% end %>
+</div>
+</div>

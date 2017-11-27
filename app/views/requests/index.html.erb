@@ -1,16 +1,4 @@
-<!--/////////////////// START USER  PROFILE ROW /////////////////////-->
-	<!-- <div class="row userRow">
-		<div class="col-md-6 col-sm-6 userText">
-			<div style="float:left;padding:9px 0px;margin-right:15px;"><i class="fa fa-user fa-3x"></i></div>
-			<% u = current_user %>
-			<div style="padding:12px 0px;"><b><%= u.first_name %> <%= u.last_name %></b><br>Member since <%= u.created_at.strftime('%Y')%></div>
-		</div>
-		<div class="col-md-6 col-sm-6 userText">
-			<div style="float:left;padding:9px 0px;margin-right:15px;"><i class="fa fa-car fa-3x"></i></div>
-			<div style="padding:12px 0px;"><b><%= u.autos.last.year %> <%= u.autos.last.make %> <%= u.autos.last.model %></b> <%= u.autos.last.trim.truncate(27, separator: ' ') %></div>
 
-		</div>
-	</div> -->
 <!--/////////////////// START WELCOME MESSAGE ROW /////////////////////-->
 <% if current_user.sign_in_count < 2 %>
 	<div class="row welcome">
