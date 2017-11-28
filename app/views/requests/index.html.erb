@@ -9,7 +9,7 @@
 	</div>
 	<% end %>
 <!--/////////////////// START NOTIFICATION ROW /////////////////////-->
-<% if @appointments.empty? %>
+<% if @appointments.empty? or @appointments.completed_true.any? %>
 <div class="row apptRow">
 
 </div>
@@ -40,14 +40,14 @@
 		<div class="col-md-12 col-sm-12">
 			<h3>Your Maintenance Requests</h3>
 			<ul class="nav nav-tabs">
-			  <li class="active"><a data-toggle="tab" href="#mainNew">Quotes</a></li>
-				<li class="inactive"><a data-toggle="tab" href="#mainRequests">Open</a></li>
+			  <li class="active"><a data-toggle="tab" href="#mainQuotes">Quotes</a></li>
+				<li class="inactive"><a data-toggle="tab" href="#mainOpen">Open</a></li>
 			  <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
 			  <li class="inactive"><a data-toggle="tab" href="#mainHistory">Past</a></li>
 			</ul>
 			<div class="tab-content" style="border:solid 2px #ff6600; min-height: 350px;
     overflow: scroll;">
-				<div id="mainNew" class="tab-pane fade in active">
+				<div id="mainQuotes" class="tab-pane fade in active">
 					<div class="row">
 								<% if current_user.quotes.empty? %>
 						<div class="col-md-12 col-sm-12">
@@ -79,7 +79,7 @@
 				<% end %>
 			</div>
 				</div>
-				<div id="mainRequests" class="tab-pane fade">
+				<div id="mainOpen" class="tab-pane fade">
 					<% if @requests.blank? %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
@@ -98,11 +98,11 @@
 						<%= link_to 'Remove', r, method: :delete, class: "btn btn-default" %>
 						</div>
 					</div><br>
-					<%end%>
-				<% end %>
+					<% end %>
+						<% end %>
 				</div>
 				<div id="mainAppointments" class="tab-pane fade">
-					<% if @appointments.blank? %>
+				<% if @appointments.empty? or @appointments.completed_true.any? %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<p>No Appointments yet.</p>
@@ -136,25 +136,28 @@
 				</div>
 
 				<div id="mainHistory" class="tab-pane fade">
+				<% @appointments.completed_true.each do |a| %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-						<b>7/15/16 - Tire Rotation</b><br>
-						Service Notes: <i>"We can also look at wear and tear on your tires"</i>
+						Completed at: <b><%= a.updated_at.strftime("%m/%d/%y") %></b><br>
+						Services:<b> <%= a.request.service.compact.reject(&:empty?).to_sentence %></b><br>
+						Auto: <b><%= a.request.auto.year %> <%= a.request.auto.make %> <%= a.request.auto.model %></b>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
-						Service Center: <b>Joe's Auto</b>
+						Service Center: <b><%= a.quote.service_center.service_center_name %></b>
 						</div>
 						<div class="col-md-6 col-sm-12">
-						Bid Amount: <b>$27.00</b>
+						Cost: <b><%= a.quote.cost %></b>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-						<span style="color:#ff6600; font-weight:bold;">COMPLETE</span>
+
 						</div>
 					</div>
+					<%end%>
 			</div>
 		</div>
 	</div>

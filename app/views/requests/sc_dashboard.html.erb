@@ -88,6 +88,7 @@
               <thead class="thead-default">
                 <tr>
                   <th>Appointment Date</th>
+                  <th>Customer</th>
                   <th>Vehicle</th>
                   <th>Request</th>
                   <th>Description</th>
@@ -96,18 +97,17 @@
               </thead>
               <tbody>
               <%  @service_center_appointments.each do |a| %>
-                <% if a.request.completed = false %>
                 <tr>
                   <td><%= a.selected_appointment %></td>
+                  <td><%= a.user.full_name %></td>
                   <td><%= a.request.auto.year %> <%= a.request.auto.make.capitalize %> <%= a.request.auto.model.capitalize %></td>
                   <td><%= a.request.service.compact.reject(&:empty?).to_sentence %></td>
                   <td><%= a.request.description %></td>
                   <td><%= a.quote.cost %></td>
-                  <td><%= link_to 'Complete', complete_request_path(a.request), method: :put, class: "btn btn-default", data: { confirm: 'Are you sure this appointment is completed?'} %></td>
+                  <td><%= link_to 'Complete', complete_request_path(a), method: :put, class: "btn btn-default", data: { confirm: 'Are you sure this appointment is completed?'} %></td>
                 </tr>
                 <% end %>
-              <% end %>
-            </tbody>
+              </tbody>
           </table>
           </div>
         </div>
@@ -127,16 +127,15 @@
             </tr>
           </thead>
           <tbody>
-          <%  @service_center.quotes.each do |q| %>
-            <% if q.request.completed? %>
+          <%  @service_center_completed.each do |c| %>
+
             <tr>
-              <td><%= q.request.updated_at.strftime("%m-%d-%y") %></td>
-              <td><%= q.request.auto.year %> <%= q.request.auto.make.capitalize %> <%= q.request.auto.model.capitalize %></td>
-              <td><%= q.request.service.compact.reject(&:empty?).to_sentence %></td>
-              <td><%= q.cost %></td>
+              <td><%= c.updated_at.strftime("%m-%d-%y") %></td>
+              <td><%= c.request.auto.year %> <%= c.request.auto.make.capitalize %> <%= c.request.auto.model.capitalize %></td>
+              <td><%= c.request.service.compact.reject(&:empty?).to_sentence %></td>
+              <td><%= c.quote.cost %></td>
             </tr>
             <% end %>
-          <% end %>
         </tbody>
       </table>
       </div>
