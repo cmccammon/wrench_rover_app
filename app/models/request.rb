@@ -1,4 +1,5 @@
 class Request < ApplicationRecord
+  before_validation :format_service
   belongs_to :user
   belongs_to :auto
   has_many :quotes, dependent: :destroy
@@ -10,8 +11,12 @@ class Request < ApplicationRecord
 
   validates_associated :quotes
 
-  def self.display_as_sentence
-    compact.reject(&:empty?).to_sentence
+  def format_service
+    self.service = service.compact.reject(&:empty?)
+  end
+
+  def display_as_sentence
+    self.compact.reject(&:empty?).to_sentence
   end
 
   def self.with_no_quotes_by(service_center)

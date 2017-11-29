@@ -35,7 +35,7 @@
                   <tr>
                     <td><%= req.created_at.strftime("%m-%d-%y") %></td>
                     <td><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %></td>
-                    <td><%= req.service.compact.reject(&:empty?).to_sentence %></td>
+                    <td><%= req.service.to_sentence %></td>
                     <td><%= req.description %></td>
                     <td><%= link_to 'Add quote', add_quote_url(req) %></td>
                 <% end %>
@@ -60,11 +60,11 @@
                 </tr>
               </thead>
               <tbody>
-              <%  @service_center.quotes.each do |q| %>
+              <%  @service_center_quotes.each do |q| %>
               <tr>
                 <td><%= q.request.created_at.strftime("%m-%d-%y") %></td>
                 <td><%= q.request.auto.year %> <%= q.request.auto.make.capitalize %> <%= q.request.auto.model.capitalize %></td>
-                <td><%= q.request.service.compact.reject(&:empty?).to_sentence %></td>
+                <td><%= q.request.service.to_sentence %></td>
                 <td><%= q.request.description %></td>
                 <td><%= q.cost %></td>
               </tr>
@@ -96,12 +96,12 @@
                 </tr>
               </thead>
               <tbody>
-              <%  @service_center_appointments.each do |a| %>
+              <%  @service_center_uncompleted.each do |a| %>
                 <tr>
                   <td><%= a.selected_appointment %></td>
                   <td><%= a.user.full_name %></td>
                   <td><%= a.request.auto.year %> <%= a.request.auto.make.capitalize %> <%= a.request.auto.model.capitalize %></td>
-                  <td><%= a.request.service.compact.reject(&:empty?).to_sentence %></td>
+                  <td><%= a.request.service.to_sentence %></td>
                   <td><%= a.request.description %></td>
                   <td><%= a.quote.cost %></td>
                   <td><%= link_to 'Complete', complete_request_path(a), method: :put, class: "btn btn-default", data: { confirm: 'Are you sure this appointment is completed?'} %></td>
@@ -132,7 +132,7 @@
             <tr>
               <td><%= c.updated_at.strftime("%m-%d-%y") %></td>
               <td><%= c.request.auto.year %> <%= c.request.auto.make.capitalize %> <%= c.request.auto.model.capitalize %></td>
-              <td><%= c.request.service.compact.reject(&:empty?).to_sentence %></td>
+              <td><%= c.request.service.to_sentence %></td>
               <td><%= c.quote.cost %></td>
             </tr>
             <% end %>

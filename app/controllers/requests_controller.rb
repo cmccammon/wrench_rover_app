@@ -4,12 +4,11 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
     def sc_dashboard
-      @requests_noquotes = Request.includes(:quotes).where( quotes: { id: nil } ).order(created_at: :desc)
       @requests = Request.where.not( id: Request.joins(:quotes).where(quotes: { service_center_id: current_service_center.id }).select(:id) )
       @service_center = current_service_center
-      @service_center_appointments = current_service_center.appointments.where(completed: "false")
+      @service_center_quotes = Quote.where(service_center_id: current_service_center.id).includes(:appointment).where(appointments: {quote_id: nil})
+      @service_center_uncompleted = current_service_center.appointments.where(completed: "false")
       @service_center_completed = current_service_center.appointments.where(completed: "true")
-
     end
 
     def complete

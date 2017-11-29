@@ -29,7 +29,7 @@
 		</div>
 		<div class="col-md-3 col-sm-12" style="padding:0;">
 			<div class="apptHead">Services</div>
-				<div class="apptText"><%= a.request.service.compact.reject(&:empty?).to_sentence if a.request.service %></div>
+				<div class="apptText"><%= a.request.service.to_sentence if a.request.service %></div>
 		</div>
 		<% end %>
 	</div>
@@ -53,15 +53,11 @@
 						<div class="col-md-12 col-sm-12">
 							<p>No Quotes yet, but our dogs are finding the best services </p>
 						</div>
-								<% elsif current_user.appointments.any? %>
-						<div class="col-md-12 col-sm-12">
-							<p>You have selected a quote, check your appointments </p>
-						</div>
 								<% else %>
 					<% current_user.quotes.each do |q| %>
 							<%= link_to q.request do %>
 					<div class="col-md-12 col-sm-12">
-						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service.compact.reject(&:empty?).to_sentence %></b><br>
+						<b><%= q.request.created_at.strftime("%m/%d/%y") %> - Auto: <b><%= q.request.auto.year %> <%= q.request.auto.make %> <%= q.request.auto.model %></b> - Services: <%= q.request.service.to_sentence %></b><br>
 						Your comments: <i><%= q.request.description %></i><br>
 						Service Notes: <i><%= q.comment %></i>
 					<div class="row">
@@ -91,7 +87,7 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<%= r.created_at.strftime("%m/%d/%y") %> <br/><b>Auto:</b> <%= r.auto.year %> <%= r.auto.make %> <%= r.auto.model %><br/>
-							<b>Services:</b> <%= r.service.compact.reject(&:empty?).to_sentence %><br>
+							<b>Services:</b> <%= r.service.to_sentence %><br>
 							<b>Your comments:</b> <i><%= r.description %></i><br>
 						</div>
 						<div class="col-md-6 col-sm-12">
@@ -112,7 +108,7 @@
 				<% @appointments.each do |a| %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-						<b><%= a.selected_appointment %> - <%= a.request.service.compact.reject(&:empty?).to_sentence %></b><br>
+						<b><%= a.selected_appointment %> - <%= a.request.service.to_sentence %></b><br>
 						Your comments: <i><%= a.request.description %></i><br>
 						Service Notes: <i><%= a.quote.comment %></i>
 						</div>
@@ -140,7 +136,7 @@
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 						Completed at: <b><%= a.updated_at.strftime("%m/%d/%y") %></b><br>
-						Services:<b> <%= a.request.service.compact.reject(&:empty?).to_sentence %></b><br>
+						Services:<b> <%= a.request.service.to_sentence %></b><br>
 						Auto: <b><%= a.request.auto.year %> <%= a.request.auto.make %> <%= a.request.auto.model %></b>
 						</div>
 					</div>
