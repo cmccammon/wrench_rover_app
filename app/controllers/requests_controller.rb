@@ -21,7 +21,9 @@ class RequestsController < ApplicationController
     # requests/index.html.erb
     # displays all requests
     def index
-      @requests = current_user.requests.includes(:appointments).where( :appointments => {:request_id => nil} )
+      @requests = current_user.requests.all
+      @quotes_no_appointment = current_user.quotes.left_outer_joins(:appointment).where(appointments: {id: nil})
+      @requests_no_appointment = current_user.requests.includes(:appointments).where(appointments: {completed: "false"})
       @appointments = current_user.appointments
     end
 
