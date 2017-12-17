@@ -11,7 +11,7 @@
   <div class="col-md-12 col-sm-12">
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#mainNew">New Requests <span class="badge"><%= @requests.count %><span></a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids <span class="badge"><%= @service_center.quotes.count %></span></a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids <span class="badge"><%= @service_center_quotes.count %></span></a></li>
       <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
       <li class="inactive"><a data-toggle="tab" href="#mainCompleted">Completed</a></li>
     </ul>
@@ -37,7 +37,7 @@
                     <td><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %></td>
                     <td><%= req.service.to_sentence %></td>
                     <td><%= req.description %></td>
-                    <td><%= link_to 'Add quote', add_quote_url(req) %></td>
+                    <td><%= link_to 'Add quote', add_quote_url(req), class: "btn btn-default" %></td>
                 <% end %>
                   </tr>
               </tbody>
@@ -99,7 +99,7 @@
               <%  @service_center_uncompleted.each do |a| %>
                 <tr>
                   <td><%= a.selected_appointment %></td>
-                  <td><%= a.user.full_name %></td>
+                  <td><%= a.user.first_name %></td>
                   <td><%= a.request.auto.year %> <%= a.request.auto.make.capitalize %> <%= a.request.auto.model.capitalize %></td>
                   <td><%= a.request.service.to_sentence %></td>
                   <td><%= a.request.description %></td>

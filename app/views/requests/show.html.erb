@@ -1,61 +1,36 @@
-<div>
-<strong>Service Request:</strong><br/>
-  <%= @request.service.to_sentence %></p>
-<strong>Description:</strong><br/>
-  <%= @request.description %></p>
-<strong>Auto:</strong><br/>
-  <%= @request.auto.year %> <%= @request.auto.make %> <%= @request.auto.model %></p>
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+  <h4>8/22/16 - Oil Change Synthetic Blend | Brake Inspection</h4>
+  Your comments: <i>"I think my rotors are worn because my car pulls the the left when I apply the brakes"</i>
+  </div>
 </div>
-<div>
-<strong> Quotes:</strong>
-
-<% if @request.quotes.blank? %>
-  <p> No Quotes yet. </p>
-  <% else %>
-  <ol>
-    <% @request.quotes.each do |quote| %>
-    <li>
-      <p> Service Center: <%= quote.service_center.service_center_name %> </p>
-      <p> Service Center location: <%= quote.service_center.city %> </p>
-      <p>Quote cost: <%= number_to_currency(quote.cost) %></p>
-      <p>Comments: <%= quote.comment %></p>
-      <p>time: </p>
-
-      <%= form_for(@appointment) do |f| %>
-        <% if @appointment.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
-
-            <ul>
-            <% @appointment.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class="field">
-          <%= f.label :selected_appointment %>
-          <% if quote.appointment1 %>
-          <%= f.select :selected_appointment, [quote.appointment1.strftime('%A, %d %b %Y %l:%M %P'), quote.appointment2.strftime('%A, %d %b %Y %l:%M %P'), quote.appointment3.strftime('%A, %d %b %Y %l:%M %P')], {}, { class: 'form-control' } %>
-          <% end %>
-        </div>
-        <%= f.hidden_field :quote_id, value: quote.id %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :request_id, value: @request.id %>
-        <%= f.hidden_field :service_center_id, value: quote.service_center_id %>
-
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-      <% end %>
-    </li>
-    <% end %>
-  </ol>
-  <% end %>
+<div class="row" style="margin-top:15px;">
+<div class="col-md-1 col-sm-1"><center><i class="fa fa-chevron-circle-right fa-2x" aria-hidden="true" style="color:#ff6600;"></i></center></div>
+<div class="col-md-11 col-sm-11">
+<div class="row">
+  <div class="col-md-4 col-sm-4">
+   Service Center: <b>Newcastle service center</b>
+ </div>
+  <div class="col-md-4 col-sm-4">
+   Location: <b>16352 west end Newcastle 98056</b>
+ </div>
 </div>
-<% if service_center_signed_in?%>
-<%= link_to 'Back', sc_dashboard_requests_path %>
-<% else %>
-<%= link_to 'back', requests_path %>
-<% end %>
+<div class="row" style="margin-top:15px;">
+  <div class="col-md-2 col-sm-2">
+  Bid Amount: <b>$85.00</b>
+  </div>
+  <div class="col-md-6 col-sm-6">
+  Appointment times:
+  <select>
+    <option value="">Friday, Oct 4 at 11:00am</option>
+    <option value="">Saturday, Oct 5 at 10:30am</option>
+    <option value="">Saturday, Oct 5 at 12:00pm</option>
+  </select>
+
+  </div>
+  <div class="col-md-3 col-sm-3">
+  <button class="btn btn-default btn-sm">ACCEPT</button>
+  </div>
+</div>
+</div>
+</div>

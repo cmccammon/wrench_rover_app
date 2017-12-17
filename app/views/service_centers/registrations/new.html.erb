@@ -1,44 +1,60 @@
-<h2>Service center account sign up</h2>
+<div class="row">
+  <div class="col-md-9 col-sm-12">
+    <h2>Service center account sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <div class="form-group row">
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'First name' %> -->
       <br />
       <%= f.text_field :first_name, placeholder: 'First name', autofocus: true %>
     </div>
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'Last name' %> -->
       <br />
       <%= f.text_field :last_name, placeholder: 'Last name' %>
     </div>
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'Business name' %> -->
       <br />
       <%= f.text_field :service_center_name, placeholder: 'Business name' %>
     </div>
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'street address' %> -->
       <br />
       <%= f.text_field :address, placeholder: 'Street address' %>
     </div>
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'Apt, suite, etc...' %> -->
       <br />
       <%= f.text_field :address2, placeholder: 'Apt, suite, etc...' %>
     </div>
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'zipcode' %> -->
       <br />
       <%= f.text_field :city, placeholder: "City" %>
     </div>
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'zipcode' %> -->
       <br />
       <%= f.text_field :zipcode, placeholder: "Zip code" %>
     </div>
-
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label :state %> -->
       <br />
@@ -46,18 +62,22 @@
     MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY) %>
       <%= f.select :state, options_for_select(states), {prompt: 'State'},  { class: "btn btn-default dropdown-toggle"} %>
     </div>
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <div class="field">
       <!-- <%= f.label 'zipcode' %> -->
       <br />
       <%= f.phone_field :phone_number, placeholder: "Phone number" %>
     </div>
-
+  </div>
+  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
   <div class="field">
     <!-- <%= f.label :email %> -->
     <br />
     <%= f.text_field :email, placeholder: 'Email', autofocus: true %>
   </div>
-
+</div>
+<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
   <div class="field">
     <!-- <%= f.label :password %> -->
     <br />
@@ -66,19 +86,28 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
   </div>
-
+</div>
+<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
   <div class="field">
     <!-- <%= f.label :password_confirmation %> -->
     <br />
     <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', autocomplete: "off" %>
   </div>
+</div>
+<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
     <br />
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+</div>
+</div>
+</div>
 <% end %>
 <br />
+</div>
+<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
   <div>
   <p> Or if you have an account sign in here:</P>
   <%= render "service_centers/shared/links" %>
   </div>
+</div>

@@ -9,4 +9,9 @@ class Quote < ApplicationRecord
   validates :appointment1,  presence: true
   validates :appointment2,  presence: true
   validates :appointment3,  presence: true
+
+def self.no_appointments
+  left_outer_joins(:appointment).where(appointments: {id: nil})
+end
+
 end

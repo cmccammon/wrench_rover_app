@@ -22,9 +22,8 @@ class RequestsController < ApplicationController
     # displays all requests
     def index
       @requests = current_user.requests.all
-      @quotes_no_appointment = current_user.quotes.left_outer_joins(:appointment).where(appointments: {id: nil})
-      @requests_no_appointment = current_user.requests.includes(:appointments).where(appointments: {completed: "false"})
       @appointments = current_user.appointments
+      @appointment = Appointment.new
     end
 
     # GET /requests/1
@@ -46,6 +45,7 @@ class RequestsController < ApplicationController
     # form to create a new request
     def new
       @request = Request.new
+      @auto = current_user.autos.last
     end
 
     # GET /requests/1/edit

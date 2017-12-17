@@ -11,12 +11,12 @@
   <%= @request.auto.year %> <%= @request.auto.make %> <%= @request.auto.model %> </p>
 </div>
 
-<p>
+<div>
   <strong>Add a Quote:</strong>
 
 <%= render 'quote_form' %>
 
-</p>
+</div>
 <% if service_center_signed_in?%>
 <%= link_to 'Back', sc_dashboard_requests_path %>
 <% else %>

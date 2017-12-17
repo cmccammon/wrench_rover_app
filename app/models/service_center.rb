@@ -13,6 +13,7 @@ validates :city,                presence: true
 validates :state,               presence: true
 validates :zipcode,             presence: true
 validates :phone_number,        presence: true
+validates :email,               presence: true
 
 
 has_many :quotes

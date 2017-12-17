@@ -1,6 +1,6 @@
 
 <!--/////////////////// START WELCOME MESSAGE ROW /////////////////////-->
-<% if current_user.sign_in_count < 2 %>
+<% if current_user.sign_in_count > 14 %>
 	<div class="row welcome">
 		<div class="col-md-12 col-sm-12">
 			<h1>Welcome back <%= current_user.first_name %></h1>
@@ -8,6 +8,14 @@
 		</div>
 	</div>
 	<% end %>
+	<% if current_user.sign_in_count < 2 %>
+		<div class="row welcome">
+			<div class="col-md-12 col-sm-12">
+				<h1>Welcome <%= current_user.first_name %></h1>
+				Thank you for letting us find the best deal in automotive repair for you. We value you as a customer and strive to deliver a solution that is right for you.<br><br>
+			</div>
+		</div>
+		<% end %>
 <!--/////////////////// START NOTIFICATION ROW /////////////////////-->
 <% if @appointments.empty? or @appointments.completed_true.any? %>
 <div class="row apptRow">
@@ -40,7 +48,6 @@
 			<h3>Your Maintenance Requests</h3>
 			<ul class="nav nav-tabs">
 			  <li class="active"><a data-toggle="tab" href="#mainQuotes">Quotes</a></li>
-				<li class="inactive"><a data-toggle="tab" href="#mainOpen">Open</a></li>
 			  <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
 			  <li class="inactive"><a data-toggle="tab" href="#mainHistory">Past</a></li>
 			</ul>
@@ -55,48 +62,73 @@
 						</div>
 					</div>
 					<% else %>
-					<% @quotes_no_appointment.each do |q| %>
-					<div class="col-md-12 col-sm-12">
-						<%= link_to q.request do %>
 					<div class="row">
-						<div class="col-md-6 col-sm-12">
-						Service Center: <b><%= q.service_center.service_center_name %></b><br>
-						Location: <b><%= q.service_center.address %>, <%= q.service_center.city %></b>
-						</div>
-						<div class="col-md-6 col-sm-12">
-						Bid Amount: <b><%= number_to_currency(q.cost) %></b>
-						</div>
-					</div>
-					<% end %>
-					<br>
-				</div>
-					<% end %>
-				<% end %>
-				</div>
-
-			<!--/////////////////// OPEN TAB /////////////////////-->
-				<div id="mainOpen" class="tab-pane fade">
-					<% if @requests.blank? %>
-					<div class="row">
+						<% @requests.no_appointments.uniq.each do |r| %>
 						<div class="col-md-12 col-sm-12">
-							<p>Go create a new <%= link_to 'request', new_request_path %>!</p>
+						<h4><%= r.created_at.strftime("%m/%d/%y") %> - <%= r.service.to_sentence %></h4>
+						<% if r.description.blank? %>
+						<% else %>
+						Your comments: <i><%= r.description %></i><br><br>
+						<% end %>
 						</div>
 					</div>
-					<% else %>
-				<% @requests_no_appointment.each do |r| %>
+	<!--/////////////////// APPOINTMENT FORM /////////////////////-->
+				<% if r.appointments.any? %>
+				  Check your appointments
+				<% else %>
+					<% r.quotes.each do |q| %>
+				<div class="row" style="margin-top:15px;">
+					<div class="col-md-1 col-sm-1"><center><i class="fa fa-chevron-circle-right fa-2x" aria-hidden="true" style="color:#ff6600;"></i></center></div>
+					<div class="col-md-11 col-sm-11">
 					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<%= r.created_at.strftime("%m/%d/%y") %> <br/><b>Auto:</b> <%= r.auto.year %> <%= r.auto.make %> <%= r.auto.model %><br/>
-							<b>Services:</b> <%= r.service.to_sentence %><br>
-							<b>Your comments:</b> <i><%= r.description %></i><br>
-						</div>
-						<div class="col-md-6 col-sm-12">
-						<%= link_to 'Remove', r, method: :delete, class: "btn btn-default" %>
-						</div>
-					</div><br>
+					  <div class="col-md-4 col-sm-4">
+					   Service Center: <b><%= q.service_center.service_center_name %></b>
+					 </div>
+					  <div class="col-md-4 col-sm-4">
+					   Location: <b><%= q.service_center.address %> <%= q.service_center.city %>, <%= q.service_center.zipcode %></b>
+					 </div>
+					</div>
+					<div class="row" style="margin-top:15px;">
+					  <div class="col-md-2 col-sm-2">
+					  Bid Amount: <b>$ <%= number_with_precision(q.cost, precision: 2) %></b>
+					  </div>
+					  <div class="col-md-6 col-sm-6">
+
+				<%= form_for(@appointment) do |f| %>
+
+				<%= f.hidden_field :quote_id, value: q.id %>
+				<%= f.hidden_field :user_id, value: current_user.id %>
+				<%= f.hidden_field :service_center_id, value: q.service_center_id %>
+				<%= f.hidden_field :request_id, value: q.request_id %>
+
+        <% if @appointment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+            <ul>
+            <% @appointment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+					 	<%= f.label "Appointment:" %>
+	          <% if q.appointment1 %>
+	          <%= f.select :selected_appointment, [q.appointment1.strftime('%A, %d %b %Y %l:%M %P'), q.appointment2.strftime('%A, %d %b %Y %l:%M %P'), q.appointment3.strftime('%A, %d %b %Y %l:%M %P')], {}, { class: 'form-control' } %>
+	          <% end %>
+
+					  </div class="actions">
+					  <div class="col-md-3 col-sm-3">
+					  <button class="btn btn-default btn-sm">ACCEPT</button>
+					  </div>
 						<% end %>
+					</div>
+					</div>
+					</div>
+						<% end %>
+					<% end %>
 				<% end %>
-				</div>
+			</div>
+		<% end %>
 				<!--/////////////////// APPOINTMENT TAB /////////////////////-->
 				<div id="mainAppointments" class="tab-pane fade">
 				<% if @appointments.empty? or @appointments.completed_true.any? %>
@@ -110,22 +142,26 @@
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 						<b><%= a.selected_appointment %> - <%= a.request.service.to_sentence %></b><br>
+						<% if a.request.description.blank? %>
+						<% else %>
 						Your comments: <i><%= a.request.description %></i><br>
-						Service Notes: <i><%= a.quote.comment %></i>
+						<% end %>
+						<% if a.quote.comment.blank? %>
+						<% else %>
+						Service Center Comments: <i><%= a.quote.comment %></i>
+						<% end %>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
-						Service Center: <b><%= a.quote.service_center.service_center_name %></b>
+						Service Center: <b><%= a.quote.service_center.service_center_name.titleize %>,
+					 <%= a.quote.service_center.address %>, <%= a.quote.service_center.city %> <%= a.quote.service_center.zipcode %></b>
 						</div>
-						<div class="col-md-6 col-sm-12">
+						<div class="col-md-4 col-sm-12">
 						Bid Amount: <b><%= a.quote.cost %></b>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-
-						<span style="color:#ff6600; font-weight:bold;"><%= link_to 'Cancel appointment', a, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure you want to cancel this?'} %></span>
+						<div class="col-md-2 col-sm-12" >
+							<%= link_to 'Cancel appointment', a, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure you want to cancel this?'} %>
 						</div>
 					</div>
 					<%end%>

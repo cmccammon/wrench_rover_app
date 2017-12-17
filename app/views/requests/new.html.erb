@@ -150,9 +150,9 @@
         </div>
         <div class="col-md-12 col-sm-12 text-center carData">
         <!-- POPULATE WITH VEHICLE DATA -->
-          <b>2008 Saturn Sky</b><br>
-          Redline 2dr 4cyl<br>
-          107,000 miles
+          <b><%= @auto.year %> <%= @auto.make %> <%= @auto.model %></b><br>
+          <%= @auto.trim %><br>
+          <%= number_with_delimiter(@auto.mileage) %> miles
         </div>
         <div class="col-md-12 col-sm-12 text-center carHeader">
           Your Services

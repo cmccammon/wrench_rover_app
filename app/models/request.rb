@@ -11,6 +11,10 @@ class Request < ApplicationRecord
 
   validates_associated :quotes
 
+  def self.no_appointments
+    left_outer_joins(:appointments).where(appointments: {id: nil})
+  end
+
   def format_service
     self.service = service.compact.reject(&:empty?)
   end
