@@ -52,9 +52,7 @@ button:hover
 {
    outline:0px !important;
 }
-select[disabled] {
-   color: #bbb;
-}
+
 
 h1.light, h3.light {
    color:#fff;
@@ -64,7 +62,7 @@ h1.light, h3.light {
 /* ADDING THIS TO CHANGE THE SELECT BOX COLOR */
 select{
    background: white !important;
-   color:#FFF;
+   color:black;
    text-shadow:0 1px 0 rgba(0,0,0,0.4);
 }
 option:checked, select:checked, option:checked:hover, select:focus option:checked:hover, option:focus, option:active {

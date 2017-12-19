@@ -55,23 +55,34 @@
     overflow: scroll;">
 		<!--/////////////////// QUOTES TAB /////////////////////-->
 				<div id="mainQuotes" class="tab-pane fade in active">
+					<% if @requests.no_appointments.empty? %>
 					<div class="row">
-						<% @requests.no_appointments.uniq.each do |r| %>
-						<div class="col-md-12 col-sm-12">
-						<h4><%= r.created_at.strftime("%m/%d/%y") %> - <%= r.auto.make %> <%= r.auto.model %> - <%= r.service.to_sentence %></h4>
-						<% if r.description.blank? %>
-						<% else %>
-						Your comments: <i><%= r.description %></i><br><br>
-						<% end %>
+						<div class="col-md-6 col-sm-12">
+						 <%= link_to "Create a new request.", new_request_path %>
 						</div>
 					</div>
-	<!--/////////////////// APPOINTMENT FORM /////////////////////-->
+					<% else %>
+					<% @requests.no_appointments.or(@requests.no_completed_appointments).uniq.each do |r| %>
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<h4><%= r.created_at.strftime("%m/%d/%y") %> - <%= r.auto.make %> <%= r.auto.model %> - <%= r.service.to_sentence %></h4>
+							<% if r.description.blank? %>
+							<% else %>
+							Your comments: <i><%= r.description %></i><br><br>
+							<% end %>
+						</div>
+					</div>
+				<!--/////////////////// APPOINTMENT FORM /////////////////////-->
 				<% if r.appointments.any? %>
-				  Check your appointments
+				<div class="row">
+					<div class="col-md-6 col-sm-12">
+						Check your appointments
+					</div>
+				</div>
 					<% elsif current_user.quotes.empty? %>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
-							<p>No Quotes yet, but our dogs are finding the best services </p>
+							No Quotes yet, but our dogs are finding the best services
 						</div>
 					</div>
 					<% else %>
@@ -92,7 +103,7 @@
 					  <div class="col-md-2 col-sm-2">
 						  Bid Amount: <b>$ <%= number_with_precision(q.cost, precision: 2) %></b>
 					  </div>
-					  <div class="col-md-6 col-sm-6">
+					  <div class="col-md-5 col-sm-5">
 						<%= form_for(@appointment) do |f| %>
 							<%= f.hidden_field :quote_id, value: q.id %>
 							<%= f.hidden_field :user_id, value: current_user.id %>
@@ -108,22 +119,23 @@
 				            </ul>
 				          </div>
 				        <% end %>
-					 	<%= f.label "Appointment:" %>
+					 	<b>Appointment:</b>
 	          <% if q.appointment1 %>
-		          <%= f.select :selected_appointment, [q.appointment1.strftime('%A, %d %b %Y %l:%M %P'), q.appointment2.strftime('%A, %d %b %Y %l:%M %P'), q.appointment3.strftime('%A, %d %b %Y %l:%M %P')], {}, { class: 'form-control' } %>
+		          <%= f.select :selected_appointment, [q.appointment1.strftime('%A, %d %b %Y %l:%M %P'), q.appointment2.strftime('%A, %d %b %Y %l:%M %P'), q.appointment3.strftime('%A, %d %b %Y %l:%M %P')], {}, {} %>
 	          <% end %>
+						</div>
 						  <div class="actions">
 							  <div class="col-md-3 col-sm-3">
 								  <button class="btn btn-default btn-sm">ACCEPT</button>
 							  </div>
 							</div>
 							<% end %>
-						</div>
 					</div>
 				</div>
 			</div>
 			<% end %>
 		<% end %>
+	<% end %>
 <% end %>
 </div>
 				<!--/////////////////// APPOINTMENT TAB /////////////////////-->
@@ -154,15 +166,15 @@
 					 Comments: <i><%= a.quote.comment %></i>
 					 <% end %>
 						</div>
-						<div class="col-md-3 col-sm-12">
-						Bid Amount: <b><%= a.quote.cost %></b>
-						</div>
-						<div class="col-md-2 col-sm-12" >
-							<%= link_to 'Cancel appointment', a, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure you want to cancel this?'} %>
-						</div>
+							<div class="col-md-3 col-sm-12">
+								Bid Amount: <b><%= a.quote.cost %></b>
+							</div>
+							<div class="col-md-2 col-sm-12" >
+								<%= link_to 'Cancel appointment', a, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure you want to cancel this?'} %>
+							</div>
 					</div>
-					<%end%>
 				<%end%>
+			<%end%>
 		</div>
 				<!--/////////////////// HISTORY TAB /////////////////////-->
 				<div id="mainHistory" class="tab-pane fade">
