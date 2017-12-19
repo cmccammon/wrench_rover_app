@@ -38,23 +38,22 @@
     <footer class="WRfooter">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 col-sm-3">
-            <ul class="WRfooterLinks">
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Partners</a></li>
-              <li><a href="#">FAQ</a></li>
-              <% if service_center_signed_in? %>
-              <li><%= link_to "Service Center Sign out", destroy_service_center_session_path, method: :delete, :class => 'navbar-link'  %></li>
-              <% elsif user_signed_in? %>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          <div class="col-md-12 col-sm-12 WRfooterLinks">
+              <a href="#">Contact Us</a> | <a href="#">Partners</a> | <a href="#">FAQ</a>
+              <% if service_center_signed_in? %> |
+              <%= link_to "Service Center Sign out", destroy_service_center_session_path, method: :delete, :class => 'navbar-link'  %>
+              <% elsif user_signed_in? %> |
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
               <% end %>
-            </ul>
           </div>
-          <div class="col-md-3 col-sm-3">
-            <p>Designed and built with all the love in the world by the WrenchRover Team. Maintained by the core dev team with the help of our contributors.</p>
-            <p>Currently v1-alpha</p>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            Designed and built with all the love in the world by the WrenchRover Team. Maintained by the core dev team with the help of our contributors.
           </div>
-          <div class="col-md-3 col-sm-3"><p>Copyright &copy; WrenchRover 2017</p>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">Version: v1-alpha | Copyright &copy; WrenchRover 2017
           </div>
       </div>
     </div>

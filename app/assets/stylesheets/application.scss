@@ -34,12 +34,6 @@ a:focus {color:#ff6600 !important;}
 
 .WRorange {color:#ff6600;}
 
-.WRfooter {
-position: fixed;
-height: 135px;
-bottom: 0;
-width: 100%;
-}
 
 :focus {
  outline-color: #D95700 !important;
@@ -92,18 +86,21 @@ body {
 .centerSignup {background-color:#ff6600;color:#fff;padding:2px;border-radius:10px;}
 .centerSignup:hover {background-color:#000;color:#fff;}
 .centerSignup a {color:#fff;}
+
 .WRfooter {
-   padding: 4rem 0;
-   margin-top: 4rem;
-   font-size: 85%;
-   text-align: center;
-   background-color: #bbb;
+position: fixed;
+height: 90px;
+font-size:85%;
+bottom: 0;
+width: 100%;
+text-align: center;
+background-color: #bbb;
 }
+
 .WRfooterLinks {
-   display: inline;
+   margin-top:15px;
    padding-left: 0;
    margin-bottom: 1rem;
-   list-style-type: none;
 }
 
 /* STEP 1 STYLES */
@@ -139,6 +136,8 @@ hr.vehicleHR:after {
   display:block;
   border:none;
   resize: none;
+  width: 215px;
+  font-size: 15px;
 }
 
 .iconpad {width:20px;}

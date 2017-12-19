@@ -13,113 +13,144 @@
 </div>
 <% end %>
 <form id="services" name="ServicesForm" class="form-inline" style="display:inline!important;">
-<table id="servicesRows">
+<table id="servicesRows" width="100%">
 <!-- START COMMON SERVICES INPUTS-->
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input001' %></td><td><b onclick="clearData('input001');hideClose.call(this)" id="input001close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input001' %></td><td><b onclick="clearData('input001');hideClose.call(this)" id="input001close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input002' %></td><td><b onclick="clearData('input002');hideClose.call(this)" id="input002close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input003' %></td><td><b onclick="clearData('input003');hideClose.call(this)" id="input003close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input002' %></td><td><b onclick="clearData('input002');hideClose.call(this)" id="input002close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input004' %></td><td><b onclick="clearData('input004');hideClose.call(this)" id="input004close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: true, class: 'hideme2', id: 'input005' %></td><td><b onclick="clearData('input005');hideClose.call(this)" id="input005close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input003' %></td><td><b onclick="clearData('input003');hideClose.call(this)" id="input003close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input006' %></td><td><b onclick="clearData('input006');hideClose.call(this)" id="input006close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input007' %></td><td><b onclick="clearData('input007');hideClose.call(this)" id="input007close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input004' %></td><td><b onclick="clearData('input004');hideClose.call(this)" id="input004close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input008' %></td><td><b onclick="clearData('input008');hideClose.call(this)" id="input008close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input009' %></td><td><b onclick="clearData('input009');hideClose.call(this)" id="input009close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: true, class: 'hideme2', id: 'input005' %></td><td><b onclick="clearData('input005');hideClose.call(this)" id="input005close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input010' %></td><td><b onclick="clearData('input010');hideClose.call(this)" id="input010close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input011' %></td><td><b onclick="clearData('input011');hideClose.call(this)" id="input011close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input006' %></td><td><b onclick="clearData('input006');hideClose.call(this)" id="input006close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input012' %></td><td><b onclick="clearData('input012');hideClose.call(this)" id="input012close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input013' %></td><td><b onclick="clearData('input013');hideClose.call(this)" id="input013close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input007' %></td><td><b onclick="clearData('input007');hideClose.call(this)" id="input007close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input014' %></td><td><b onclick="clearData('input014');hideClose.call(this)" id="input014close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input015' %></td><td><b onclick="clearData('input015');hideClose.call(this)" id="input015close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input008' %></td><td><b onclick="clearData('input008');hideClose.call(this)" id="input008close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input016' %></td><td><b onclick="clearData('input016');hideClose.call(this)" id="input016close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input017' %></td><td><b onclick="clearData('input017');hideClose.call(this)" id="input017close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input009' %></td><td><b onclick="clearData('input009');hideClose.call(this)" id="input009close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input018' %></td><td><b onclick="clearData('input018');hideClose.call(this)" id="input018close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input010' %></td><td><b onclick="clearData('input010');hideClose.call(this)" id="input010close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input011' %></td><td><b onclick="clearData('input011');hideClose.call(this)" id="input011close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input012' %></td><td><b onclick="clearData('input012');hideClose.call(this)" id="input012close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input013' %></td><td><b onclick="clearData('input013');hideClose.call(this)" id="input013close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input014' %></td><td><b onclick="clearData('input014');hideClose.call(this)" id="input014close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input015' %></td><td><b onclick="clearData('input015');hideClose.call(this)" id="input015close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input016' %></td><td><b onclick="clearData('input016');hideClose.call(this)" id="input016close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input017' %></td><td><b onclick="clearData('input017');hideClose.call(this)" id="input017close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input018' %></td><td><b onclick="clearData('input018');hideClose.call(this)" id="input018close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input019' %></td><td><b onclick="clearData('input019');hideClose.call(this)" id="input019close" class="hideme2">x</b></td>
-<tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input019' %></td><td><b onclick="clearData('input019');hideClose.call(this)" id="input019close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <!-- START WARNING LIGHTS INPUTS-->
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input040' %></td><td><b onclick="clearData('input040');hideClose.call(this)" id="input040close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input040' %></td><td><b onclick="clearData('input040');hideClose.call(this)" id="input040close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input041' %></td><td><b onclick="clearData('input041');hideClose.call(this)" id="input041close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input041' %></td><td><b onclick="clearData('input041');hideClose.call(this)" id="input041close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input042' %></td><td><b onclick="clearData('input042');hideClose.call(this)" id="input042close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input043' %></td><td><b onclick="clearData('input043');hideClose.call(this)" id="input043close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input042' %></td><td><b onclick="clearData('input042');hideClose.call(this)" id="input042close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input044' %></td><td><b onclick="clearData('input044');hideClose.call(this)" id="input044close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input045' %></td><td><b onclick="clearData('input045');hideClose.call(this)" id="input045close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input043' %></td><td><b onclick="clearData('input043');hideClose.call(this)" id="input043close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input046' %></td><td><b onclick="clearData('input046');hideClose.call(this)" id="input046close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input047' %></td><td><b onclick="clearData('input047');hideClose.call(this)" id="input047close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input044' %></td><td><b onclick="clearData('input044');hideClose.call(this)" id="input044close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input048' %></td><td><b onclick="clearData('input048');hideClose.call(this)" id="input048close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input049' %></td><td><b onclick="clearData('input049');hideClose.call(this)" id="input049close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input045' %></td><td><b onclick="clearData('input045');hideClose.call(this)" id="input045close" class="hideme2">x</b></td>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input050' %></td><td><b onclick="clearData('input050');hideClose.call(this)" id="input050close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input046' %></td><td><b onclick="clearData('input046');hideClose.call(this)" id="input046close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input047' %></td><td><b onclick="clearData('input047');hideClose.call(this)" id="input047close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input048' %></td><td><b onclick="clearData('input048');hideClose.call(this)" id="input048close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input049' %></td><td><b onclick="clearData('input049');hideClose.call(this)" id="input049close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input050' %></td><td><b onclick="clearData('input050');hideClose.call(this)" id="input050close" class="hideme2">x</b></td>
-<tr>
-<tr>
-  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input051' %></td><td><b onclick="clearData('input051');hideClose.call(this)" id="input051close" class="hideme2">x</b></td>
-<tr>
+  <td><%= f.text_field :service, multiple: 'true', class: 'hideme2', id: 'input051' %></td><td><b onclick="clearData('input051');hideClose.call(this)" id="input051close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 <!-- START DESCRIPE INPUT -->
 <tr>
-  <td><%= f.text_area :description, class: 'hideme2', id: 'input060'%></td>
-  <td valign="top"><b onclick="clearData('input060');hideClose.call(this)" id="input060close" class="hideme2">x</b></td>
-<tr>
+  <td><%= f.text_area :description, rows: 4, class: 'hideme2', id: 'input060'%></td>
+  <td valign="top"><b onclick="clearData('input060');hideClose.call(this)" id="input060close" class="hideme2"><span style="cursor:pointer;color:#ff6600;"><i class="fa fa-window-close" aria-hidden="true"></i></span></b>
+  </td>
+</tr>
 </table>
 <div class="row text-center">
-<div class="col-md-12 col-sm-12"><br>
-  <%= f.submit 'Next Step', class: 'btn btn-primary'%>
-</div>
+  <div class="col-md-12 col-sm-12"><br>
+    <%= f.submit 'NEXT STEP', class: 'btn btn-default'%>
+  </div>
 </div>
 </form>
 <% end %>
