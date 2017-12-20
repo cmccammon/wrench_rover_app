@@ -17,7 +17,7 @@
 		</div>
 		<% end %>
 <!--/////////////////// START NOTIFICATION ROW /////////////////////-->
-<% if @appointments.empty? or @appointments.completed_true.any? %>
+<% if @appointments.empty? or @appointments_uncomplete.empty? %>
 <div class="row apptRow">
 </div>
 	<% else %>
@@ -25,7 +25,7 @@
 		<div class="col-md-2 col-sm-12 apptHead" style="line-height:80px;height:80px;text-align:center;">
 			<h4>You have a new<br>appointment!</h4>
 		</div>
-		<% @appointments.each do |a| %>
+		<% @appointments_uncomplete.each do |a| %>
 		<div class="col-md-4 col-sm-12" style="padding:0;">
 			<div class="apptHead">Where & When</div>
 			<div class="apptText"><%= a.quote.service_center.service_center_name %><br><%= a.selected_appointment %></div>
@@ -55,7 +55,7 @@
     overflow: scroll;">
 		<!--/////////////////// QUOTES TAB /////////////////////-->
 				<div id="mainQuotes" class="tab-pane fade in active">
-					<% if @requests.no_appointments.empty? %>
+					<% if @requests.no_appointments.empty?%>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 						 <%= link_to "Create a new request.", new_request_path %>
@@ -79,7 +79,7 @@
 						Check your appointments
 					</div>
 				</div>
-					<% elsif current_user.quotes.empty? %>
+					<% elsif r.quotes.empty? %>
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							No Quotes yet, but our dogs are finding the best services
@@ -140,14 +140,14 @@
 </div>
 				<!--/////////////////// APPOINTMENT TAB /////////////////////-->
 				<div id="mainAppointments" class="tab-pane fade">
-				<% if @appointments.empty? or @appointments.completed_true.any? %>
+				<% if @appointments_uncomplete.empty? %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<p>No Appointments yet.</p>
 						</div>
 					</div>
 					<% else %>
-				<% @appointments.each do |a| %>
+				<% @appointments_uncomplete.each do |a| %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 						<b><%= a.selected_appointment %></b> - <%= a.request.auto.make %> <%= a.request.auto.model %> - <%= a.request.service.to_sentence %><br>

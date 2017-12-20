@@ -23,6 +23,7 @@ class RequestsController < ApplicationController
     def index
       @requests = current_user.requests.all
       @appointments = current_user.appointments
+      @appointments_uncomplete = current_user.appointments.completed_false
       @appointment = Appointment.new
     end
 
