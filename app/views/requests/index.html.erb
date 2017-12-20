@@ -55,13 +55,7 @@
     overflow: scroll;">
 		<!--/////////////////// QUOTES TAB /////////////////////-->
 				<div id="mainQuotes" class="tab-pane fade in active">
-					<% if @requests.no_appointments.empty?%>
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-						 <%= link_to "Create a new request.", new_request_path %>
-						</div>
-					</div>
-					<% else %>
+					<% if @requests.no_appointments.any? || @requests.no_completed_appointments.any? %>
 					<% @requests.no_appointments.or(@requests.no_completed_appointments).uniq.each do |r| %>
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
@@ -136,6 +130,12 @@
 			<% end %>
 		<% end %>
 	<% end %>
+<% else %>
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+		 <%= link_to "Create a new request.", new_request_path %>
+		</div>
+	</div>
 <% end %>
 </div>
 				<!--/////////////////// APPOINTMENT TAB /////////////////////-->

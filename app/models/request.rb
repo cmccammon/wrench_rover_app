@@ -17,6 +17,9 @@ class Request < ApplicationRecord
   def self.no_completed_appointments
     left_outer_joins(:appointments).where(appointments: {completed: false})
   end
+  def self.completed_appointments
+    left_outer_joins(:appointments).where(appointments: {completed: true})
+  end
 
   def format_service
     self.service = service.compact.reject(&:empty?)
