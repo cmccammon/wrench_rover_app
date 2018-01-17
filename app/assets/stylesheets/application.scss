@@ -76,6 +76,7 @@ checkbox:checked {
 body {
  margin: 0;
  padding-top:0px;
+ margin-bottom: 90px;
 }
 
 .btn {width:auto;}
@@ -85,7 +86,7 @@ body {
 .centerSignup:hover {background-color:#000;color:#fff;}
 .centerSignup a {color:#fff;}
 
-.WRfooter {
+.footer {
 position: fixed;
 height: 90px;
 font-size:85%;
@@ -93,6 +94,9 @@ bottom: 0;
 width: 100%;
 text-align: center;
 background-color: #bbb;
+}
+.footer > .container{
+  margin-bottom: 15px;
 }
 
 .WRfooterLinks {
@@ -148,7 +152,14 @@ hr.vehicleHR:after {
    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform:scale(0); }
 .tab-nav > li > a::after {background:#000 none repeat scroll 0% 0%; color:#fff;}
 .tab-pane {padding:2px 0;}
-.tab-content{padding:8px; height:auto;}
+.tab-content{
+  padding:8px;
+  height:auto;
+  border:solid 2px #ff6600;
+  margin-bottom:15px;
+  min-height:350px;
+  overflow:scroll;
+}
 
 .userRow {background-color:#ddd; line-height:auto;}
 .userText {vertical-align:middle;}
@@ -161,7 +172,7 @@ hr.vehicleHR:after {
 .getStarted {padding:20px;}
 .getStarted img {filter:invert(100%);}
 .tablink {color:#fff!important;text-decoration:none;padding:5px;font-size:12pt;cursor:pointer;}
-.probRed {color:#fff!important;background-color:#ff6600!important;text-decoration:none;border-right:solid 8px #ff6600!important;cursor:pointer}
+.probRed {color:#fff!important;background-color:#ff6600!important;text-decoration:none;border-right:solid 8px #ff6600!important;cursor:pointer;text-align: center;}
 .probContainer {padding:0;margin:0;border:solid 2px #FF6600;height:590px;padding:0;}
 .probHeader {background:#eee;width:100%;padding:8px 0px 8px 15px;}
 .probSidenav {z-index:1;margin-bottom:20px;align:right;}
@@ -186,7 +197,6 @@ span.dropt:hover span {margin: 20px 0 0 10px; left: 10px; background: #fff; z-in
   }
   .probSidenav {z-index:1;margin-bottom:0px;align:right;height:80px;}
   .probSidenav a{padding:0px 0px 2px 0px;height:80px;text-decoration:none;color:#fff;margin-bottom:0px;background-color:#777;border-bottom:solid 3px #fff;border-right:0px;}
-  .probRed {color:#fff!important;background-color:#ff6600!important;text-decoration:none;border-bottom:solid 3px #ff6600!important;border-right:0px!important;}
   .probSidenav span {font-size:20pt;}
   .propNavItem {width:40px!important;margin-top:8px;}
   .probContainer {padding:0;margin:0;border:0px;height:auto;padding:0;}

@@ -45,7 +45,8 @@
                           <div style="float:left;padding:0px 0px;margin-right:5px;width:52px;"><i class="fa fa-car fa-3x"></i>
                           </div>
                           <% if current_user.autos.any? %>
-                          <div style="padding:0px 0px;"><b><%= current_user.autos.last.year %> <%= current_user.autos.last.make %> <%= current_user.autos.last.model %></b><br><%= current_user.autos.last.trim.truncate(27, separator: ' ') %>
+                          <div style="padding:0px 0px;"><b><%= current_user.autos.last.year %> <%= current_user.autos.last.make %> <%= current_user.autos.last.model %></b><br><%= current_user.autos.last.trim.truncate(27, separator: ' ') %></br>
+                            <%= link_to "Change vehicle", new_auto_path %>
                           </div>
                         </div>
                           <% end %>

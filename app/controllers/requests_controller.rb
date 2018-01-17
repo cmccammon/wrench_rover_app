@@ -4,11 +4,9 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
     def sc_dashboard
-      @requests = Request.where.not( id: Request.joins(:quotes).where(quotes: { service_center_id: current_service_center.id }).select(:id) )
+      @requests = Request.where.not( id: Request.joins(:quotes).where(quotes: { service_center_id: current_service_center.id }).select(:id) ).includes(:appointments).where(appointments: {id: nil})
       @service_center = current_service_center
       @service_center_quotes = Quote.where(service_center_id: current_service_center.id).includes(:appointment).where(appointments: {quote_id: nil})
-      @service_center_uncompleted = current_service_center.appointments.where(completed: "false")
-      @service_center_completed = current_service_center.appointments.where(completed: "true")
     end
 
     def complete
@@ -21,7 +19,7 @@ class RequestsController < ApplicationController
     # requests/index.html.erb
     # displays all requests
     def index
-      @requests = current_user.requests.all
+      @request = current_user.requests.last
       @appointments = current_user.appointments
       @appointments_uncomplete = current_user.appointments.completed_false
       @appointment = Appointment.new
@@ -65,7 +63,8 @@ class RequestsController < ApplicationController
       @request.user = current_user
       @request.auto = current_user.autos.last
       if @request.save
-        redirect_to requests_path, notice: 'Request was successfully created.'
+        flash[:notice] = 'Request was successfully created.'
+        redirect_to requests_path
       else
         render :new
       end

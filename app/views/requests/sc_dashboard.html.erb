@@ -12,7 +12,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#mainNew">New Requests <span class="badge"><%= @requests.count %><span></a></li>
       <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids <span class="badge"><%= @service_center_quotes.count %></span></a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments</a></li>
+      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments <span class="badge"><%= @service_center.appointments.completed_false.count %></span></a></li>
       <li class="inactive"><a data-toggle="tab" href="#mainCompleted">Completed</a></li>
     </ul>
     <div class="tab-content" style="border:solid 2px #ff6600;min-height: 350px;
@@ -66,7 +66,7 @@
                 <td><%= q.request.auto.year %> <%= q.request.auto.make.capitalize %> <%= q.request.auto.model.capitalize %></td>
                 <td><%= q.request.service.to_sentence %></td>
                 <td><%= q.request.description %></td>
-                <td><%= q.cost %></td>
+                <td><%= number_with_precision(q.cost, precision: 2) %></td>
               </tr>
               <% end %>
             </tbody>
@@ -96,7 +96,7 @@
                 </tr>
               </thead>
               <tbody>
-              <%  @service_center_uncompleted.each do |a| %>
+              <%  @service_center.appointments.completed_false.each do |a| %>
                 <tr>
                   <td><%= a.selected_appointment %></td>
                   <td><%= a.user.first_name %></td>
@@ -127,7 +127,7 @@
             </tr>
           </thead>
           <tbody>
-          <%  @service_center_completed.each do |c| %>
+          <%  @service_center.appointments.completed_true.each do |c| %>
 
             <tr>
               <td><%= c.updated_at.strftime("%m-%d-%y") %></td>

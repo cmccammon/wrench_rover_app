@@ -13,9 +13,17 @@ class ApplicationController < ActionController::Base
      end
    end
 
+   private
+     def authenticate_user!
+       if user_signed_in?
+         super
+       else
+         redirect_to new_user_registration_path, notice: "Please Login to view that page!" if request.original_fullpath != new_user_registration_path
+       end
+     end
+
 
   protected
-
 
   def devise_parameter_sanitizer
     if resource_class == User

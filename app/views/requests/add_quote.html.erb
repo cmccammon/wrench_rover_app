@@ -1,26 +1,31 @@
 <div class="row">
   <div class="col-md-12 col-sm-12">
-<h2> Add a Quote for: <%= @service_center.service_center_name.capitalize %> </h2>
+    <h2><%= @service_center.service_center_name.capitalize %>
+    </h2>
+    Add a Quote for:
+    <div>
+      <p>Service:
+        <%= @request.service.to_sentence %></p>
+      <p>Description:
+        <%= @request.description %></p>
+      <p>Auto:
+        <%= @request.auto.year %>
+        <%= @request.auto.make %>
+        <%= @request.auto.model %>
+      </p>
+    </div>
 
-<div>
-  <p>Service:
-  <%= @request.service.to_sentence %></p>
-  <p>Description:
-  <%= @request.description %></p>
-  <p>Auto:
-  <%= @request.auto.year %> <%= @request.auto.make %> <%= @request.auto.model %> </p>
-</div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
 
-<div>
-  <strong>Add a Quote:</strong>
+      <%= render 'quote_form' %>
 
-<%= render 'quote_form' %>
-
-</div>
-<% if service_center_signed_in?%>
-<%= link_to 'Back', sc_dashboard_requests_path %>
-<% else %>
-<%= link_to 'back', requests_path %>
-<% end %>
-</div>
+    </div>
+  </div>
+    <% if service_center_signed_in?%>
+    <%= link_to 'Back', sc_dashboard_requests_path %>
+  <% else %>
+    <%= link_to 'back', requests_path %>
+    <% end %>
+  </div>
 </div>

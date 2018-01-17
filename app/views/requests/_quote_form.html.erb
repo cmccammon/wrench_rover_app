@@ -1,67 +1,65 @@
-<div class="row">
-  <div class="col-md-6 col-sm-6">
-<%= form_for([@request, @request.quotes.new]) do |f|%>
-<% if @request.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@request.errors.count, "error") %> prohibited this quote from being saved:</h2>
+<%= form_for([@request, @request.quotes.build]) do |f|%>
 
-    <ul>
-    <% @request.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= f.hidden_field :service_center_id, value: @service_center.id %>
 
-  <%= f.hidden_field :service_center_id, value: @service_center.id %>
+<div class="col-md-6 col-sm-6">
   <div class="field">
-    <%= f.label 'Quote ' %><br>
-    $<%= f.number_field :cost %>
+    <%= f.label 'Quote' %>
+    <br>
+    <%= f.number_field :cost %>
   </div>
   <div class="field">
     <%= f.label 'Notes for customer' %><br>
     <%= f.text_area :comment %>
   </div>
 </div>
+
 <div class="col-md-6 col-sm-6">
-  <p> Appointment times </p>
+  <p>
+    Appointment times
+  </p>
   <div class="row">
-    <div class='col-sm-6'>
+    <div class="col-sm-8">
       <div class="form-group">
-        <%= f.label 'First available' %>
+        <%= f.label :datetime, 'First available' %>
         <div class="input-group date" id="datetimepicker1">
-          <%= f.text_field(:appointment1, class: 'form-control', data: {date_format: 'DD/MM/YYYY hh:mm'}) %>
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          <%= f.text_field :appointment1, class: 'form-control', data: { date_format: 'YYYY/MM/DD hh:mm' }%>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
         </div>
       </div>
     </div>
-      </div>
-    <div class="row">
-    <div class='col-sm-6'>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
       <div class="form-group">
-        <%= f.label 'Second available' %>
+        <%= f.label :datetime, 'Second available' %>
         <div class="input-group date" id="datetimepicker2">
-          <%= f.text_field(:appointment2, class: 'form-control', data: {date_format: 'DD/MM/YYYY hh:mm'}) %>
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          <%= f.text_field :appointment2, class: 'form-control', data: { date_format: 'YYYY/MM/DD hh:mm' } %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
         </div>
       </div>
     </div>
-      </div>
-    <div class="row">
-    <div class='col-sm-6'>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
       <div class="form-group">
-        <%= f.label 'Third available' %>
+        <%= f.label :datetime, 'Third available' %>
         <div class="input-group date" id="datetimepicker3">
-          <%= f.text_field(:appointment3, class: 'form-control', data: {date_format: 'DD/MM/YYYY hh:mm'}) %>
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          <%= f.text_field :appointment3, class: 'form-control', data: { date_format: 'YYYY/MM/DD hh:mm' } %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
         </div>
       </div>
     </div>
   </div>
-    <br/>
+  <br/>
   <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% end %>
+    <%= f.submit 'Add Quote', class: 'btn btn-default'%>
   </div>
 </div>
+<% end %>

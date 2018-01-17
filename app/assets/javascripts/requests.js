@@ -26,7 +26,7 @@ document.getElementById(myInput).className = "hideme2";
 
 
 // HIGHLIGHT LEFT NAV CATEGORY SECTIONS & DISPLAYS ALL CONTENT FOR THAT SECTION
-function openProb(evt, tabName) {
+function openProb(evt, tabName, tabTarget) {
   var i, x, tablinks;
   document.getElementById('getstarted').style.display = "none";
   x = document.getElementsByClassName("hideme");
@@ -35,10 +35,11 @@ function openProb(evt, tabName) {
   }
   tablinks = document.getElementsByClassName("tablink");
   for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" probRed", "");
+      tablinks[i].className = tablinks[i].className.replace(" probRed", " ");
   }
   console.log(tablinks);
   document.getElementById(tabName).style.display = "block";
+  document.getElementById(tabTarget).className = " probRed";
   evt.currentTarget.className += " probRed";
 }
 

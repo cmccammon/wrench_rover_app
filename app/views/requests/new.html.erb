@@ -8,9 +8,12 @@
         <div class="col-md-2 col-sm-12" style="padding:0px;">
           <!-- PUT NAV FOR COMMON, WARNINGS, DESCRIBE HERE -->
           <nav class="probSidenav">
-          <a  id="navCommon" class="text-center tablink" onclick="openProb(event, 'common');"><%= image_tag('probCommon.png', :class => "propNavItem" )%><br>Common</a>
-          <a  id="navWarnings" class="text-center tablink" onclick="openProb(event, 'warnings');"><%= image_tag('probWarning.png', class: "propNavItem")%><br>Warnings</a>
-          <a  id="navDescribe" class="text-center tablink" onclick="openProb(event, 'describe');"><%= image_tag('probDescribe.png', class: "propNavItem")%><br>Describe</a>
+          <a  id="navCommon" class="text-center tablink" onclick="openProb(event, 'common', 'navCommon');">
+          <%= image_tag('probCommon.png', :class => "propNavItem" )%><br>Common</a>
+          <a  id="navWarnings" class="text-center tablink" onclick="openProb(event, 'warnings', 'navWarnings');">
+          <%= image_tag('probWarning.png', class: "propNavItem")%><br>Warnings</a>
+          <a  id="navDescribe" class="text-center tablink" onclick="openProb(event, 'describe', 'navDescribe');">
+          <%= image_tag('probDescribe.png', class: "propNavItem")%><br>Describe</a>
           </nav>
         </div>
         <div class="col-md-10 col-sm-12" style="padding:0px;">
@@ -18,20 +21,20 @@
             <div id="getstarted">
               <div class="probHeader">
                 <h2 style="margin:0px">Lets get started!</h2>
-                <p>Choose a category to the left to choose your services.</p>
+                <p>Choose a category to select your vehicle services.</p>
               </div>
               <div>
                 <div class="row getStarted"><br>
                   <div class="col-md-4 col-sm-4 text-center">
-                    <%= image_tag('probCommon.png') %><br>
+                    <a class="tablink" onclick="openProb(event, 'common', 'navCommon');"><%= image_tag('probCommon.png', :class => "propNavItem") %></a><br><br>
                     Choose from our extensive list of common vehicle service or maintenance.
                   </div>
                   <div class="col-md-4 col-sm-4 text-center">
-                    <%= image_tag('probWarning.png') %><br>
+                    <a class="tablink" onclick="openProb(event, 'warnings', 'navWarnings');"><%= image_tag('probWarning.png', :class => "propNavItem") %></a><br><br>
                     Just select the warning light that is displayed on your dashboard.
                   </div>
                   <div class="col-md-4 col-sm-4 text-center">
-                    <%= image_tag('probDescribe.png') %><br>
+                    <a class="tablink" onclick="openProb(event, 'describe', 'navDescribe');"><%= image_tag('probDescribe.png', :class => "propNavItem") %></a><br><br>
                     Can't find what you need? Let us know what the problem is in your own words.
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
 # devise routes
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   devise_for :service_centers, path: 'service_centers', controllers: { sessions: "service_centers/sessions", registrations: "service_centers/registrations" }
@@ -23,7 +24,10 @@ Rails.application.routes.draw do
 # custom routes
   get '/requests/add_quote/:id', to: 'requests#add_quote', as: 'add_quote'
 
+  get "welcome", to: "welcome#index", as: :welcome
+
+
 # root
-  root 'autos#new'
+  root 'welcome#index'
 
 end

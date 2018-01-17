@@ -5,10 +5,11 @@ class QuotesController < ApplicationController
 
   def create
       @request = Request.find(params[:request_id])
-      @quote = @request.quotes.new(quote_params)
+      @quote = @request.quotes.create(quote_params)
       if @quote.save
         redirect_to :sc_dashboard_requests
       else
+        flash[:notice] = "Error creating comment: #{@quote.errors.inspect}"
         redirect_back(fallback_location: request)
       end
   end
