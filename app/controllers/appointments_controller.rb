@@ -43,6 +43,7 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       if @appointment.update(appointment_params)
         format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
+        # Two emails, one for use confirmation, one to the shop
         format.json { render :show, status: :ok, location: @appointment }
       else
         format.html { render :edit }

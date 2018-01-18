@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
      # check for the class of the object to determine what type it is
      if resource.class == User && resource.sign_in_count == 1
-       root_path
+       new_auto_path
      elsif resource.class == ServiceCenter
        sc_dashboard_requests_path
      else

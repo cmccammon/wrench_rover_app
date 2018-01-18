@@ -75,13 +75,7 @@
         </div>
       </div>
       <div id="mainAppointments" class="tab-pane fade">
-        <% if @service_center.appointments.empty? %>
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-          No appointments yet
-          </div>
-        </div>
-        <% else %>
+
         <div class="row">
           <div class="col-md-12 col-sm-12">
             <table class='table table-hover'>
@@ -95,6 +89,13 @@
                   <th>Quote</th>
                 </tr>
               </thead>
+              <% if @service_center.appointments.empty? %>
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                No appointments yet
+                </div>
+              </div>
+              <% else %>
               <tbody>
               <%  @service_center.appointments.completed_false.each do |a| %>
                 <tr>
