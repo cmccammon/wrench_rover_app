@@ -7,6 +7,8 @@
     <%= f.label 'Quote' %>
     <br>
     <%= f.number_field :cost %>
+    #  f.number_field :amount, value: number_to_currency(f.object.amount.to_f, delimiter: '', unit: ''), step: :0.01
+
   </div>
   <div class="field">
     <%= f.label 'Notes for customer' %><br>

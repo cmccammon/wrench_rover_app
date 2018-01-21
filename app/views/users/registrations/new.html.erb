@@ -1,55 +1,21 @@
 <div class="row">
 <!-- Main page content -->
-  <div class="col-md-9 col-sm-12"><h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="form-group row">
-    <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-      <div class="field">
-        <%= f.label 'First name' %><br />
-        <%= f.text_field :first_name, autofocus: true %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-      <div class="field">
-        <%= f.label 'Last name' %><br />
-        <%= f.text_field :last_name %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-      <div class="field">
-        <%= f.label 'zipcode' %><br />
-        <%= f.text_field :zipcode, size: 5 %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-      <div class="field">
-        <%= f.label 'Confirm password' %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-      <div class="actions">
-        <%= f.submit "Sign Up", class: "btn btn-default" %> <br/><br/>Already have an account?&nbsp; <%= render "devise/shared/links" %>
-      </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+<!-- Page Content -->
+        <div class="row banner01">
+       <!-- Main page content -->
+          <div class="col-md-12 col-sm-12" style="margin:25px 0 25px 0;">
+            <div class="col-md-6 col-sm-12 text-left">
+              <h1 class="light">Getting started is easy!</h1>
+              <span class="mobileHide">
+              <h2 class="light" style="font-weight:normal;">Create an account and begin immediately. You will be able to get help from all around your area right away.</h1>
+              <!-- <h3 class="light">It just takes a few easy steps to get you back on the road.</h3>
+              <h3 class="light">Certified shops pass a rigorous inspection by our master mechanics for quality work and competitive pricing.</h3> -->
+              </span>
+            </div>
+              <!-- Begin User sign_up -->
+            <div class="col-md-6 col-sm-12" style="border:solid 1px black;height:auto;margin-top:25px;background: rgba(255, 255, 255, 0.4)">
+            <%= render 'form' %>
+              </div>
+            </div>
+          </div>
+        </div>

@@ -1,3 +1,22 @@
-<h1>WrenchRover Landing page:</h1>
-<p>Click here is you need to sign up for this shit Bro! 
-<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-default btn-lg" %> </p>
+<!-- Page Content -->
+        <div class="row banner00">
+       <!-- Main page content -->
+          <div class="col-md-12 col-sm-12" style="margin-top:25px;">
+            <div class="col-md-6 col-sm-12 text-left">
+              <h1 class="light">Find a Mechanic.</h1>
+              <span class="mobileHide">
+              <h1 class="light">Book an Appointment.</h1>
+              <h1 class="light">And Relax.</h1><br>
+              <h3 class="light">It just takes a few easy steps to get you back on the road.</h3>
+              <h3 class="light">Certified shops pass a rigorous inspection by our master mechanics for quality work and competitive pricing.</h3>
+              <br><br></span>
+            </div>
+              <!-- Begin landing page -->
+              <div class="col-md-6 col-sm-12" style="border:solid 1px black;height:auto;margin-top:25px;background: rgba(255, 255, 255, 0.4)">
+                <h3 class='light'>If you are a customer looking for a quote</h3>
+              <%= link_to 'Customer Sign Up', new_user_registration_path, class: "btn btn-default btn-lg" %></br>
+              <h3 class='light'>If you are a service center looking to join us</h3>
+              <%= link_to 'Service Center Sign Up', new_service_center_registration_path, class: "btn btn-default btn-lg" %></br></br>
+              </div>
+          </div>
+        </div>

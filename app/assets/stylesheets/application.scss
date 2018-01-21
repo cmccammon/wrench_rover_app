@@ -53,8 +53,14 @@ button:hover
    outline:0px !important;
 }
 
+.form-control {
+margin-bottom: 10px;
+}
 
-h1.light, h3.light {
+.orange{
+  color:darkorange;
+}
+h1.light, h3.light, h2.light, .light {
    color:#fff;
    text-shadow: 2px 2px 4px #000;
 }
@@ -108,6 +114,9 @@ background-color: #bbb;
 /* STEP 1 STYLES */
 
 .probBanner {background-image: url(addAutobkg.png);background-position:center;height:590px;}
+.banner00 {background-image: url(banner01.png);background-position:center;background-repeat:no-repeat;width:100%;background-size:cover;}
+.banner01 {background-image: url(banner00.png);background-position:center;background-repeat:no-repeat;width:100%;background-size:cover;}
+.banner02 {background-image: url(banner02.png);background-position:center;background-repeat:no-repeat;width:100%;background-size:cover;}
 
 .vehSelect {
  background: image-url('transparent.png');

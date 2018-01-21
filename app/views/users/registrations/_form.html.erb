@@ -1,0 +1,48 @@
+<div class="col-md-9 col-sm-12">
+  <h2 class="light" style="margin-bottom:20px;">Customer Sign Up</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="form-group row">
+      <div class="col-md-6 col-sm-12">
+        <div class="field">
+          <%= f.text_field :first_name, placeholder: 'First name', autofocus: true, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="field">
+          <%= f.text_field :last_name, placeholder: 'Last name', class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="field">
+          <%= f.email_field :email, placeholder: 'Email address', class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="field">
+          <%= f.text_field :zipcode, placeholder: 'Zipcode', size: 12, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="field">
+          <%= f.password_field :password, placeholder: 'Password (6 characters minimum)', autocomplete: "off", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="field">
+          <%= f.password_field :password_confirmation, placeholder: 'Confirm password', autocomplete: "off", class: "form-control" %></br>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12" style="margin-bottom:15px;">
+        <div class="actions light">
+          <center><%= f.submit "Sign Up Now!", class: "btn btn-default" %></center>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12">
+        <div class="light">
+          <center>Already have an account? Sign in with the menu above."</center>
+        </div>
+      </div>
+        <% end %>
+      </div>
+    </div>

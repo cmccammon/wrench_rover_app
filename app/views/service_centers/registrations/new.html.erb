@@ -1,113 +1,21 @@
 <div class="row">
-  <div class="col-md-9 col-sm-12">
-    <h2>Service center account sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="form-group row">
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'First name' %> -->
-      <br />
-      <%= f.text_field :first_name, placeholder: 'First name', autofocus: true %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'Last name' %> -->
-      <br />
-      <%= f.text_field :last_name, placeholder: 'Last name' %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'Business name' %> -->
-      <br />
-      <%= f.text_field :service_center_name, placeholder: 'Business name' %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'street address' %> -->
-      <br />
-      <%= f.text_field :address, placeholder: 'Street address' %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'Apt, suite, etc...' %> -->
-      <br />
-      <%= f.text_field :address2, placeholder: 'Apt, suite, etc...' %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'zipcode' %> -->
-      <br />
-      <%= f.text_field :city, placeholder: "City" %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'zipcode' %> -->
-      <br />
-      <%= f.text_field :zipcode, placeholder: "Zip code" %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label :state %> -->
-      <br />
-      <% states = %w(AL AK AZ AR CA CO CT DC DE FL GA HI ID IL IN IA KS KY LA ME MA MI MN MO MS
-    MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY) %>
-      <%= f.select :state, options_for_select(states), {prompt: 'State'},  { class: "btn btn-default dropdown-toggle"} %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <div class="field">
-      <!-- <%= f.label 'zipcode' %> -->
-      <br />
-      <%= f.phone_field :phone_number, placeholder: "Phone number" %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-  <div class="field">
-    <!-- <%= f.label :email %> -->
-    <br />
-    <%= f.text_field :email, placeholder: 'Email', autofocus: true %>
-  </div>
-</div>
-<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-  <div class="field">
-    <!-- <%= f.label :password %> -->
-    <br />
-    <%= f.password_field :password, placeholder: 'Password', autocomplete: "off" %><br />
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-  </div>
-</div>
-<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-  <div class="field">
-    <!-- <%= f.label :password_confirmation %> -->
-    <br />
-    <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', autocomplete: "off" %>
-  </div>
-</div>
-<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-    <br />
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-</div>
-</div>
-</div>
-<% end %>
-<br />
-</div>
-<div class="col-md-6 col-sm-12" style="margin-bottom:8px;">
-  <div>
-  <p> Or if you have an account sign in here:</P>
-  <%= render "service_centers/shared/links" %>
-  </div>
-</div>
+<!-- Main page content -->
+<!-- Page Content -->
+        <div class="row banner02">
+       <!-- Main page content -->
+          <div class="col-md-12 col-sm-12" style="margin:25px 0 25px 0;">
+            <div class="col-md-6 col-sm-12 text-left">
+              <h1 class="light">Getting started is easy!</h1>
+              <span class="mobileHide">
+              <h2 class="light" style="font-weight:normal;">Create an account and begin immediately. You will be able to get help from all around your area right away.</h1>
+              <!-- <h3 class="light">It just takes a few easy steps to get you back on the road.</h3>
+              <h3 class="light">Certified shops pass a rigorous inspection by our master mechanics for quality work and competitive pricing.</h3> -->
+              </span>
+            </div>
+              <!-- Begin User sign_up -->
+            <div class="col-md-6 col-sm-12" style="border:solid 1px black;height:auto;margin-top:25px;background: rgba(255, 255, 255, 0.4)">
+            <%= render 'form' %>
+              </div>
+            </div>
+          </div>
+        </div>
