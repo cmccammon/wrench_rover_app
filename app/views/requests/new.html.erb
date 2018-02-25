@@ -1,83 +1,61 @@
 
-<div class="row">
+<div class="row banner00">
 <!-- Main page content -->
 
     <!-- BEGIN PROBLEM MAIN CONTENT AREA -->
-    <div class="col-md-9 col-sm-12">
+    <div class="col-md-3 col-sm-12">
+      <h3 class="headline">Choose the service you need assistance with here.<br><br>Its easy to choose and find any word or just tell us in your own words!<h3>
+    </div>
+    <div class="col-md-6 col-sm-12">
       <div class="row">
-        <div class="col-md-2 col-sm-12" style="padding:0px;">
+        <div class="col-md-12 col-sm-12">
           <!-- PUT NAV FOR COMMON, WARNINGS, DESCRIBE HERE -->
-          <nav class="probSidenav">
-          <a  id="navCommon" class="text-center tablink" onclick="openProb(event, 'common', 'navCommon');">
-          <%= image_tag('probCommon.png', :class => "propNavItem" )%><br>Common</a>
-          <a  id="navWarnings" class="text-center tablink" onclick="openProb(event, 'warnings', 'navWarnings');">
-          <%= image_tag('probWarning.png', class: "propNavItem")%><br>Warnings</a>
-          <a  id="navDescribe" class="text-center tablink" onclick="openProb(event, 'describe', 'navDescribe');">
-          <%= image_tag('probDescribe.png', class: "propNavItem")%><br>Describe</a>
-          </nav>
-        </div>
-        <div class="col-md-10 col-sm-12" style="padding:0px;">
-          <div class="probContainer">
-            <div id="getstarted">
-              <div class="probHeader">
-                <h2 style="margin:0px">Lets get started!</h2>
-                <p>Choose a category to select your vehicle services.</p>
-              </div>
-              <div>
-                <div class="row getStarted"><br>
-                  <div class="col-md-4 col-sm-4 text-center">
-                    <a class="tablink" onclick="openProb(event, 'common', 'navCommon');"><%= image_tag('probCommon.png', :class => "propNavItem") %></a><br><br>
-                    Choose from our extensive list of common vehicle service or maintenance.
-                  </div>
-                  <div class="col-md-4 col-sm-4 text-center">
-                    <a class="tablink" onclick="openProb(event, 'warnings', 'navWarnings');"><%= image_tag('probWarning.png', :class => "propNavItem") %></a><br><br>
-                    Just select the warning light that is displayed on your dashboard.
-                  </div>
-                  <div class="col-md-4 col-sm-4 text-center">
-                    <a class="tablink" onclick="openProb(event, 'describe', 'navDescribe');"><%= image_tag('probDescribe.png', :class => "propNavItem") %></a><br><br>
-                    Can't find what you need? Let us know what the problem is in your own words.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="common" class="hideme">
-              <div class="probHeader">
-                <h2 style="margin:0px">Common Services</h2>
-                <p>Choose from a list of common vehicle services</p>
-              </div>
-              <div>
-                <div>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#common">COMMON SERVICES</a></li>
+            <li><a data-toggle="tab" href="#warning">WARNING LIGHTS</a></li>
+          </ul>
+
+          <div class="tab-content" style="overflow: hidden;">
+            <div id="common" class="tab-pane fade in active">
+            <h3 style="margin-top:0px;">Common Vehicle Services</h3>
+            <p>Choose from our extensive list of common vehicle service or maintenance.</p>
+
+            <div>
+            <div>
        <!-- PUT COMMON SERVICES DATA HERE -->
-                <table style="margin-left:20px;" id="commonTable">
-      <tr>
-        <td><h4>Engine Oil Change</h4><button class="btn btn-default btn-sm" onclick="populateData('input001','Standard Oil Change','input001close');">Standard</button><button class="btn btn-default btn-sm" onclick="populateData('input001','Synthetic Blend Oil Change','input001close');">Synthetic Blend</button><button class="btn btn-default btn-sm" onclick="populateData('input001','Full Synthetic Oil Change','input001close');">Full Synthetic</button></td>
-      </tr>
-      <tr>
-        <td><h4>Tires and Wheels</h4><button class="btn btn-default btn-sm" onclick="populateData('input002','Purchase New Tires','input002close');">Purchase New Tires</button><button class="btn btn-default btn-sm" onclick="populateData('input003','Tire Installation/Rotation','input003close');">Tire Installation/Rotation</button><button class="btn btn-default btn-sm" onclick="populateData('input004','Tire Inspection','input004close');">Tire Inspection</button><button class="btn btn-default btn-sm" onclick="populateData('input005','Wheel Alignment','input005close');">Wheel Alignment</button></td>
-      </tr>
-      <tr>
-        <td><h4>Brake System</h4><button class="btn btn-default btn-sm" onclick="populateData('input006','Making Noise or Vibration','input006close');">Making Noise or Vibration</button><button class="btn btn-default btn-sm" onclick="populateData('input007','Pad Replacement','input007close');">Pad Replacement</button><button class="btn btn-default btn-sm" onclick="populateData('input008','Pad & Rotor Replacement','input008close');">Pad & Rotor Replacement</button></td>
-      </tr>
-      <tr>
-        <td><h4>Air Conditioning & Heating</h4><button class="btn btn-default btn-sm" onclick="populateData('input009','A/C & Heating Inspection','input009close');">A/C & Heating Inspection</button><button class="btn btn-default btn-sm" onclick="populateData('input010','A/C System Recharge','input010close');">A/C System Recharge</button><button class="btn btn-default btn-sm" onclick="populateData('input011','Heater Core Replacement','input011close');">Heater Core Replacement</button><button class="btn btn-default btn-sm" onclick="populateData('input012','Heater Fan Replacement','input012close');">Heater Fan Replacement</button></td>
-      </tr>
-      <tr>
-        <td><h4>Radiator & Coolant</h4><button class="btn btn-default btn-sm" onclick="populateData('input013','Overheating Issues','input013close');">Overheating Issues</button><button class="btn btn-default btn-sm" onclick="populateData('input014','Radiator Fluid Flush','input014close');">Radiator Fluid Flush</button></td>
-      </tr>
-      <tr>
-        <td><h4>Regular Maintenance</h4><button class="btn btn-default btn-sm" onclick="populateData('input015','30k Mileage Service','input015close');">30k Mileage Service</button><button class="btn btn-default btn-sm" onclick="populateData('input015','60k Mileage Service','input015close');">60k Mileage Service</button><button class="btn btn-default btn-sm" onclick="populateData('input015','90k Mileage Service','input015close');">90k Mileage Service</button><button class="btn btn-default btn-sm" onclick="populateData('input016','Engine Tune Up','input016close');">Engine Tune Up</button>
-        </td>
-      </tr>
-      <tr>
-        <td><h4>Steering & Suspension</h4><button class="btn btn-default btn-sm" onclick="populateData('input017','Steering/Suspension Inspection','input017close');">Steering/Suspension Inspection</button><button class="btn btn-default btn-sm" onclick="populateData('input018','Steering Pump Replacement','input018close');">Steering Pump Replacement</button><button class="btn btn-default btn-sm" onclick="populateData('input019','Shocks/Strut Replacement','input019close');">Shocks/Strut Replacement</button></td>
-      </tr>
-      </table>
+       <table id="commonTable" class="commonTableFormat">
+         <tr>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-oil"></i></span> Engine Oil Change</a></h4></td>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-tire"></i></span> Tires and Wheels</a></h4></td>
+         </tr>
+         <tr>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-break-2"></i></span> Brake System</a></h4></td>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-frost-1"></i></span> A/C & Heating</a></h4></td>
+         </tr>
+         <tr>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-radiator"></i></span> Radiator & Coolant</a></h4></td>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-car-5"></i></span> Regular Maintenance</a></h4></td>
+       </tr>
+        <tr>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-steering-wheel"></i></span> Steering & Suspension</a></h4></td>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-exhaust"></i></span> Exhaust System</a></h4></td>
+         </tr>
+         <tr>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-engine"></i></span> Engine</a></h4></td>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-gearshift"></i></span> Transmission</a></h4></td>
+         </tr>
+         <tr>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-battery"></i></span> Electrical</a></h4></td>
+         <td><h4><a href="#" class="commonLink"><span class="badge"><i class="flaticon-mechanic"></i></span> Describe Problem</a></h4></td>
+         </tr>
+       </table>
                 </div>
               </div>
             </div>
-            <div id="warnings" class="hideme" style="padding:0px;">
-              <div class="probHeader"><h2 style="margin:0px">Dashboard Warning Lights</h2>
-              <p>What they mean and how to fix them.</p></div>
+            <div id="warning" class="tab-pane fade">
+            <h3 style="margin-top:0px;">Dashboard Warning Lights</h3>
+            <p>Just select the warning light that is displayed on your dashboard.</p>
+
               <!-- PUT WARNING LIGHTS DATA HERE -->
               <div class="text-center">
                 <span class="dropt">
@@ -118,35 +96,13 @@
                 </span>
                 </div>
               </div>
-            <div id="describe" class="hideme">
-              <div class="probHeader">
-                <h2 style="margin:0px">Describe your issue</h2>
-                <p>Tell us in your own words whats wrong.</p>
-              </div>
-              <div>
-                <div class="form-group row">
-                  <div class="col-md-12 col-sm-12" style="margin:15px;">
-                    <div class="alert alert-dismissible alert-info" style="width:95%">
-                      <button type="button" class="close" data-dismiss="alert">x</button>
-                      <strong>Example:</strong> "While driving, when I press my brakes and my car pulls to the right. It only occurs if I am driving upwards of 30 mph and brake hard."
-                    </div>
-                    <p><textarea class="form-control" style="width:95%;height:100px;" placeholder="Please be as descriptive as possible" id="inputText060"></textarea></p>
-                  </div>
-                </div>
-                <div class="form-group row text-center">
-                  <div class="col-md-12 col-sm-12">
-                    <button class="btn btn-default" style="width:auto;" onclick="populateDescribeData('input060','input060close');">ADD TO SERVICES</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    </div
+    </div>
     <!-- BEGIN YOUR VEHICLE AND YOUR SERVICES AREA -->
-    <div class="col-md-3 col-sm-12">
-      <div class="row carContain">
+    <div class="col-md-3 col-sm-12" style="margin-top:40px;">
+      <div class="row">
         <!-- TITLES AND CONTENT YOUR VEHICLE AND YOUR SERVICES AREA -->
         <div class="col-md-12 col-sm-12 text-center carHeader">
           Your Vehicle
@@ -163,7 +119,7 @@
         <div class="col-md-12 col-sm-12 carData">
           <%= render 'form_step_two' %>
         </div>
+        </div>
       </div>
     </div>
   </div>
-</div>

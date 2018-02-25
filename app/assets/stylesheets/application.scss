@@ -21,13 +21,52 @@
 @import "font-awesome";
 
 /* GLOBAL STYLES */
-html {
+html, body {
  font-family: Tahoma;
  -ms-text-size-adjust: 100%;
  -webkit-text-size-adjust: 100%;
+ height: 100%;
 }
 @media only screen and (max-width: 991px) {
  .mobileHide {display:none;}
+}
+.action_box{
+  border: solid 1px black;
+  height:auto;margin-top:25px;
+  background: rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+
+body, html {height:100% !important;}
+.headline {color:#fff;margin-top:40px;text-shadow: 2px 2px 5px #000;}
+.warning {max-width: 75px !important; min-width:60px !important;filter: grayscale(100%) !important;}
+.warning:hover {filter: grayscale(0%) !important;}
+.commonTableFormat  tr td {padding-left:20px;}
+.commonLink {color:#555;}
+.commonLink:active, .commonLink:hover {color:#ff6600;}
+.carHeader {border-radius:12px 12px 0 0;padding:3px;opacity:0.9;background:#ccc;color:#000;font-weight:bold;text-transform:uppercase;}
+.carData {border-radius:0 0 12px 12px;opacity:0.9;margin-bottom:20px;background:#fff;color:#000;font-size:14px;}
+.tab-content {background:#fff;opacity:0.9;margin:0px !important;}
+.badge {border-radius:3px;background:#555;font-weight:normal;}
+
+.dashTabs{
+
+  background: rgba(255, 255, 255, 0.4);
+}
+#topHeader {
+  max-width: 80%;
+  margin-left: 10%;
+}
+#mainContent {
+  max-width: 80%;
+  margin-left: 10%;
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.container {
+  min-width: 100%;
 }
 
 a:focus {color:#ff6600 !important;}
@@ -80,9 +119,9 @@ checkbox:checked {
                color: #D95700;
 }
 body {
- margin: 0;
- padding-top:0px;
- margin-bottom: 90px;
+  margin: 0 auto;
+  padding: 0 auto;
+  margin-bottom: 90px;
 }
 
 .btn {width:auto;}
@@ -113,10 +152,32 @@ background-color: #bbb;
 
 /* STEP 1 STYLES */
 
-.probBanner {background-image: url(addAutobkg.png);background-position:center;height:590px;}
-.banner00 {background-image: url(banner01.png);background-position:center;background-repeat:no-repeat;width:100%;background-size:cover;}
-.banner01 {background-image: url(banner00.png);background-position:center;background-repeat:no-repeat;width:100%;background-size:cover;}
-.banner02 {background-image: url(banner02.png);background-position:center;background-repeat:no-repeat;width:100%;background-size:cover;}
+.probBanner {
+  background-image: url(addAutobkg.png);
+  background-position:center;
+  height:590px;
+}
+.banner00 {
+  background-image: url(banner01.png);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:590px;
+}
+.banner01 {
+  background-image: url(banner00.png);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:590px;
+}
+.banner02 {
+  background-image: url(banner02.png);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:590px;
+}
 
 .vehSelect {
  background: image-url('transparent.png');
@@ -160,14 +221,9 @@ hr.vehicleHR:after {
        .nav-tabs > li > a::after {content:""; background:#aaa; height:2px; position:absolute; width:100%; left:0px; transition:all 250ms ease 0s; transform:scale(0);}
    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform:scale(0); }
 .tab-nav > li > a::after {background:#000 none repeat scroll 0% 0%; color:#fff;}
-.tab-pane {padding:2px 0;}
-.tab-content{
-  padding:8px;
-  height:auto;
-  border:solid 2px #ff6600;
-  margin-bottom:15px;
-  min-height:350px;
-  overflow:scroll;
+.tab-pane {
+  padding:2px 0;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .userRow {background-color:#ddd; line-height:auto;}
@@ -219,9 +275,6 @@ span.dropt:hover span {margin: 20px 0 0 10px; left: 10px; background: #fff; z-in
 }
 
 .carContain {border:solid 1px #000;margin-left:0;}
-.carHeader {background-color:#000;color:#fff;padding:10px;font-size:110%;}
-.carData {padding:15px;font-size:120%;}
-
 #services input {border:none;background-color:white;}
 #services b {cursor:pointer;text-transform:uppercase;}
 #services b:hover {cursor:pointer;color:#ff6600;}

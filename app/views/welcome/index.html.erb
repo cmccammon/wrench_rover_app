@@ -1,7 +1,8 @@
 <!-- Page Content -->
-        <div class="row banner00">
+      <div class="row banner00">
+        <div id='mainContent'>
        <!-- Main page content -->
-          <div class="col-md-12 col-sm-12" style="margin-top:25px;">
+          <div class="col-md-12 col-sm-12">
             <div class="col-md-6 col-sm-12 text-left">
               <h1 class="light">Find a Mechanic.</h1>
               <span class="mobileHide">
@@ -12,11 +13,13 @@
               <br><br></span>
             </div>
               <!-- Begin landing page -->
-              <div class="col-md-6 col-sm-12" style="border:solid 1px black;height:auto;margin-top:25px;background: rgba(255, 255, 255, 0.4)">
+              <div class="col-md-6 col-sm-12 action_box">
                 <h3 class='light'>If you are a customer looking for a quote</h3>
-              <%= link_to 'Customer Sign Up', new_user_registration_path, class: "btn btn-default btn-lg" %></br>
+              <%= link_to 'Customer Sign Up', new_user_registration_path, class: "btn btn-default btn-lg" %><br /><br />Already have an account? <%= link_to 'Sign in here', user_session_path %>
+     <br />
               <h3 class='light'>If you are a service center looking to join us</h3>
-              <%= link_to 'Service Center Sign Up', new_service_center_registration_path, class: "btn btn-default btn-lg" %></br></br>
+              <%= link_to 'Service Center Sign Up', new_service_center_registration_path, class: "btn btn-default btn-lg" %><br /><br />Already have an account? <%= link_to 'Sign in here', service_center_session_path %></br></br>
               </div>
+            </div>
           </div>
         </div>

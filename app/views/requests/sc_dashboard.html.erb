@@ -62,7 +62,7 @@
               <tbody>
               <%  @service_center_quotes.each do |q| %>
               <tr>
-                #changing col date formatting.(just a note)
+                <!-- changing col date formatting.(just a note) -->
                 <td><nobr><%= q.request.created_at.strftime("%m/%d/%y") %></nobr></td>
                 <td><%= q.request.auto.year %> <%= q.request.auto.make.capitalize %> <%= q.request.auto.model.capitalize %></td>
                 <td><%= q.request.service.to_sentence %></td>

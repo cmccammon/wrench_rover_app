@@ -1,27 +1,28 @@
-const EDMUNDS_API_KEY = 'j6rkty2b6axssxvcnz28umfb';
 
 function get_makes(year) {
-    url = 'https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&year=' + year + '&api_key=' + EDMUNDS_API_KEY;
+    url = 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getMakes&year=' + year + '&sold_in_us=1';
     $.ajax({
         type: "POST",
         url: url,
         data: '',
         dataType: 'jsonp',
         success: function(data) {
+            console.log(data.Makes);
             $('#auto_make').empty();
             $('#auto_make').append("<option>Select Make</option>");
-            $.each(data.makes, function(i, val) {
-                $('#auto_make').append("<option value='" + data.makes[i].name + "'>" + data.makes[i].name + "</option>");
+            var makes = data.Makes;
+            $.each(makes, function(i, val) {
+                $('#auto_make').append("<option value='" + makes[i].make_display + "'>" + makes[i].make_display + "</option>");
             });
             $('#auto_make').removeAttr('disabled');
 
             console.log('Step 2: Makes select was populated and enabled');
-            console.log(data.makes);
+            console.log(makes);
         }
     });
 }
 function get_models(make, year) {
-    url =  'https://api.edmunds.com/v1/api/vehicle/modelrepository/findmodelsbymakeandyear?make=' + make + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
+    url = 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getModels&make=' + make + '&year=' + year + '&sold_in_us=1';
     $.ajax({
         type: "POST",
         url: url,
@@ -30,16 +31,18 @@ function get_models(make, year) {
         success: function(data) {
             $('#auto_model').empty();
             $('#auto_model').append("<option>Select Model</option>");
-            $.each(data.modelHolder, function(i, val) {
-                $('#auto_model').append("<option value='" + data.modelHolder[i].name + "'>" + data.modelHolder[i].name + "</option>");
+            var models = data.Models;
+            $.each(models, function(i, val) {
+                $('#auto_model').append("<option value='" + models[i].model_name + "'>" + models[i].model_name + "</option>");
             });
             $('#auto_model').removeAttr('disabled');
+            console.log(models);
             console.log('Step 4: Models select was populated and enabled');
         }
     });
 }
 function get_styles(make, model, year) {
-    url = 'https://api.edmunds.com/v1/api/vehicle/stylerepository/findstylesbymakemodelyear?make=' + make + '&model=' + model + '&year=' + year + '&api_key=' + EDMUNDS_API_KEY + '&fmt=json';
+    url = 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getTrims&make=' + make + '&year=' + year + '&model=' + model + '&full_results=0&sold_in_us=1';
     $.ajax({
         type: "POST",
         timeout: 20000,
@@ -49,11 +52,13 @@ function get_styles(make, model, year) {
         success: function(data) {
             $('#auto_trim').empty();
             $('#auto_trim').append("<option>Select Trim</option>");
-            $.each(data.styleHolder, function(i, val) {
-                console.log(data.styleHolder[i]);
-                $('#auto_trim').append("<option value='" + data.styleHolder[i].name + "'>" + data.styleHolder[i].name + "</option>");
+            var trim = data.Trims;
+            $.each(trim, function(i, val) {
+                console.log(trim[i]);
+                $('#auto_trim').append("<option value='" + trim[i].model_trim + "'>" + trim[i].model_trim + "</option>");
             });
             $('#auto_trim').removeAttr('disabled');
+            console.log(trim)
             console.log('Step 6: Styles(trim) select was populated and enabled');
         }
     });
