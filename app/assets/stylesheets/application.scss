@@ -19,6 +19,7 @@
 @import "meganavbar";
 @import "navbar-grey-light";
 @import "font-awesome";
+@import "flaticon";
 
 /* GLOBAL STYLES */
 html, body {
@@ -41,13 +42,14 @@ body, html {height:100% !important;}
 .headline {color:#fff;margin-top:40px;text-shadow: 2px 2px 5px #000;}
 .warning {max-width: 75px !important; min-width:60px !important;filter: grayscale(100%) !important;}
 .warning:hover {filter: grayscale(0%) !important;}
+
 .commonTableFormat  tr td {padding-left:20px;}
 .commonLink {color:#555;}
 .commonLink:active, .commonLink:hover {color:#ff6600;}
 .carHeader {border-radius:12px 12px 0 0;padding:3px;opacity:0.9;background:#ccc;color:#000;font-weight:bold;text-transform:uppercase;}
 .carData {border-radius:0 0 12px 12px;opacity:0.9;margin-bottom:20px;background:#fff;color:#000;font-size:14px;}
 .tab-content {background:#fff;opacity:0.9;margin:0px !important;}
-.badge {border-radius:3px;background:#555;font-weight:normal;}
+.badge {font-family: Flaticon;border-radius:3px;background:#555;font-weight:normal;}
 
 .dashTabs{
 
@@ -157,7 +159,7 @@ background-color: #bbb;
   background-position:center;
   height:590px;
 }
-.bannerSept2 {
+.bannerStep2 {
   background-image: url(banner01.png);
   width:auto !important;
   background-position: center;

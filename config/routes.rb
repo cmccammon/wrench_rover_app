@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
 
 
+  get 'user/index'
+
+  get 'user/dashboard'
+
+  get 'service_center/index'
+
+  get 'service_center/dashboard'
+
 # devise routes
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   devise_for :service_centers, path: 'service_centers', controllers: { sessions: "service_centers/sessions", registrations: "service_centers/registrations" }
