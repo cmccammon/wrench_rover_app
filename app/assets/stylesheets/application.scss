@@ -157,6 +157,16 @@ background-color: #bbb;
   background-position:center;
   height:590px;
 }
+.bannerSept2 {
+  background-image: url(banner01.png);
+  width:auto !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100% !important;
+  min-height:600px !important;
+  max-height:850px !important;
+}
 .banner00 {
   background-image: url(banner01.png);
   background-position:center;
