@@ -1,11 +1,11 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    <br />
+    <%= f.email_field :email, placeholder: 'Email address', autofocus: true, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <br />
     <%= f.password_field :password, placeholder: 'Password (6 characters minimum)', autocomplete: "off", class: "form-control" %>
   </div>
 
@@ -17,8 +17,9 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-default" %>
   </div>
 <% end %>
-
+<div class="light">
 <%= render "users/shared/links" %>
+</div>

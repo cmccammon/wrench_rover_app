@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       get "sc_dashboard" # generate  get "/requests/sc_dashboard"
     end
   end
-  resources :services, only: [:index]
+  # resources :services, only: [:index]
 
 # custom routes
   get '/requests/add_quote/:id', to: 'requests#add_quote', as: 'add_quote'

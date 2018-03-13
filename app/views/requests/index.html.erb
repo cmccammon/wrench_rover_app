@@ -1,14 +1,12 @@
 	<div class="container-overflow-wrap">
-		<div class='container'>
-			<div class='row'>
-				<div class='m12'>
-					<div class="container" style="margin-top:110px;height:100% !important;">
+		  <div class="row banner02">
+        <div class="container" style='padding: 0px 35px 35px 35px;'>
 						<!--/////////////////// START WELCOME MESSAGE ROW /////////////////////-->
 						<% if current_user.sign_in_count > 5 %>
 						<div class="row welcome">
 							<div class="col-md-12 col-sm-12">
 								<h1>Welcome back
-									<%= current_user.first_name %></h1>
+									<%= current_user.first_name.capitalize %></h1>
 								We value you as a customer and strive to deliver a solution that is right for you.<br><br>
 							</div>
 						</div>
@@ -17,8 +15,8 @@
 						<div class="row welcome">
 							<div class="col-md-12 col-sm-12">
 								<h1>Welcome,
-									<%= current_user.first_name %></h1>
-								Thank you for letting us find the best deal in automotive repair for you. We strive to deliver a solution that is right for you.<br><br>
+									<%= current_user.first_name.capitalize %></h1>
+								<h4>Thank you for letting us find the best deal in automotive repair. We strive to deliver a solution that is right for you.</h4><br><br>
 							</div>
 						</div>
 						<% end %>
@@ -28,7 +26,7 @@
 					<% else %>
 						<div class="row apptRow">
 							<div class="col-md-2 col-sm-12 apptHead" style="line-height:80px;height:80px;text-align:center;">
-								<h4>You have a new<br>appointment!</h4>
+								<h3 style='margin-top:10px;margin-bottom:10px;'>You have a new<br>appointment!</h3>
 							</div>
 							<% @appointments_uncomplete.each do |a| %>
 							<div class="col-md-4 col-sm-12" style="padding:0;">
@@ -50,8 +48,8 @@
 
 						<!--/////////////////// START MAINTENANCE LISTINGS COLUMN /////////////////////-->
 						<div class="row">
-							<div class="col-md-12 col-sm-12 ">
-								<h3>Your Maintenance Requests</h3>
+							<div class="col-md-12 col-sm-12">
+								<h3 class='light'>Your Maintenance Requests</h3>
 								<ul class="nav nav-tabs">
 									<li class="active">
 										<a data-toggle="tab" href="#mainQuotes">Quotes</a>
@@ -63,7 +61,8 @@
 										<a data-toggle="tab" href="#mainHistory">Past</a>
 									</li>
 								</ul>
-								<div class="tab-content">
+								<div class="tab-content" style="border:solid 2px #ff6600;min-height: 350px;
+						    overflow: scroll;">
 									<!--/////////////////// QUOTES TAB /////////////////////-->
 									<div id="mainQuotes" class="tab-pane fade in active">
 										<% if @request.appointments.blank? %>
@@ -244,6 +243,3 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>

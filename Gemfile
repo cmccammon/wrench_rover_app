@@ -43,7 +43,7 @@ gem "font-awesome-rails"
 #datetime picker
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-
+gem 'hirb', '~> 0.7.3'
 #figaro for secrets
 gem 'figaro'
 

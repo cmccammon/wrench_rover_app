@@ -36,6 +36,7 @@ html, body {
   height:auto;margin-top:25px;
   background: rgba(255, 255, 255, 0.4);
   text-align: center;
+  padding: 10px;
 }
 
 body, html {height:100% !important;}
@@ -61,16 +62,18 @@ body, html {height:100% !important;}
 }
 #mainContent {
   max-width: 80%;
+  margin-top: 120px;
   margin-left: 10%;
   min-height: 100%;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
 }
 .container {
   min-width: 100%;
 }
-
+.welcome {
+  color:#fff;
+  text-shadow: 2px 2px 4px #000;
+}
 a:focus {color:#ff6600 !important;}
 
 .WRorange {color:#ff6600;}
@@ -156,8 +159,12 @@ background-color: #bbb;
 
 .probBanner {
   background-image: url(addAutobkg.png);
+  width:auto !important;
   background-position:center;
-  height:590px;
+  background-size: cover;
+  height:100% !important;
+  min-height:600px !important;
+  max-height:625px !important;
 }
 .bannerStep2 {
   background-image: url(banner01.png);
@@ -171,24 +178,30 @@ background-color: #bbb;
 }
 .banner00 {
   background-image: url(banner01.png);
+  width:auto !important;
   background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
-  height:590px;
+  background-size: cover;
+  height:100% !important;
+  min-height:400px !important;
+  max-height:650px !important;
 }
 .banner01 {
   background-image: url(banner00.png);
+  width:auto !important;
   background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
-  height:590px;
+  background-size: cover;
+  height:100% !important;
+  min-height:400px !important;
+  max-height:600px !important;
 }
 .banner02 {
   background-image: url(banner02.png);
+  width:auto !important;
   background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
-  height:590px;
+  background-size: cover;
+  height:100% !important;
+  min-height:600px !important;
+  max-height:7250px !important;
 }
 
 .vehSelect {
@@ -234,16 +247,23 @@ hr.vehicleHR:after {
    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform:scale(0); }
 .tab-nav > li > a::after {background:#000 none repeat scroll 0% 0%; color:#fff;}
 .tab-pane {
-  padding:2px 0;
+  padding:2px 25px;
   background: rgba(255, 255, 255, 0.4);
 }
 
 .userRow {background-color:#ddd; line-height:auto;}
 .userText {vertical-align:middle;}
 
-.apptRow {height:auto; background-color:#ff6600;}
-.apptHead {padding:2px 4px; background-color:#222; color:#fff;}
-.apptText {padding:2px 4px; color:#fff;}
+.apptRow {
+    height: auto;
+    background: #ffffffe3;
+    border: solid 2px #ff6600;
+    margin: 0px;
+}
+.apptHead {
+  padding:2px 4px;
+}
+.apptText {padding:2px 4px;}
 
 /* STEP 2 STYLES */
 .getStarted {padding:20px;}

@@ -1,146 +1,179 @@
+<div class="container-overflow-wrap">
+  <div class='row banner02'>
+    <div class="container" style='padding: 0px 35px 45px 35px;'>
+      <!-- Main page content -->
+      <div class="row light">
+        <div class="col-md-12 col-sm-12">
+          <h3>
+            <%= @service_center.service_center_name %>'s Personal Dashboard
+          </h3>
+          <p>Thank you for being a member since
+            <%= @service_center.created_at.strftime('%Y')%></p><br/>
 
-<!-- Main page content -->
-<div class="row">
-  <div class="col-md-12 col-sm-12">
-        <h3> <%= @service_center.service_center_name %>'s Personal Dashboard </h3>
-        <p>Thank you for being a member since <%= @service_center.created_at.strftime('%Y')%></p><br/>
-
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12 col-sm-12">
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#mainNew">New Requests <span class="badge"><%= @requests.count %><span></a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainPending">Pending bids <span class="badge"><%= @service_center_quotes.count %></span></a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainAppointments">Appointments <span class="badge"><%= @service_center.appointments.completed_false.count %></span></a></li>
-      <li class="inactive"><a data-toggle="tab" href="#mainCompleted">Completed</a></li>
-    </ul>
-    <div class="tab-content" style="border:solid 2px #ff6600;min-height: 350px;
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a data-toggle="tab" href="#mainNew">New Requests
+                <span class="badge"><%= @requests.count %>
+                  <span></a>
+                </li>
+                <li class="inactive">
+                  <a data-toggle="tab" href="#mainPending">Pending bids
+                    <span class="badge"><%= @service_center_quotes.count %></span>
+                  </a>
+                </li>
+                <li class="inactive">
+                  <a data-toggle="tab" href="#mainAppointments">Appointments
+                    <span class="badge"><%= @service_center.appointments.completed_false.count %></span>
+                  </a>
+                </li>
+                <li class="inactive">
+                  <a data-toggle="tab" href="#mainCompleted">Completed</a>
+                </li>
+              </ul>
+              <div class="tab-content" style="border:solid 2px #ff6600;min-height: 350px;
     overflow: scroll;">
-      <div id="mainNew" class="tab-pane fade in active">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <table class='table table-hover'>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Vehicle</th>
-                  <th>Request</th>
-                  <th>description</th>
-                  <th colspan="3"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @requests.each do |req| %>
-                  <tr>
-                    <td><%= req.created_at.strftime("%m-%d-%y") %></td>
-                    <td><%= req.auto.year %> <%= req.auto.make.capitalize %> <%= req.auto.model.capitalize %></td>
-                    <td><%= req.service.to_sentence %></td>
-                    <td><%= req.description %></td>
-                    <td><%= link_to 'Add quote', add_quote_url(req), class: "btn btn-default" %></td>
-                <% end %>
-                  </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div id="mainPending" class="tab-pane fade">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <table class='table table-hover'>
-              <thead class="thead-default">
-                <tr>
-                  <th>Date</th>
-                  <th>Vehicle</th>
-                  <th>Request</th>
-                  <th>Description</th>
-                  <th>Quote</th>
-                  <th colspan="3"></th>
-                </tr>
-              </thead>
-              <tbody>
-              <%  @service_center_quotes.each do |q| %>
-              <tr>
-                <!-- changing col date formatting.(just a note) -->
-                <td><nobr><%= q.request.created_at.strftime("%m/%d/%y") %></nobr></td>
-                <td><%= q.request.auto.year %> <%= q.request.auto.make.capitalize %> <%= q.request.auto.model.capitalize %></td>
-                <td><%= q.request.service.to_sentence %></td>
-                <td><%= q.request.description %></td>
-                <td><%= number_with_precision(q.cost, precision: 2) %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-      <div id="mainAppointments" class="tab-pane fade">
+                <div id="mainNew" class="tab-pane fade in active">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <table class='table table-hover'>
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Vehicle</th>
+                            <th>Request</th>
+                            <th>description</th>
+                            <th colspan="3"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% @requests.each do |req| %>
+                          <tr>
+                            <td><%= req.created_at.strftime("%m-%d-%y") %></td>
+                            <td><%= req.auto.year %>
+                              <%= req.auto.make.capitalize %>
+                              <%= req.auto.model.capitalize %></td>
+                            <td><%= req.service.to_sentence %></td>
+                            <td><%= req.description %></td>
+                            <td><%= link_to 'Add quote', add_quote_url(req), class: "btn btn-default" %></td>
+                            <% end %>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div id="mainPending" class="tab-pane fade">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <table class='table table-hover'>
+                        <thead class="thead-default">
+                          <tr>
+                            <th>Date</th>
+                            <th>Vehicle</th>
+                            <th>Request</th>
+                            <th>Description</th>
+                            <th>Quote</th>
+                            <th colspan="3"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <%  @service_center_quotes.each do |q| %>
+                          <tr>
+                            <!-- changing col date formatting.(just a note) -->
+                            <td>
+                              <nobr><%= q.request.created_at.strftime("%m/%d/%y") %></nobr>
+                            </td>
+                            <td><%= q.request.auto.year %>
+                              <%= q.request.auto.make.capitalize %>
+                              <%= q.request.auto.model.capitalize %></td>
+                            <td><%= q.request.service.to_sentence %></td>
+                            <td><%= q.request.description %></td>
+                            <td><%= number_with_precision(q.cost, precision: 2) %></td>
+                          </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div id="mainAppointments" class="tab-pane fade">
 
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <table class='table table-hover'>
-              <thead class="thead-default">
-                <tr>
-                  <th>Appointment Date</th>
-                  <th>Customer</th>
-                  <th>Vehicle</th>
-                  <th>Request</th>
-                  <th>Description</th>
-                  <th>Quote</th>
-                </tr>
-              </thead>
-              <% if @service_center.appointments.empty? %>
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                No appointments yet
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <table class='table table-hover'>
+                        <thead class="thead-default">
+                          <tr>
+                            <th>Appointment Date</th>
+                            <th>Customer</th>
+                            <th>Vehicle</th>
+                            <th>Request</th>
+                            <th>Description</th>
+                            <th>Quote</th>
+                          </tr>
+                        </thead>
+                        <% if @service_center.appointments.empty? %>
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12">
+                            No appointments yet
+                          </div>
+                        </div>
+                      <% else %>
+                        <tbody>
+                          <%  @service_center.appointments.completed_false.each do |a| %>
+                          <tr>
+                            <td><%= a.selected_appointment %></td>
+                            <td><%= a.user.first_name %></td>
+                            <td><%= a.request.auto.year %>
+                              <%= a.request.auto.make.capitalize %>
+                              <%= a.request.auto.model.capitalize %></td>
+                            <td><%= a.request.service.to_sentence %></td>
+                            <td><%= a.request.description %></td>
+                            <td><%= a.quote.cost %></td>
+                            <td><%= link_to 'Complete', complete_request_path(a), method: :put, class: "btn btn-default", data: { confirm: 'Are you sure this appointment is completed?'} %></td>
+                          </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+
+                <div id="mainCompleted" class="tab-pane fade">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <table class='table table-hover'>
+                        <thead class="thead-default">
+                          <tr>
+                            <th>Completed Date</th>
+                            <th>Vehicle</th>
+                            <th>Request</th>
+                            <th>cost</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <%  @service_center.appointments.completed_true.each do |c| %>
+
+                          <tr>
+                            <td><%= c.updated_at.strftime("%m-%d-%y") %></td>
+                            <td><%= c.request.auto.year %>
+                              <%= c.request.auto.make.capitalize %>
+                              <%= c.request.auto.model.capitalize %></td>
+                            <td><%= c.request.service.to_sentence %></td>
+                            <td><%= c.quote.cost %></td>
+                          </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <% else %>
-              <tbody>
-              <%  @service_center.appointments.completed_false.each do |a| %>
-                <tr>
-                  <td><%= a.selected_appointment %></td>
-                  <td><%= a.user.first_name %></td>
-                  <td><%= a.request.auto.year %> <%= a.request.auto.make.capitalize %> <%= a.request.auto.model.capitalize %></td>
-                  <td><%= a.request.service.to_sentence %></td>
-                  <td><%= a.request.description %></td>
-                  <td><%= a.quote.cost %></td>
-                  <td><%= link_to 'Complete', complete_request_path(a), method: :put, class: "btn btn-default", data: { confirm: 'Are you sure this appointment is completed?'} %></td>
-                </tr>
-                <% end %>
-              </tbody>
-          </table>
+            </div>
           </div>
         </div>
-        <% end %>
-    </div>
-
-  <div id="mainCompleted" class="tab-pane fade">
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <table class='table table-hover'>
-          <thead class="thead-default">
-            <tr>
-              <th>Completed Date</th>
-              <th>Vehicle</th>
-              <th>Request</th>
-              <th>cost</th>
-            </tr>
-          </thead>
-          <tbody>
-          <%  @service_center.appointments.completed_true.each do |c| %>
-
-            <tr>
-              <td><%= c.updated_at.strftime("%m-%d-%y") %></td>
-              <td><%= c.request.auto.year %> <%= c.request.auto.make.capitalize %> <%= c.request.auto.model.capitalize %></td>
-              <td><%= c.request.service.to_sentence %></td>
-              <td><%= c.quote.cost %></td>
-            </tr>
-            <% end %>
-        </tbody>
-      </table>
       </div>
-    </div>
-  </div>
-  </div>
