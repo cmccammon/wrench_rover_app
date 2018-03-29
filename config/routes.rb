@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   # resources :services, only: [:index]
 
 # custom routes
+  get "new_service", to: 'requests#new_service', as: :new_service
+  
   get '/requests/add_quote/:id', to: 'requests#add_quote', as: 'add_quote'
 
   get "welcome", to: "welcome#index", as: :welcome

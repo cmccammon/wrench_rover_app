@@ -14,9 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require moment
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require bootstrap-datetimepicker
+//= require bootstrap/modal
 //= require_tree .
+
+//Alert alert
 
 $(document).on('turbolinks:load', function() {
     $('.alert').delay(3000).fadeOut();

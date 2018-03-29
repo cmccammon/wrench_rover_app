@@ -39,6 +39,13 @@ class RequestsController < ApplicationController
       @service_center = current_service_center
     end
 
+    def new_service
+      respond_to do |format|
+        format.html
+        format.js
+        end
+    end
+
     # GET /requests/new
     # requests/new.html.erb
     # form to create a new request

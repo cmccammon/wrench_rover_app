@@ -46,7 +46,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'hirb', '~> 0.7.3'
 #figaro for secrets
 gem 'figaro'
-
+# Popperjs support
+gem 'popper_js', '~> 1.12.9'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
